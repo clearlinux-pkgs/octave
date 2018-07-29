@@ -136,16 +136,177 @@ Configure miss: ufsparse/klu.h
 Configure miss: klu/klu.h usability
 Configure miss: klu/klu.h presence
 Configure miss: klu/klu.h
-Configure miss: nvector/nvector_serial.h usability
-Configure miss: nvector/nvector_serial.h presence
-Configure miss: nvector/nvector_serial.h
-Configure miss: nvector_serial.h usability
-Configure miss: nvector_serial.h presence
-Configure miss: nvector_serial.h
-Configure miss: ida/ida.h usability
-Configure miss: ida/ida.h presence
-Configure miss: ida/ida.h
 Configure miss: ida.h usability
 Configure miss: ida.h presence
 Configure miss: ida.h
+Configure miss: ida/ida_dense.h usability
+Configure miss: ida/ida_dense.h presence
+Configure miss: ida/ida_dense.h
+Configure miss: ida_dense.h usability
+Configure miss: ida_dense.h presence
+Configure miss: ida_dense.h
+Configure miss: whether SUNDIALS IDA includes the IDADENSE linear solver
+Configure miss: ida/ida_klu.h usability
+Configure miss: ida/ida_klu.h presence
+Configure miss: ida/ida_klu.h
+Configure miss: ida_klu.h usability
+Configure miss: ida_klu.h presence
+Configure miss: ida_klu.h
+Configure miss: whether SUNDIALS IDA is configured with IDAKLU enabled
+Configure miss: dseupd in -larpack
+Configure miss: gfind
+Configure miss: icotool
+Configure miss: g++ option to enable C++11 features
+Configure miss: whether stl_algo.h is broken
+Configure miss: if sgemm_ is being linked in already
+Configure miss: whether complex class can reference components independently
+Configure miss: crtdefs.h
+Configure miss: st_dm_mode in struct stat
+Configure miss: whether strmode is declared
+Configure miss: whether getcwd aborts when 4k < cwd_length < 16k
+Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
+Configure miss: __mktime_internal
+Configure miss: working nanosleep
+Configure miss: sys/sysmp.h
+Configure miss: sched_getaffinity_np
+Configure miss: sysmp
+Configure miss: whether localtime loops forever near extrema
+Configure miss: timezone_t
+Configure miss: whether tmpfile should be overridden
+Configure miss: whether tzset clobbers localtime buffer
+Configure miss: conio.h usability
+Configure miss: conio.h presence
+Configure miss: conio.h
+Configure miss: struct group.gr_passwd
+Configure miss: resolvepath
+Configure miss: _getch
+Configure miss: _kbhit
+Configure miss: struct exception in math.h
+Configure miss: libqhull/libqhull.h usability
+Configure miss: libqhull/libqhull.h presence
+Configure miss: libqhull/libqhull.h
+Configure miss: qhull/libqhull.h usability
+Configure miss: qhull/libqhull.h presence
+Configure miss: qhull/libqhull.h
+Configure miss: libqhull.h usability
+Configure miss: libqhull.h presence
+Configure miss: libqhull.h
+Configure miss: qhull/qhull.h usability
+Configure miss: qhull/qhull.h presence
+Configure miss: qhull/qhull.h
+Configure miss: qhull.h usability
+Configure miss: qhull.h presence
+Configure miss: qhull.h
+Configure miss: whether HDF5 library has enforced version 1.6 API
+Configure miss: glpk/glpk.h usability
+Configure miss: glpk/glpk.h presence
+Configure miss: glpk/glpk.h
+Configure miss: glpk.h usability
+Configure miss: glpk.h presence
+Configure miss: glpk.h
+Configure miss: portaudio.h usability
+Configure miss: portaudio.h presence
+Configure miss: portaudio.h
+Configure miss: whether /usr/bin/ld -m elf_x86_64 accepts -framework Carbon
+Configure miss: whether /usr/bin/ld -m elf_x86_64 accepts -framework OpenGL
+Configure miss: OpenGL/glext.h
+Configure miss: fontconfig.h usability
+Configure miss: fontconfig.h presence
+Configure miss: fontconfig.h
+Configure miss: gl2ps.h usability
+Configure miss: gl2ps.h presence
+Configure miss: gl2ps.h
+Configure miss: osmesa.h usability
+Configure miss: osmesa.h presence
+Configure miss: osmesa.h
+Configure miss: sqr1up in -lqrupdate
+Configure miss: suitesparse/amd.h usability
+Configure miss: suitesparse/amd.h presence
+Configure miss: suitesparse/amd.h
+Configure miss: ufsparse/amd.h usability
+Configure miss: ufsparse/amd.h presence
+Configure miss: ufsparse/amd.h
+Configure miss: amd/amd.h usability
+Configure miss: amd/amd.h presence
+Configure miss: amd/amd.h
+Configure miss: suitesparse/camd.h usability
+Configure miss: suitesparse/camd.h presence
+Configure miss: suitesparse/camd.h
+Configure miss: ufsparse/camd.h usability
+Configure miss: ufsparse/camd.h presence
+Configure miss: ufsparse/camd.h
+Configure miss: camd/camd.h usability
+Configure miss: camd/camd.h presence
+Configure miss: camd/camd.h
+Configure miss: suitesparse/colamd.h usability
+Configure miss: suitesparse/colamd.h presence
+Configure miss: suitesparse/colamd.h
+Configure miss: ufsparse/colamd.h usability
+Configure miss: ufsparse/colamd.h presence
+Configure miss: ufsparse/colamd.h
+Configure miss: colamd/colamd.h usability
+Configure miss: colamd/colamd.h presence
+Configure miss: colamd/colamd.h
+Configure miss: suitesparse/ccolamd.h usability
+Configure miss: suitesparse/ccolamd.h presence
+Configure miss: suitesparse/ccolamd.h
+Configure miss: ufsparse/ccolamd.h usability
+Configure miss: ufsparse/ccolamd.h presence
+Configure miss: ufsparse/ccolamd.h
+Configure miss: ccolamd/ccolamd.h usability
+Configure miss: ccolamd/ccolamd.h presence
+Configure miss: ccolamd/ccolamd.h
+Configure miss: suitesparse/cholmod.h usability
+Configure miss: suitesparse/cholmod.h presence
+Configure miss: suitesparse/cholmod.h
+Configure miss: ufsparse/cholmod.h usability
+Configure miss: ufsparse/cholmod.h presence
+Configure miss: ufsparse/cholmod.h
+Configure miss: cholmod/cholmod.h usability
+Configure miss: cholmod/cholmod.h presence
+Configure miss: cholmod/cholmod.h
+Configure miss: suitesparse/cs.h usability
+Configure miss: suitesparse/cs.h presence
+Configure miss: suitesparse/cs.h
+Configure miss: ufsparse/cs.h usability
+Configure miss: ufsparse/cs.h presence
+Configure miss: ufsparse/cs.h
+Configure miss: cxsparse/cs.h usability
+Configure miss: cxsparse/cs.h presence
+Configure miss: cxsparse/cs.h
+Configure miss: suitesparse/umfpack.h usability
+Configure miss: suitesparse/umfpack.h presence
+Configure miss: suitesparse/umfpack.h
+Configure miss: ufsparse/umfpack.h usability
+Configure miss: ufsparse/umfpack.h presence
+Configure miss: ufsparse/umfpack.h
+Configure miss: umfpack/umfpack.h usability
+Configure miss: umfpack/umfpack.h presence
+Configure miss: umfpack/umfpack.h
+Configure miss: suitesparse/klu.h usability
+Configure miss: suitesparse/klu.h presence
+Configure miss: suitesparse/klu.h
+Configure miss: ufsparse/klu.h usability
+Configure miss: ufsparse/klu.h presence
+Configure miss: ufsparse/klu.h
+Configure miss: klu/klu.h usability
+Configure miss: klu/klu.h presence
+Configure miss: klu/klu.h
+Configure miss: ida.h usability
+Configure miss: ida.h presence
+Configure miss: ida.h
+Configure miss: ida/ida_dense.h usability
+Configure miss: ida/ida_dense.h presence
+Configure miss: ida/ida_dense.h
+Configure miss: ida_dense.h usability
+Configure miss: ida_dense.h presence
+Configure miss: ida_dense.h
+Configure miss: whether SUNDIALS IDA includes the IDADENSE linear solver
+Configure miss: ida/ida_klu.h usability
+Configure miss: ida/ida_klu.h presence
+Configure miss: ida/ida_klu.h
+Configure miss: ida_klu.h usability
+Configure miss: ida_klu.h presence
+Configure miss: ida_klu.h
+Configure miss: whether SUNDIALS IDA is configured with IDAKLU enabled
 Configure miss: dseupd in -larpack

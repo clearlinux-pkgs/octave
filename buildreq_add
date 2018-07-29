@@ -4,3 +4,4 @@ readline-dev
 ncurses-dev
 openjdk-dev
 llvm-dev
+sundials-dev

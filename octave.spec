@@ -6,7 +6,7 @@
 #
 Name     : octave
 Version  : 4.4.0
-Release  : 1
+Release  : 2
 URL      : https://ftp.gnu.org/gnu/octave/octave-4.4.0.tar.xz
 Source0  : https://ftp.gnu.org/gnu/octave/octave-4.4.0.tar.xz
 Source99 : https://ftp.gnu.org/gnu/octave/octave-4.4.0.tar.xz.sig
@@ -50,6 +50,7 @@ BuildRequires : pkgconfig(freetype2)
 BuildRequires : pkgconfig(glu)
 BuildRequires : pkgconfig(x11)
 BuildRequires : readline-dev
+BuildRequires : sundials-dev
 BuildRequires : texinfo
 BuildRequires : util-linux
 
@@ -125,34 +126,44 @@ man components for the octave package.
 
 %prep
 %setup -q -n octave-4.4.0
+pushd ..
+cp -a octave-4.4.0 buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1532904506
-export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
+export SOURCE_DATE_EPOCH=1532908147
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
+export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
+export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
+export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 %configure --disable-static --without-qt
 make  %{?_smp_mflags}
 
-%check
-export LANG=C
-export http_proxy=http://127.0.0.1:9/
-export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost,127.0.0.1,0.0.0.0
-make VERBOSE=1 V=1 %{?_smp_mflags} check
-
+unset PKG_CONFIG_PATH
+pushd ../buildavx2/
+export CFLAGS="$CFLAGS -m64 -march=haswell"
+export CXXFLAGS="$CXXFLAGS -m64 -march=haswell"
+export LDFLAGS="$LDFLAGS -m64 -march=haswell"
+%configure --disable-static --without-qt
+make  %{?_smp_mflags}
+popd
 %install
-export SOURCE_DATE_EPOCH=1532904506
+export SOURCE_DATE_EPOCH=1532908147
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/octave
 cp COPYING %{buildroot}/usr/share/doc/octave/COPYING
 cp doc/interpreter/octave.html/Copying.html %{buildroot}/usr/share/doc/octave/doc_interpreter_octave.html_Copying.html
 cp doc/liboctave/liboctave.html/Copying.html %{buildroot}/usr/share/doc/octave/doc_liboctave_liboctave.html_Copying.html
+pushd ../buildavx2/
+%make_install_avx2
+popd
 %make_install
 
 %files
@@ -183,6 +194,14 @@ cp doc/liboctave/liboctave.html/Copying.html %{buildroot}/usr/share/doc/octave/d
 
 %files bin
 %defattr(-,root,root,-)
+/usr/bin/haswell/mkoctfile
+/usr/bin/haswell/mkoctfile-4.4.0
+/usr/bin/haswell/octave
+/usr/bin/haswell/octave-4.4.0
+/usr/bin/haswell/octave-cli
+/usr/bin/haswell/octave-cli-4.4.0
+/usr/bin/haswell/octave-config
+/usr/bin/haswell/octave-config-4.4.0
 /usr/bin/mkoctfile
 /usr/bin/mkoctfile-4.4.0
 /usr/bin/octave
@@ -2336,6 +2355,12 @@ cp doc/liboctave/liboctave.html/Copying.html %{buildroot}/usr/share/doc/octave/d
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/octave/4.4.0/haswell/liboctave.so
+/usr/lib64/octave/4.4.0/haswell/liboctave.so.5
+/usr/lib64/octave/4.4.0/haswell/liboctave.so.5.0.0
+/usr/lib64/octave/4.4.0/haswell/liboctinterp.so
+/usr/lib64/octave/4.4.0/haswell/liboctinterp.so.5
+/usr/lib64/octave/4.4.0/haswell/liboctinterp.so.5.0.0
 /usr/lib64/octave/4.4.0/liboctave.so
 /usr/lib64/octave/4.4.0/liboctave.so.5
 /usr/lib64/octave/4.4.0/liboctave.so.5.0.0

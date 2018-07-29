@@ -39,6 +39,8 @@ libreadline.so.7
 libsndfile.so.1
 libstdc++.so.6
 libsuitesparseconfig.so.5
+libsundials_ida.so.3
+libsundials_nvecserial.so.3
 libtinfo.so.6
 libumfpack.so.5
 libz.so.1
