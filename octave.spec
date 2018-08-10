@@ -6,7 +6,7 @@
 #
 Name     : octave
 Version  : 4.4.0
-Release  : 2
+Release  : 3
 URL      : https://ftp.gnu.org/gnu/octave/octave-4.4.0.tar.xz
 Source0  : https://ftp.gnu.org/gnu/octave/octave-4.4.0.tar.xz
 Source99 : https://ftp.gnu.org/gnu/octave/octave-4.4.0.tar.xz.sig
@@ -18,6 +18,8 @@ Requires: octave-lib
 Requires: octave-data
 Requires: octave-license
 Requires: octave-man
+Requires: glibc-lib-avx2
+Requires: libgfortran-avx
 BuildRequires : SuiteSparse-dev
 BuildRequires : bison
 BuildRequires : bzip2-dev
@@ -129,13 +131,16 @@ man components for the octave package.
 pushd ..
 cp -a octave-4.4.0 buildavx2
 popd
+pushd ..
+cp -a octave-4.4.0 buildavx512
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1532908147
+export SOURCE_DATE_EPOCH=1533935991
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -154,13 +159,24 @@ export LDFLAGS="$LDFLAGS -m64 -march=haswell"
 %configure --disable-static --without-qt
 make  %{?_smp_mflags}
 popd
+unset PKG_CONFIG_PATH
+pushd ../buildavx512/
+export CFLAGS="$CFLAGS -m64 -march=skylake-avx512 -mprefer-vector-width=512"
+export CXXFLAGS="$CXXFLAGS -m64 -march=skylake-avx512 -mprefer-vector-width=512"
+export LDFLAGS="$LDFLAGS -m64 -march=skylake-avx512"
+%configure --disable-static --without-qt
+make  %{?_smp_mflags}
+popd
 %install
-export SOURCE_DATE_EPOCH=1532908147
+export SOURCE_DATE_EPOCH=1533935991
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/octave
 cp COPYING %{buildroot}/usr/share/doc/octave/COPYING
 cp doc/interpreter/octave.html/Copying.html %{buildroot}/usr/share/doc/octave/doc_interpreter_octave.html_Copying.html
 cp doc/liboctave/liboctave.html/Copying.html %{buildroot}/usr/share/doc/octave/doc_liboctave_liboctave.html_Copying.html
+pushd ../buildavx512/
+%make_install_avx512
+popd
 pushd ../buildavx2/
 %make_install_avx2
 popd
@@ -194,6 +210,14 @@ popd
 
 %files bin
 %defattr(-,root,root,-)
+/usr/bin/haswell/avx512_1/mkoctfile
+/usr/bin/haswell/avx512_1/mkoctfile-4.4.0
+/usr/bin/haswell/avx512_1/octave
+/usr/bin/haswell/avx512_1/octave-4.4.0
+/usr/bin/haswell/avx512_1/octave-cli
+/usr/bin/haswell/avx512_1/octave-cli-4.4.0
+/usr/bin/haswell/avx512_1/octave-config
+/usr/bin/haswell/avx512_1/octave-config-4.4.0
 /usr/bin/haswell/mkoctfile
 /usr/bin/haswell/mkoctfile-4.4.0
 /usr/bin/haswell/octave
@@ -2355,6 +2379,12 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/octave/4.4.0/haswell/avx512_1/liboctave.so
+/usr/lib64/octave/4.4.0/haswell/avx512_1/liboctave.so.5
+/usr/lib64/octave/4.4.0/haswell/avx512_1/liboctave.so.5.0.0
+/usr/lib64/octave/4.4.0/haswell/avx512_1/liboctinterp.so
+/usr/lib64/octave/4.4.0/haswell/avx512_1/liboctinterp.so.5
+/usr/lib64/octave/4.4.0/haswell/avx512_1/liboctinterp.so.5.0.0
 /usr/lib64/octave/4.4.0/haswell/liboctave.so
 /usr/lib64/octave/4.4.0/haswell/liboctave.so.5
 /usr/lib64/octave/4.4.0/haswell/liboctave.so.5.0.0
