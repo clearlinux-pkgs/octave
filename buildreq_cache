@@ -25,5 +25,7 @@ mesa-dev
 openblas
 pkgconfig(glu)
 pkgconfig(x11)
+qtbase-extras
+qttools-dev
 texinfo
 util-linux

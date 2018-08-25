@@ -6,7 +6,7 @@
 #
 Name     : octave
 Version  : 4.4.1
-Release  : 4
+Release  : 5
 URL      : https://ftp.gnu.org/gnu/octave/octave-4.4.1.tar.xz
 Source0  : https://ftp.gnu.org/gnu/octave/octave-4.4.1.tar.xz
 Source99 : https://ftp.gnu.org/gnu/octave/octave-4.4.1.tar.xz.sig
@@ -22,6 +22,7 @@ Requires: glibc-lib-avx2
 Requires: libgfortran-avx
 BuildRequires : SuiteSparse-dev
 BuildRequires : bison
+BuildRequires : buildreq-kde
 BuildRequires : bzip2-dev
 BuildRequires : curl-dev
 BuildRequires : fftw-dev
@@ -51,6 +52,8 @@ BuildRequires : openjdk-dev
 BuildRequires : pkgconfig(freetype2)
 BuildRequires : pkgconfig(glu)
 BuildRequires : pkgconfig(x11)
+BuildRequires : qtbase-extras
+BuildRequires : qttools-dev
 BuildRequires : readline-dev
 BuildRequires : sundials-dev
 BuildRequires : texinfo
@@ -140,7 +143,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1534027854
+export SOURCE_DATE_EPOCH=1535220553
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -148,7 +151,7 @@ export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-m
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-%configure --disable-static --without-qt
+%configure --disable-static
 make  %{?_smp_mflags}
 
 unset PKG_CONFIG_PATH
@@ -156,7 +159,7 @@ pushd ../buildavx2/
 export CFLAGS="$CFLAGS -m64 -march=haswell"
 export CXXFLAGS="$CXXFLAGS -m64 -march=haswell"
 export LDFLAGS="$LDFLAGS -m64 -march=haswell"
-%configure --disable-static --without-qt
+%configure --disable-static
 make  %{?_smp_mflags}
 popd
 unset PKG_CONFIG_PATH
@@ -164,14 +167,15 @@ pushd ../buildavx512/
 export CFLAGS="$CFLAGS -m64 -march=skylake-avx512 -mprefer-vector-width=512"
 export CXXFLAGS="$CXXFLAGS -m64 -march=skylake-avx512 -mprefer-vector-width=512"
 export LDFLAGS="$LDFLAGS -m64 -march=skylake-avx512"
-%configure --disable-static --without-qt
+%configure --disable-static
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1534027854
+export SOURCE_DATE_EPOCH=1535220553
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/octave
 cp COPYING %{buildroot}/usr/share/doc/octave/COPYING
+cp doc/interpreter/octave.html/Copying.html %{buildroot}/usr/share/doc/octave/doc_interpreter_octave.html_Copying.html
 cp doc/liboctave/liboctave.html/Copying.html %{buildroot}/usr/share/doc/octave/doc_liboctave_liboctave.html_Copying.html
 pushd ../buildavx512/
 %make_install_avx512
@@ -233,6 +237,7 @@ popd
 /usr/bin/octave-cli-4.4.1
 /usr/bin/octave-config
 /usr/bin/octave-config-4.4.1
+/usr/libexec/octave/4.4.1/exec/x86_64-generic-linux-gnu/octave-gui
 
 %files data
 %defattr(-,root,root,-)
@@ -254,6 +259,7 @@ popd
 /usr/share/octave/4.4.1/etc/CITATION
 /usr/share/octave/4.4.1/etc/NEWS
 /usr/share/octave/4.4.1/etc/built-in-docstrings
+/usr/share/octave/4.4.1/etc/default-qt-settings
 /usr/share/octave/4.4.1/etc/doc-cache
 /usr/share/octave/4.4.1/etc/macros.texi
 /usr/share/octave/4.4.1/etc/profiler/flat.html
@@ -675,6 +681,21 @@ popd
 /usr/share/octave/4.4.1/imagelib/octave-logo.ico
 /usr/share/octave/4.4.1/imagelib/octave-logo.svg
 /usr/share/octave/4.4.1/imagelib/octave-sombrero.png
+/usr/share/octave/4.4.1/locale/be_BY.qm
+/usr/share/octave/4.4.1/locale/ca_ES.qm
+/usr/share/octave/4.4.1/locale/de_DE.qm
+/usr/share/octave/4.4.1/locale/en_US.qm
+/usr/share/octave/4.4.1/locale/es_ES.qm
+/usr/share/octave/4.4.1/locale/eu_ES.qm
+/usr/share/octave/4.4.1/locale/fr_FR.qm
+/usr/share/octave/4.4.1/locale/it_IT.qm
+/usr/share/octave/4.4.1/locale/ja_JP.qm
+/usr/share/octave/4.4.1/locale/nl_NL.qm
+/usr/share/octave/4.4.1/locale/pt_BR.qm
+/usr/share/octave/4.4.1/locale/pt_PT.qm
+/usr/share/octave/4.4.1/locale/ru_RU.qm
+/usr/share/octave/4.4.1/locale/uk_UA.qm
+/usr/share/octave/4.4.1/locale/zh_CN.qm
 /usr/share/octave/4.4.1/m/+containers/Map.m
 /usr/share/octave/4.4.1/m/@ftp/ascii.m
 /usr/share/octave/4.4.1/m/@ftp/binary.m
@@ -2379,18 +2400,27 @@ popd
 /usr/lib64/octave/4.4.1/haswell/avx512_1/liboctave.so
 /usr/lib64/octave/4.4.1/haswell/avx512_1/liboctave.so.6
 /usr/lib64/octave/4.4.1/haswell/avx512_1/liboctave.so.6.0.0
+/usr/lib64/octave/4.4.1/haswell/avx512_1/liboctgui.so
+/usr/lib64/octave/4.4.1/haswell/avx512_1/liboctgui.so.4
+/usr/lib64/octave/4.4.1/haswell/avx512_1/liboctgui.so.4.0.0
 /usr/lib64/octave/4.4.1/haswell/avx512_1/liboctinterp.so
 /usr/lib64/octave/4.4.1/haswell/avx512_1/liboctinterp.so.6
 /usr/lib64/octave/4.4.1/haswell/avx512_1/liboctinterp.so.6.0.0
 /usr/lib64/octave/4.4.1/haswell/liboctave.so
 /usr/lib64/octave/4.4.1/haswell/liboctave.so.6
 /usr/lib64/octave/4.4.1/haswell/liboctave.so.6.0.0
+/usr/lib64/octave/4.4.1/haswell/liboctgui.so
+/usr/lib64/octave/4.4.1/haswell/liboctgui.so.4
+/usr/lib64/octave/4.4.1/haswell/liboctgui.so.4.0.0
 /usr/lib64/octave/4.4.1/haswell/liboctinterp.so
 /usr/lib64/octave/4.4.1/haswell/liboctinterp.so.6
 /usr/lib64/octave/4.4.1/haswell/liboctinterp.so.6.0.0
 /usr/lib64/octave/4.4.1/liboctave.so
 /usr/lib64/octave/4.4.1/liboctave.so.6
 /usr/lib64/octave/4.4.1/liboctave.so.6.0.0
+/usr/lib64/octave/4.4.1/liboctgui.so
+/usr/lib64/octave/4.4.1/liboctgui.so.4
+/usr/lib64/octave/4.4.1/liboctgui.so.4.0.0
 /usr/lib64/octave/4.4.1/liboctinterp.so
 /usr/lib64/octave/4.4.1/liboctinterp.so.6
 /usr/lib64/octave/4.4.1/liboctinterp.so.6.0.0

@@ -60,9 +60,27 @@ Configure miss: fontconfig.h
 Configure miss: gl2ps.h usability
 Configure miss: gl2ps.h presence
 Configure miss: gl2ps.h
-Configure miss: osmesa.h usability
-Configure miss: osmesa.h presence
-Configure miss: osmesa.h
+Configure miss: x86_64-generic-linux-gnu-qtchooser
+Configure miss: qtchooser
+Configure miss: x86_64-generic-linux-gnu-moc-qt5
+Configure miss: moc-qt5
+Configure miss: x86_64-generic-linux-gnu-moc
+Configure miss: x86_64-generic-linux-gnu-uic-qt5
+Configure miss: uic-qt5
+Configure miss: x86_64-generic-linux-gnu-uic
+Configure miss: x86_64-generic-linux-gnu-rcc-qt5
+Configure miss: rcc-qt5
+Configure miss: x86_64-generic-linux-gnu-rcc
+Configure miss: x86_64-generic-linux-gnu-lrelease-qt5
+Configure miss: lrelease-qt5
+Configure miss: x86_64-generic-linux-gnu-lrelease
+Configure miss: x86_64-generic-linux-gnu-qcollectiongenerator-qt5
+Configure miss: qcollectiongenerator-qt5
+Configure miss: x86_64-generic-linux-gnu-qcollectiongenerator
+Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
+Configure miss: qhelpgenerator-qt5
+Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
+Configure miss: the QScintilla library for Qt 5
 Configure miss: sqr1up in -lqrupdate
 Configure miss: suitesparse/amd.h usability
 Configure miss: suitesparse/amd.h presence
@@ -216,9 +234,27 @@ Configure miss: fontconfig.h
 Configure miss: gl2ps.h usability
 Configure miss: gl2ps.h presence
 Configure miss: gl2ps.h
-Configure miss: osmesa.h usability
-Configure miss: osmesa.h presence
-Configure miss: osmesa.h
+Configure miss: x86_64-generic-linux-gnu-qtchooser
+Configure miss: qtchooser
+Configure miss: x86_64-generic-linux-gnu-moc-qt5
+Configure miss: moc-qt5
+Configure miss: x86_64-generic-linux-gnu-moc
+Configure miss: x86_64-generic-linux-gnu-uic-qt5
+Configure miss: uic-qt5
+Configure miss: x86_64-generic-linux-gnu-uic
+Configure miss: x86_64-generic-linux-gnu-rcc-qt5
+Configure miss: rcc-qt5
+Configure miss: x86_64-generic-linux-gnu-rcc
+Configure miss: x86_64-generic-linux-gnu-lrelease-qt5
+Configure miss: lrelease-qt5
+Configure miss: x86_64-generic-linux-gnu-lrelease
+Configure miss: x86_64-generic-linux-gnu-qcollectiongenerator-qt5
+Configure miss: qcollectiongenerator-qt5
+Configure miss: x86_64-generic-linux-gnu-qcollectiongenerator
+Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
+Configure miss: qhelpgenerator-qt5
+Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
+Configure miss: the QScintilla library for Qt 5
 Configure miss: sqr1up in -lqrupdate
 Configure miss: suitesparse/amd.h usability
 Configure miss: suitesparse/amd.h presence
@@ -372,9 +408,27 @@ Configure miss: fontconfig.h
 Configure miss: gl2ps.h usability
 Configure miss: gl2ps.h presence
 Configure miss: gl2ps.h
-Configure miss: osmesa.h usability
-Configure miss: osmesa.h presence
-Configure miss: osmesa.h
+Configure miss: x86_64-generic-linux-gnu-qtchooser
+Configure miss: qtchooser
+Configure miss: x86_64-generic-linux-gnu-moc-qt5
+Configure miss: moc-qt5
+Configure miss: x86_64-generic-linux-gnu-moc
+Configure miss: x86_64-generic-linux-gnu-uic-qt5
+Configure miss: uic-qt5
+Configure miss: x86_64-generic-linux-gnu-uic
+Configure miss: x86_64-generic-linux-gnu-rcc-qt5
+Configure miss: rcc-qt5
+Configure miss: x86_64-generic-linux-gnu-rcc
+Configure miss: x86_64-generic-linux-gnu-lrelease-qt5
+Configure miss: lrelease-qt5
+Configure miss: x86_64-generic-linux-gnu-lrelease
+Configure miss: x86_64-generic-linux-gnu-qcollectiongenerator-qt5
+Configure miss: qcollectiongenerator-qt5
+Configure miss: x86_64-generic-linux-gnu-qcollectiongenerator
+Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
+Configure miss: qhelpgenerator-qt5
+Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
+Configure miss: the QScintilla library for Qt 5
 Configure miss: sqr1up in -lqrupdate
 Configure miss: suitesparse/amd.h usability
 Configure miss: suitesparse/amd.h presence
