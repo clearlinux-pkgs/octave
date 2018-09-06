@@ -6,7 +6,7 @@
 #
 Name     : octave
 Version  : 4.4.1
-Release  : 6
+Release  : 7
 URL      : https://ftp.gnu.org/gnu/octave/octave-4.4.1.tar.xz
 Source0  : https://ftp.gnu.org/gnu/octave/octave-4.4.1.tar.xz
 Source99 : https://ftp.gnu.org/gnu/octave/octave-4.4.1.tar.xz.sig
@@ -54,6 +54,7 @@ BuildRequires : pkgconfig(glu)
 BuildRequires : pkgconfig(x11)
 BuildRequires : qtbase-extras
 BuildRequires : qttools-dev
+BuildRequires : qttools-extras
 BuildRequires : readline-dev
 BuildRequires : sundials-dev
 BuildRequires : texinfo
@@ -143,7 +144,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536163030
+export SOURCE_DATE_EPOCH=1536243875
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -151,7 +152,8 @@ export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-m
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-%configure --disable-static --enable-openmp
+%configure --disable-static --enable-openmp \
+--with-blas=openblas
 make  %{?_smp_mflags}
 
 unset PKG_CONFIG_PATH
@@ -159,7 +161,8 @@ pushd ../buildavx2/
 export CFLAGS="$CFLAGS -m64 -march=haswell"
 export CXXFLAGS="$CXXFLAGS -m64 -march=haswell"
 export LDFLAGS="$LDFLAGS -m64 -march=haswell"
-%configure --disable-static --enable-openmp
+%configure --disable-static --enable-openmp \
+--with-blas=openblas
 make  %{?_smp_mflags}
 popd
 unset PKG_CONFIG_PATH
@@ -167,11 +170,12 @@ pushd ../buildavx512/
 export CFLAGS="$CFLAGS -m64 -march=skylake-avx512 -mprefer-vector-width=512"
 export CXXFLAGS="$CXXFLAGS -m64 -march=skylake-avx512 -mprefer-vector-width=512"
 export LDFLAGS="$LDFLAGS -m64 -march=skylake-avx512"
-%configure --disable-static --enable-openmp
+%configure --disable-static --enable-openmp \
+--with-blas=openblas
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1536163030
+export SOURCE_DATE_EPOCH=1536243875
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/octave
 cp COPYING %{buildroot}/usr/share/doc/octave/COPYING

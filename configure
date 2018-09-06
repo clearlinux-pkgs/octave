@@ -1,1 +1,2 @@
   --enable-openmp
+  --with-blas=openblas

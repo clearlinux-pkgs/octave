@@ -27,5 +27,6 @@ pkgconfig(glu)
 pkgconfig(x11)
 qtbase-extras
 qttools-dev
+qttools-extras
 texinfo
 util-linux
