@@ -23,8 +23,10 @@ librsvg
 libsndfile-dev
 mesa-dev
 openblas
+openjdk
 pkgconfig(glu)
 pkgconfig(x11)
+qtbase-dev
 qtbase-extras
 qttools-dev
 qttools-extras

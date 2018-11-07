@@ -6,18 +6,19 @@
 #
 Name     : octave
 Version  : 4.4.1
-Release  : 7
+Release  : 8
 URL      : https://ftp.gnu.org/gnu/octave/octave-4.4.1.tar.xz
 Source0  : https://ftp.gnu.org/gnu/octave/octave-4.4.1.tar.xz
 Source99 : https://ftp.gnu.org/gnu/octave/octave-4.4.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0
-Requires: octave-bin
-Requires: octave-lib
-Requires: octave-data
-Requires: octave-license
-Requires: octave-man
+Requires: octave-bin = %{version}-%{release}
+Requires: octave-data = %{version}-%{release}
+Requires: octave-lib = %{version}-%{release}
+Requires: octave-libexec = %{version}-%{release}
+Requires: octave-license = %{version}-%{release}
+Requires: octave-man = %{version}-%{release}
 Requires: glibc-lib-avx2
 Requires: libgfortran-avx
 BuildRequires : SuiteSparse-dev
@@ -48,10 +49,12 @@ BuildRequires : llvm-dev
 BuildRequires : mesa-dev
 BuildRequires : ncurses-dev
 BuildRequires : openblas
+BuildRequires : openjdk
 BuildRequires : openjdk-dev
 BuildRequires : pkgconfig(freetype2)
 BuildRequires : pkgconfig(glu)
 BuildRequires : pkgconfig(x11)
+BuildRequires : qtbase-dev
 BuildRequires : qtbase-extras
 BuildRequires : qttools-dev
 BuildRequires : qttools-extras
@@ -67,9 +70,10 @@ GNU Octave -- a high-level language for numerical computations
 %package bin
 Summary: bin components for the octave package.
 Group: Binaries
-Requires: octave-data
-Requires: octave-license
-Requires: octave-man
+Requires: octave-data = %{version}-%{release}
+Requires: octave-libexec = %{version}-%{release}
+Requires: octave-license = %{version}-%{release}
+Requires: octave-man = %{version}-%{release}
 
 %description bin
 bin components for the octave package.
@@ -86,10 +90,10 @@ data components for the octave package.
 %package dev
 Summary: dev components for the octave package.
 Group: Development
-Requires: octave-lib
-Requires: octave-bin
-Requires: octave-data
-Provides: octave-devel
+Requires: octave-lib = %{version}-%{release}
+Requires: octave-bin = %{version}-%{release}
+Requires: octave-data = %{version}-%{release}
+Provides: octave-devel = %{version}-%{release}
 
 %description dev
 dev components for the octave package.
@@ -98,7 +102,7 @@ dev components for the octave package.
 %package doc
 Summary: doc components for the octave package.
 Group: Documentation
-Requires: octave-man
+Requires: octave-man = %{version}-%{release}
 
 %description doc
 doc components for the octave package.
@@ -107,11 +111,21 @@ doc components for the octave package.
 %package lib
 Summary: lib components for the octave package.
 Group: Libraries
-Requires: octave-data
-Requires: octave-license
+Requires: octave-data = %{version}-%{release}
+Requires: octave-libexec = %{version}-%{release}
+Requires: octave-license = %{version}-%{release}
 
 %description lib
 lib components for the octave package.
+
+
+%package libexec
+Summary: libexec components for the octave package.
+Group: Default
+Requires: octave-license = %{version}-%{release}
+
+%description libexec
+libexec components for the octave package.
 
 
 %package license
@@ -144,7 +158,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536243875
+export SOURCE_DATE_EPOCH=1541625023
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -175,12 +189,12 @@ export LDFLAGS="$LDFLAGS -m64 -march=skylake-avx512"
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1536243875
+export SOURCE_DATE_EPOCH=1541625023
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/octave
-cp COPYING %{buildroot}/usr/share/doc/octave/COPYING
-cp doc/interpreter/octave.html/Copying.html %{buildroot}/usr/share/doc/octave/doc_interpreter_octave.html_Copying.html
-cp doc/liboctave/liboctave.html/Copying.html %{buildroot}/usr/share/doc/octave/doc_liboctave_liboctave.html_Copying.html
+mkdir -p %{buildroot}/usr/share/package-licenses/octave
+cp COPYING %{buildroot}/usr/share/package-licenses/octave/COPYING
+cp doc/interpreter/octave.html/Copying.html %{buildroot}/usr/share/package-licenses/octave/doc_interpreter_octave.html_Copying.html
+cp doc/liboctave/liboctave.html/Copying.html %{buildroot}/usr/share/package-licenses/octave/doc_liboctave_liboctave.html_Copying.html
 pushd ../buildavx512/
 %make_install_avx512
 popd
@@ -241,7 +255,6 @@ popd
 /usr/bin/octave-cli-4.4.1
 /usr/bin/octave-config
 /usr/bin/octave-config-4.4.1
-/usr/libexec/octave/4.4.1/exec/x86_64-generic-linux-gnu/octave-gui
 
 %files data
 %defattr(-,root,root,-)
@@ -2396,7 +2409,6 @@ popd
 
 %files doc
 %defattr(0644,root,root,0755)
-%doc /usr/share/doc/octave/*
 %doc /usr/share/info/*
 
 %files lib
@@ -2429,12 +2441,18 @@ popd
 /usr/lib64/octave/4.4.1/liboctinterp.so.6
 /usr/lib64/octave/4.4.1/liboctinterp.so.6.0.0
 
-%files license
+%files libexec
 %defattr(-,root,root,-)
-/usr/share/doc/octave/COPYING
+/usr/libexec/octave/4.4.1/exec/x86_64-generic-linux-gnu/octave-gui
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/octave/COPYING
+/usr/share/package-licenses/octave/doc_interpreter_octave.html_Copying.html
+/usr/share/package-licenses/octave/doc_liboctave_liboctave.html_Copying.html
 
 %files man
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 /usr/share/man/man1/mkoctfile.1
 /usr/share/man/man1/octave-cli.1
 /usr/share/man/man1/octave-config.1
