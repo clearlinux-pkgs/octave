@@ -347,11 +347,14 @@ Configure miss: dseupd in -larpack
 Configure miss: gfind
 Configure miss: icotool
 Configure miss: g++ option to enable C++11 features
-Configure miss: whether stl_algo.h is broken
 Configure miss: whether complex class can reference components independently
 Configure miss: crtdefs.h
 Configure miss: st_dm_mode in struct stat
 Configure miss: whether strmode is declared
+Configure miss: whether getopt is POSIX compatible
+Configure miss: working mktime
+Configure miss: whether select supports a 0 argument
+Configure miss: whether select detects invalid fds
 Configure miss: whether getcwd aborts when 4k < cwd_length < 16k
 Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
 Configure miss: __mktime_internal
@@ -362,7 +365,6 @@ Configure miss: sysmp
 Configure miss: whether localtime loops forever near extrema
 Configure miss: timezone_t
 Configure miss: whether tmpfile should be overridden
-Configure miss: whether tzset clobbers localtime buffer
 Configure miss: conio.h usability
 Configure miss: conio.h presence
 Configure miss: conio.h
