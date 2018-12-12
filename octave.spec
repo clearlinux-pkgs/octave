@@ -6,7 +6,7 @@
 #
 Name     : octave
 Version  : 4.4.1
-Release  : 11
+Release  : 12
 URL      : https://mirrors.kernel.org/gnu/octave/octave-4.4.1.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/octave/octave-4.4.1.tar.xz
 Source99 : https://mirrors.kernel.org/gnu/octave/octave-4.4.1.tar.xz.sig
