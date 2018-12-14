@@ -1,2 +1,3 @@
-  --enable-openmp
-  --with-blas=openblas
+--enable-openmp
+--disable-docs
+--with-blas=openblas

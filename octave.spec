@@ -6,7 +6,7 @@
 #
 Name     : octave
 Version  : 4.4.1
-Release  : 14
+Release  : 15
 URL      : https://mirrors.kernel.org/gnu/octave/octave-4.4.1.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/octave/octave-4.4.1.tar.xz
 Source99 : https://mirrors.kernel.org/gnu/octave/octave-4.4.1.tar.xz.sig
@@ -16,8 +16,8 @@ License  : GPL-3.0
 Requires: octave-bin = %{version}-%{release}
 Requires: octave-data = %{version}-%{release}
 Requires: octave-lib = %{version}-%{release}
+Requires: octave-libexec = %{version}-%{release}
 Requires: octave-license = %{version}-%{release}
-Requires: octave-man = %{version}-%{release}
 Requires: glibc-lib-avx2
 Requires: libgfortran-avx
 BuildRequires : SuiteSparse-dev
@@ -61,6 +61,7 @@ BuildRequires : readline-dev
 BuildRequires : sundials-dev
 BuildRequires : texinfo
 BuildRequires : util-linux
+Patch1: 0001-Fix-build-with-Qt-5.12.patch
 
 %description
 GNU Octave -- a high-level language for numerical computations
@@ -70,8 +71,8 @@ GNU Octave -- a high-level language for numerical computations
 Summary: bin components for the octave package.
 Group: Binaries
 Requires: octave-data = %{version}-%{release}
+Requires: octave-libexec = %{version}-%{release}
 Requires: octave-license = %{version}-%{release}
-Requires: octave-man = %{version}-%{release}
 
 %description bin
 bin components for the octave package.
@@ -97,23 +98,24 @@ Provides: octave-devel = %{version}-%{release}
 dev components for the octave package.
 
 
-%package doc
-Summary: doc components for the octave package.
-Group: Documentation
-Requires: octave-man = %{version}-%{release}
-
-%description doc
-doc components for the octave package.
-
-
 %package lib
 Summary: lib components for the octave package.
 Group: Libraries
 Requires: octave-data = %{version}-%{release}
+Requires: octave-libexec = %{version}-%{release}
 Requires: octave-license = %{version}-%{release}
 
 %description lib
 lib components for the octave package.
+
+
+%package libexec
+Summary: libexec components for the octave package.
+Group: Default
+Requires: octave-license = %{version}-%{release}
+
+%description libexec
+libexec components for the octave package.
 
 
 %package license
@@ -124,16 +126,9 @@ Group: Default
 license components for the octave package.
 
 
-%package man
-Summary: man components for the octave package.
-Group: Default
-
-%description man
-man components for the octave package.
-
-
 %prep
 %setup -q -n octave-4.4.1
+%patch1 -p1
 pushd ..
 cp -a octave-4.4.1 buildavx2
 popd
@@ -146,7 +141,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1544665682
+export SOURCE_DATE_EPOCH=1544807445
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -155,6 +150,7 @@ export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 %configure --disable-static --enable-openmp \
+--disable-docs \
 --with-blas=openblas
 make  %{?_smp_mflags}
 
@@ -164,6 +160,7 @@ export CFLAGS="$CFLAGS -m64 -march=haswell"
 export CXXFLAGS="$CXXFLAGS -m64 -march=haswell"
 export LDFLAGS="$LDFLAGS -m64 -march=haswell"
 %configure --disable-static --enable-openmp \
+--disable-docs \
 --with-blas=openblas
 make  %{?_smp_mflags}
 popd
@@ -173,11 +170,12 @@ export CFLAGS="$CFLAGS -m64 -march=skylake-avx512 -mprefer-vector-width=512"
 export CXXFLAGS="$CXXFLAGS -m64 -march=skylake-avx512 -mprefer-vector-width=512"
 export LDFLAGS="$LDFLAGS -m64 -march=skylake-avx512"
 %configure --disable-static --enable-openmp \
+--disable-docs \
 --with-blas=openblas
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1544665682
+export SOURCE_DATE_EPOCH=1544807445
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/octave
 cp COPYING %{buildroot}/usr/share/package-licenses/octave/COPYING
@@ -264,6 +262,7 @@ popd
 /usr/share/octave/4.4.1/etc/CITATION
 /usr/share/octave/4.4.1/etc/NEWS
 /usr/share/octave/4.4.1/etc/built-in-docstrings
+/usr/share/octave/4.4.1/etc/default-qt-settings
 /usr/share/octave/4.4.1/etc/doc-cache
 /usr/share/octave/4.4.1/etc/macros.texi
 /usr/share/octave/4.4.1/etc/profiler/flat.html
@@ -685,6 +684,21 @@ popd
 /usr/share/octave/4.4.1/imagelib/octave-logo.ico
 /usr/share/octave/4.4.1/imagelib/octave-logo.svg
 /usr/share/octave/4.4.1/imagelib/octave-sombrero.png
+/usr/share/octave/4.4.1/locale/be_BY.qm
+/usr/share/octave/4.4.1/locale/ca_ES.qm
+/usr/share/octave/4.4.1/locale/de_DE.qm
+/usr/share/octave/4.4.1/locale/en_US.qm
+/usr/share/octave/4.4.1/locale/es_ES.qm
+/usr/share/octave/4.4.1/locale/eu_ES.qm
+/usr/share/octave/4.4.1/locale/fr_FR.qm
+/usr/share/octave/4.4.1/locale/it_IT.qm
+/usr/share/octave/4.4.1/locale/ja_JP.qm
+/usr/share/octave/4.4.1/locale/nl_NL.qm
+/usr/share/octave/4.4.1/locale/pt_BR.qm
+/usr/share/octave/4.4.1/locale/pt_PT.qm
+/usr/share/octave/4.4.1/locale/ru_RU.qm
+/usr/share/octave/4.4.1/locale/uk_UA.qm
+/usr/share/octave/4.4.1/locale/zh_CN.qm
 /usr/share/octave/4.4.1/m/+containers/Map.m
 /usr/share/octave/4.4.1/m/@ftp/ascii.m
 /usr/share/octave/4.4.1/m/@ftp/binary.m
@@ -2379,40 +2393,42 @@ popd
 /usr/include/octave-4.4.1/octave/xpow.h
 /usr/include/octave-4.4.1/octave/zfstream.h
 
-%files doc
-%defattr(0644,root,root,0755)
-%doc /usr/share/info/*
-
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/octave/4.4.1/haswell/avx512_1/liboctave.so
 /usr/lib64/octave/4.4.1/haswell/avx512_1/liboctave.so.6
 /usr/lib64/octave/4.4.1/haswell/avx512_1/liboctave.so.6.0.0
+/usr/lib64/octave/4.4.1/haswell/avx512_1/liboctgui.so
+/usr/lib64/octave/4.4.1/haswell/avx512_1/liboctgui.so.4
+/usr/lib64/octave/4.4.1/haswell/avx512_1/liboctgui.so.4.0.0
 /usr/lib64/octave/4.4.1/haswell/avx512_1/liboctinterp.so
 /usr/lib64/octave/4.4.1/haswell/avx512_1/liboctinterp.so.6
 /usr/lib64/octave/4.4.1/haswell/avx512_1/liboctinterp.so.6.0.0
 /usr/lib64/octave/4.4.1/haswell/liboctave.so
 /usr/lib64/octave/4.4.1/haswell/liboctave.so.6
 /usr/lib64/octave/4.4.1/haswell/liboctave.so.6.0.0
+/usr/lib64/octave/4.4.1/haswell/liboctgui.so
+/usr/lib64/octave/4.4.1/haswell/liboctgui.so.4
+/usr/lib64/octave/4.4.1/haswell/liboctgui.so.4.0.0
 /usr/lib64/octave/4.4.1/haswell/liboctinterp.so
 /usr/lib64/octave/4.4.1/haswell/liboctinterp.so.6
 /usr/lib64/octave/4.4.1/haswell/liboctinterp.so.6.0.0
 /usr/lib64/octave/4.4.1/liboctave.so
 /usr/lib64/octave/4.4.1/liboctave.so.6
 /usr/lib64/octave/4.4.1/liboctave.so.6.0.0
+/usr/lib64/octave/4.4.1/liboctgui.so
+/usr/lib64/octave/4.4.1/liboctgui.so.4
+/usr/lib64/octave/4.4.1/liboctgui.so.4.0.0
 /usr/lib64/octave/4.4.1/liboctinterp.so
 /usr/lib64/octave/4.4.1/liboctinterp.so.6
 /usr/lib64/octave/4.4.1/liboctinterp.so.6.0.0
+
+%files libexec
+%defattr(-,root,root,-)
+/usr/libexec/octave/4.4.1/exec/x86_64-generic-linux-gnu/octave-gui
 
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/octave/COPYING
 /usr/share/package-licenses/octave/doc_interpreter_octave.html_Copying.html
 /usr/share/package-licenses/octave/doc_liboctave_liboctave.html_Copying.html
-
-%files man
-%defattr(0644,root,root,0755)
-/usr/share/man/man1/mkoctfile.1
-/usr/share/man/man1/octave-cli.1
-/usr/share/man/man1/octave-config.1
-/usr/share/man/man1/octave.1
