@@ -6,3 +6,6 @@ openjdk-dev
 llvm-dev
 sundials-dev
 buildreq-kde
+libXft-dev
+libXcursor-dev
+openblas-dev

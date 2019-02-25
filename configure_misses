@@ -3,9 +3,14 @@ Configure miss: icotool
 Configure miss: g++ option to enable C++11 features
 Configure miss: whether stl_algo.h is broken
 Configure miss: whether complex class can reference components independently
+Configure miss: fpurge
 Configure miss: crtdefs.h
 Configure miss: st_dm_mode in struct stat
 Configure miss: whether strmode is declared
+Configure miss: whether fflush works on input streams
+Configure miss: 32-bit host C ABI
+Configure miss: whether fpurge is declared
+Configure miss: _fseeki64
 Configure miss: whether getcwd aborts when 4k < cwd_length < 16k
 Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
 Configure miss: __mktime_internal
@@ -79,6 +84,12 @@ Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
 Configure miss: qhelpgenerator-qt5
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
+Configure miss: QGLWidget usability
+Configure miss: QGLWidget presence
+Configure miss: QGLWidget
+Configure miss: QGLFunctions_1_1 usability
+Configure miss: QGLFunctions_1_1 presence
+Configure miss: QGLFunctions_1_1
 Configure miss: the QScintilla library for Qt 5
 Configure miss: sqr1up in -lqrupdate
 Configure miss: suitesparse/amd.h usability
@@ -176,9 +187,14 @@ Configure miss: icotool
 Configure miss: g++ option to enable C++11 features
 Configure miss: whether stl_algo.h is broken
 Configure miss: whether complex class can reference components independently
+Configure miss: fpurge
 Configure miss: crtdefs.h
 Configure miss: st_dm_mode in struct stat
 Configure miss: whether strmode is declared
+Configure miss: whether fflush works on input streams
+Configure miss: 32-bit host C ABI
+Configure miss: whether fpurge is declared
+Configure miss: _fseeki64
 Configure miss: whether getcwd aborts when 4k < cwd_length < 16k
 Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
 Configure miss: __mktime_internal
@@ -252,6 +268,12 @@ Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
 Configure miss: qhelpgenerator-qt5
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
+Configure miss: QGLWidget usability
+Configure miss: QGLWidget presence
+Configure miss: QGLWidget
+Configure miss: QGLFunctions_1_1 usability
+Configure miss: QGLFunctions_1_1 presence
+Configure miss: QGLFunctions_1_1
 Configure miss: the QScintilla library for Qt 5
 Configure miss: sqr1up in -lqrupdate
 Configure miss: suitesparse/amd.h usability
@@ -349,9 +371,14 @@ Configure miss: icotool
 Configure miss: g++ option to enable C++11 features
 Configure miss: whether stl_algo.h is broken
 Configure miss: whether complex class can reference components independently
+Configure miss: fpurge
 Configure miss: crtdefs.h
 Configure miss: st_dm_mode in struct stat
 Configure miss: whether strmode is declared
+Configure miss: whether fflush works on input streams
+Configure miss: 32-bit host C ABI
+Configure miss: whether fpurge is declared
+Configure miss: _fseeki64
 Configure miss: whether getcwd aborts when 4k < cwd_length < 16k
 Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
 Configure miss: __mktime_internal
@@ -425,6 +452,12 @@ Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
 Configure miss: qhelpgenerator-qt5
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
+Configure miss: QGLWidget usability
+Configure miss: QGLWidget presence
+Configure miss: QGLWidget
+Configure miss: QGLFunctions_1_1 usability
+Configure miss: QGLFunctions_1_1 presence
+Configure miss: QGLFunctions_1_1
 Configure miss: the QScintilla library for Qt 5
 Configure miss: sqr1up in -lqrupdate
 Configure miss: suitesparse/amd.h usability
