@@ -6,7 +6,7 @@
 #
 Name     : octave
 Version  : 5.1.0
-Release  : 17
+Release  : 18
 URL      : https://mirrors.kernel.org/gnu/octave/octave-5.1.0.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/octave/octave-5.1.0.tar.xz
 Source99 : https://mirrors.kernel.org/gnu/octave/octave-5.1.0.tar.xz.sig
