@@ -26,6 +26,7 @@ openblas
 openjdk
 pkgconfig(glu)
 pkgconfig(x11)
+qhull-dev
 qtbase-dev
 qtbase-extras
 qttools-dev

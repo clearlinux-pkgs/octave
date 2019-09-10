@@ -6,13 +6,13 @@
 #
 Name     : octave
 Version  : 5.1.0
-Release  : 18
+Release  : 19
 URL      : https://mirrors.kernel.org/gnu/octave/octave-5.1.0.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/octave/octave-5.1.0.tar.xz
-Source99 : https://mirrors.kernel.org/gnu/octave/octave-5.1.0.tar.xz.sig
-Summary  : A high-level language, primarily intended for numerical computations.
+Source1 : https://mirrors.kernel.org/gnu/octave/octave-5.1.0.tar.xz.sig
+Summary  : C++ interface to GNU Octave underlying library.
 Group    : Development/Tools
-License  : GPL-3.0 GPL-3.0+
+License  : GPL-3.0
 Requires: octave-bin = %{version}-%{release}
 Requires: octave-data = %{version}-%{release}
 Requires: octave-lib = %{version}-%{release}
@@ -40,35 +40,35 @@ BuildRequires : hdf5-dev
 BuildRequires : less
 BuildRequires : libXcursor-dev
 BuildRequires : libXft-dev
+BuildRequires : libXinerama-dev
+BuildRequires : libXrender-dev
+BuildRequires : libgfortran-avx
 BuildRequires : librsvg
 BuildRequires : libsndfile-dev
 BuildRequires : llvm-dev
+BuildRequires : mesa-dev
 BuildRequires : ncurses-dev
+BuildRequires : openblas
 BuildRequires : openblas-dev
 BuildRequires : openjdk
 BuildRequires : openjdk-dev
 BuildRequires : pkgconfig(freetype2)
+BuildRequires : pkgconfig(glu)
+BuildRequires : pkgconfig(x11)
+BuildRequires : qhull-dev
 BuildRequires : qtbase-dev
+BuildRequires : qtbase-extras
 BuildRequires : qttools-dev
+BuildRequires : qttools-extras
 BuildRequires : readline-dev
 BuildRequires : sundials-dev
 BuildRequires : texinfo
+BuildRequires : util-linux
 Patch1: 0001-Fix-build-with-Qt-5.12.patch
 
 %description
-notitle {#mainpage}
-=======
-Overview
---------
-GNU Octave is a high-level interpreted language, primarily intended
-for numerical computations.  It provides capabilities for the
-numerical solution of linear and nonlinear problems, and for
-performing other numerical experiments.  It also provides extensive
-graphics capabilities for data visualization and manipulation.  GNU
-Octave is normally used through its interactive interface (CLI and
-GUI), but it can also be used to write non-interactive programs.
-The GNU Octave language is quite similar to Matlab so that most
-programs are easily portable.
+GNU Octave -- a high-level language for numerical computations
+==============================================================
 
 %package bin
 Summary: bin components for the octave package.
@@ -144,8 +144,9 @@ popd
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1551119090
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1568079531
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -179,7 +180,7 @@ export LDFLAGS="$LDFLAGS -m64 -march=skylake-avx512"
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1551119090
+export SOURCE_DATE_EPOCH=1568079531
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/octave
 cp COPYING %{buildroot}/usr/share/package-licenses/octave/COPYING
