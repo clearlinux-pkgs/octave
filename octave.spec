@@ -6,10 +6,10 @@
 #
 Name     : octave
 Version  : 5.1.0
-Release  : 22
+Release  : 24
 URL      : https://mirrors.kernel.org/gnu/octave/octave-5.1.0.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/octave/octave-5.1.0.tar.xz
-Source1 : https://mirrors.kernel.org/gnu/octave/octave-5.1.0.tar.xz.sig
+Source1  : https://mirrors.kernel.org/gnu/octave/octave-5.1.0.tar.xz.sig
 Summary  : C++ interface to GNU Octave underlying library.
 Group    : Development/Tools
 License  : GPL-3.0
@@ -132,6 +132,7 @@ license components for the octave package.
 
 %prep
 %setup -q -n octave-5.1.0
+cd %{_builddir}/octave-5.1.0
 %patch1 -p1
 pushd ..
 cp -a octave-5.1.0 buildavx2
@@ -145,7 +146,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1568079531
+export SOURCE_DATE_EPOCH=1578639547
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -180,14 +181,14 @@ export LDFLAGS="$LDFLAGS -m64 -march=skylake-avx512"
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1568079531
+export SOURCE_DATE_EPOCH=1578639547
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/octave
-cp COPYING %{buildroot}/usr/share/package-licenses/octave/COPYING
-cp doc/interpreter/octave.html/Copying.html %{buildroot}/usr/share/package-licenses/octave/doc_interpreter_octave.html_Copying.html
-cp doc/liboctave/liboctave.html/Copying.html %{buildroot}/usr/share/package-licenses/octave/doc_liboctave_liboctave.html_Copying.html
-cp test/pkg/mfile_basic_test/COPYING %{buildroot}/usr/share/package-licenses/octave/test_pkg_mfile_basic_test_COPYING
-cp test/pkg/mfile_minimal_test/COPYING %{buildroot}/usr/share/package-licenses/octave/test_pkg_mfile_minimal_test_COPYING
+cp %{_builddir}/octave-5.1.0/COPYING %{buildroot}/usr/share/package-licenses/octave/31a3d460bb3c7d98845187c716a30db81c44b615
+cp %{_builddir}/octave-5.1.0/doc/interpreter/octave.html/Copying.html %{buildroot}/usr/share/package-licenses/octave/7bc383fc2a9b1e91e94ab303034d7bbbc122cf14
+cp %{_builddir}/octave-5.1.0/doc/liboctave/liboctave.html/Copying.html %{buildroot}/usr/share/package-licenses/octave/1d770574f4ec2aea3f86ceb47e952fc5c879f16b
+cp %{_builddir}/octave-5.1.0/test/pkg/mfile_basic_test/COPYING %{buildroot}/usr/share/package-licenses/octave/21f3db650be936f00c242e559a23b6a16eaf9318
+cp %{_builddir}/octave-5.1.0/test/pkg/mfile_minimal_test/COPYING %{buildroot}/usr/share/package-licenses/octave/21f3db650be936f00c242e559a23b6a16eaf9318
 pushd ../buildavx512/
 %make_install_avx512
 popd
@@ -2491,8 +2492,7 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/octave/COPYING
-/usr/share/package-licenses/octave/doc_interpreter_octave.html_Copying.html
-/usr/share/package-licenses/octave/doc_liboctave_liboctave.html_Copying.html
-/usr/share/package-licenses/octave/test_pkg_mfile_basic_test_COPYING
-/usr/share/package-licenses/octave/test_pkg_mfile_minimal_test_COPYING
+/usr/share/package-licenses/octave/1d770574f4ec2aea3f86ceb47e952fc5c879f16b
+/usr/share/package-licenses/octave/21f3db650be936f00c242e559a23b6a16eaf9318
+/usr/share/package-licenses/octave/31a3d460bb3c7d98845187c716a30db81c44b615
+/usr/share/package-licenses/octave/7bc383fc2a9b1e91e94ab303034d7bbbc122cf14

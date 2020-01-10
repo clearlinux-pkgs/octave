@@ -35,11 +35,11 @@ libopenblas.so.0
 libpcre.so.1
 libpthread.so.0
 libqhull.so.7
-libreadline.so.7
+libreadline.so.8
 libsndfile.so.1
 libstdc++.so.6
 libsuitesparseconfig.so.5
-libtinfow.so.6
+libtinfo.so.6
 libumfpack.so.5
 libutil.so.1
 libz.so.1
