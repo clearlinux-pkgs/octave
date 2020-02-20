@@ -69,9 +69,6 @@ Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
 Configure miss: qhelpgenerator-qt5
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
-Configure miss: QGLWidget usability
-Configure miss: QGLWidget presence
-Configure miss: QGLWidget
 Configure miss: QGLFunctions_1_1 usability
 Configure miss: QGLFunctions_1_1 presence
 Configure miss: QGLFunctions_1_1
@@ -238,9 +235,6 @@ Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
 Configure miss: qhelpgenerator-qt5
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
-Configure miss: QGLWidget usability
-Configure miss: QGLWidget presence
-Configure miss: QGLWidget
 Configure miss: QGLFunctions_1_1 usability
 Configure miss: QGLFunctions_1_1 presence
 Configure miss: QGLFunctions_1_1
@@ -339,14 +333,17 @@ Configure miss: dseupd in -larpack
 Configure miss: gfind
 Configure miss: icotool
 Configure miss: g++ option to enable C++11 features
-Configure miss: whether stl_algo.h is broken
 Configure miss: whether complex class can reference components independently
 Configure miss: fpurge
 Configure miss: crtdefs.h
 Configure miss: st_dm_mode in struct stat
 Configure miss: whether strmode is declared
 Configure miss: whether fflush works on input streams
+Configure miss: whether getopt is POSIX compatible
 Configure miss: 32-bit host C ABI
+Configure miss: working mktime
+Configure miss: whether select supports a 0 argument
+Configure miss: whether select detects invalid fds
 Configure miss: whether fpurge is declared
 Configure miss: _fseeki64
 Configure miss: whether getcwd aborts when 4k < cwd_length < 16k
@@ -368,6 +365,7 @@ Configure miss: resolvepath
 Configure miss: _getch
 Configure miss: _kbhit
 Configure miss: struct exception in math.h
+Configure miss: whether the qhull library works
 Configure miss: whether HDF5 library has enforced version 1.6 API
 Configure miss: glpk/glpk.h usability
 Configure miss: glpk/glpk.h presence
@@ -407,9 +405,6 @@ Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
 Configure miss: qhelpgenerator-qt5
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
-Configure miss: QGLWidget usability
-Configure miss: QGLWidget presence
-Configure miss: QGLWidget
 Configure miss: QGLFunctions_1_1 usability
 Configure miss: QGLFunctions_1_1 presence
 Configure miss: QGLFunctions_1_1
