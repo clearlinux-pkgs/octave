@@ -6,7 +6,7 @@
 #
 Name     : octave
 Version  : 5.2.0
-Release  : 25
+Release  : 26
 URL      : https://mirrors.kernel.org/gnu/octave/octave-5.2.0.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/octave/octave-5.2.0.tar.xz
 Source1  : https://mirrors.kernel.org/gnu/octave/octave-5.2.0.tar.xz.sig
@@ -19,7 +19,6 @@ Requires: octave-lib = %{version}-%{release}
 Requires: octave-libexec = %{version}-%{release}
 Requires: octave-license = %{version}-%{release}
 Requires: glibc-lib-avx2
-Requires: libgfortran-avx
 BuildRequires : SuiteSparse-dev
 BuildRequires : bison
 BuildRequires : buildreq-kde
@@ -39,7 +38,6 @@ BuildRequires : hdf5-dev
 BuildRequires : less
 BuildRequires : libXcursor-dev
 BuildRequires : libXft-dev
-BuildRequires : libgfortran-avx
 BuildRequires : librsvg
 BuildRequires : libsndfile-dev
 BuildRequires : llvm-dev
@@ -135,7 +133,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582230690
+export SOURCE_DATE_EPOCH=1584122226
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -170,10 +168,11 @@ export LDFLAGS="$LDFLAGS -m64 -march=skylake-avx512"
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1582230690
+export SOURCE_DATE_EPOCH=1584122226
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/octave
 cp %{_builddir}/octave-5.2.0/COPYING %{buildroot}/usr/share/package-licenses/octave/31a3d460bb3c7d98845187c716a30db81c44b615
+cp %{_builddir}/octave-5.2.0/doc/interpreter/octave.html/Copying.html %{buildroot}/usr/share/package-licenses/octave/af665f4ba12de68385c7f9112fee7bae046d6d4e
 cp %{_builddir}/octave-5.2.0/doc/liboctave/liboctave.html/Copying.html %{buildroot}/usr/share/package-licenses/octave/1d770574f4ec2aea3f86ceb47e952fc5c879f16b
 cp %{_builddir}/octave-5.2.0/test/pkg/mfile_basic_test/COPYING %{buildroot}/usr/share/package-licenses/octave/21f3db650be936f00c242e559a23b6a16eaf9318
 cp %{_builddir}/octave-5.2.0/test/pkg/mfile_minimal_test/COPYING %{buildroot}/usr/share/package-licenses/octave/21f3db650be936f00c242e559a23b6a16eaf9318
@@ -2487,3 +2486,4 @@ popd
 /usr/share/package-licenses/octave/1d770574f4ec2aea3f86ceb47e952fc5c879f16b
 /usr/share/package-licenses/octave/21f3db650be936f00c242e559a23b6a16eaf9318
 /usr/share/package-licenses/octave/31a3d460bb3c7d98845187c716a30db81c44b615
+/usr/share/package-licenses/octave/af665f4ba12de68385c7f9112fee7bae046d6d4e
