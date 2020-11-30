@@ -4,6 +4,7 @@ libQt5Core.so.5
 libQt5Gui.so.5
 libQt5Help.so.5
 libQt5Network.so.5
+libQt5OpenGL.so.5
 libQt5PrintSupport.so.5
 libQt5Sql.so.5
 libQt5Widgets.so.5
@@ -32,18 +33,16 @@ libgfortran.so.5
 libgomp.so.1
 libhdf5.so.103
 libm.so.6
-libncurses.so.6
 libopenblas.so.0
 libpcre.so.1
 libpthread.so.0
 libqhull.so.7
-libquadmath.so.0
 libreadline.so.8
 libsndfile.so.1
 libstdc++.so.6
 libsuitesparseconfig.so.5
+libsundials_ida.so.5
 libtinfo.so.6
-libtinfow.so.6
 libumfpack.so.5
 libutil.so.1
 libz.so.1

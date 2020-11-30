@@ -1,3 +1,5 @@
+Configure miss: whether the compiler is clang
+Configure miss: compiler option needed when checking for declarations
 Configure miss: gfind
 Configure miss: icotool
 Configure miss: g++ option to enable C++11 features
@@ -9,19 +11,24 @@ Configure miss: st_dm_mode in struct stat
 Configure miss: whether strmode is declared
 Configure miss: whether fflush works on input streams
 Configure miss: 32-bit host C ABI
+Configure miss: whether the compiler produces multi-arch binaries
+Configure miss: fake locale system (OpenBSD)
+Configure miss: Solaris 11.4 locale system
+Configure miss: CFLocaleCopyPreferredLanguages
+Configure miss: whether this system supports file names of any length
 Configure miss: whether fpurge is declared
 Configure miss: _fseeki64
-Configure miss: whether getcwd aborts when 4k < cwd_length < 16k
 Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
+Configure miss: whether mbrtowc stores incomplete characters
 Configure miss: __mktime_internal
 Configure miss: working nanosleep
 Configure miss: sys/sysmp.h
 Configure miss: sched_getaffinity_np
 Configure miss: sysmp
-Configure miss: whether localtime loops forever near extrema
+Configure miss: sys/single_threaded.h usability
+Configure miss: sys/single_threaded.h presence
+Configure miss: sys/single_threaded.h
 Configure miss: timezone_t
-Configure miss: whether tmpfile should be overridden
-Configure miss: whether tzset clobbers localtime buffer
 Configure miss: conio.h usability
 Configure miss: conio.h presence
 Configure miss: conio.h
@@ -146,24 +153,14 @@ Configure miss: ufsparse/klu.h
 Configure miss: klu/klu.h usability
 Configure miss: klu/klu.h presence
 Configure miss: klu/klu.h
-Configure miss: ida.h usability
-Configure miss: ida.h presence
-Configure miss: ida.h
-Configure miss: ida/ida_dense.h usability
-Configure miss: ida/ida_dense.h presence
-Configure miss: ida/ida_dense.h
-Configure miss: ida_dense.h usability
-Configure miss: ida_dense.h presence
-Configure miss: ida_dense.h
-Configure miss: whether SUNDIALS IDA includes the IDADENSE linear solver
-Configure miss: ida/ida_klu.h usability
-Configure miss: ida/ida_klu.h presence
-Configure miss: ida/ida_klu.h
-Configure miss: ida_klu.h usability
-Configure miss: ida_klu.h presence
-Configure miss: ida_klu.h
-Configure miss: whether SUNDIALS IDA is configured with IDAKLU enabled
+Configure miss: ida_direct.h usability
+Configure miss: ida_direct.h presence
+Configure miss: ida_direct.h
+Configure miss: sunlinsol/sunlinsol_klu.h
+Configure miss: SUNKLU in -lsundials_sunlinsolklu
 Configure miss: dseupd in -larpack
+Configure miss: whether the compiler is clang
+Configure miss: compiler option needed when checking for declarations
 Configure miss: gfind
 Configure miss: icotool
 Configure miss: g++ option to enable C++11 features
@@ -175,19 +172,24 @@ Configure miss: st_dm_mode in struct stat
 Configure miss: whether strmode is declared
 Configure miss: whether fflush works on input streams
 Configure miss: 32-bit host C ABI
+Configure miss: whether the compiler produces multi-arch binaries
+Configure miss: fake locale system (OpenBSD)
+Configure miss: Solaris 11.4 locale system
+Configure miss: CFLocaleCopyPreferredLanguages
+Configure miss: whether this system supports file names of any length
 Configure miss: whether fpurge is declared
 Configure miss: _fseeki64
-Configure miss: whether getcwd aborts when 4k < cwd_length < 16k
 Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
+Configure miss: whether mbrtowc stores incomplete characters
 Configure miss: __mktime_internal
 Configure miss: working nanosleep
 Configure miss: sys/sysmp.h
 Configure miss: sched_getaffinity_np
 Configure miss: sysmp
-Configure miss: whether localtime loops forever near extrema
+Configure miss: sys/single_threaded.h usability
+Configure miss: sys/single_threaded.h presence
+Configure miss: sys/single_threaded.h
 Configure miss: timezone_t
-Configure miss: whether tmpfile should be overridden
-Configure miss: whether tzset clobbers localtime buffer
 Configure miss: conio.h usability
 Configure miss: conio.h presence
 Configure miss: conio.h
@@ -312,24 +314,14 @@ Configure miss: ufsparse/klu.h
 Configure miss: klu/klu.h usability
 Configure miss: klu/klu.h presence
 Configure miss: klu/klu.h
-Configure miss: ida.h usability
-Configure miss: ida.h presence
-Configure miss: ida.h
-Configure miss: ida/ida_dense.h usability
-Configure miss: ida/ida_dense.h presence
-Configure miss: ida/ida_dense.h
-Configure miss: ida_dense.h usability
-Configure miss: ida_dense.h presence
-Configure miss: ida_dense.h
-Configure miss: whether SUNDIALS IDA includes the IDADENSE linear solver
-Configure miss: ida/ida_klu.h usability
-Configure miss: ida/ida_klu.h presence
-Configure miss: ida/ida_klu.h
-Configure miss: ida_klu.h usability
-Configure miss: ida_klu.h presence
-Configure miss: ida_klu.h
-Configure miss: whether SUNDIALS IDA is configured with IDAKLU enabled
+Configure miss: ida_direct.h usability
+Configure miss: ida_direct.h presence
+Configure miss: ida_direct.h
+Configure miss: sunlinsol/sunlinsol_klu.h
+Configure miss: SUNKLU in -lsundials_sunlinsolklu
 Configure miss: dseupd in -larpack
+Configure miss: whether the compiler is clang
+Configure miss: compiler option needed when checking for declarations
 Configure miss: gfind
 Configure miss: icotool
 Configure miss: g++ option to enable C++11 features
@@ -341,19 +333,24 @@ Configure miss: st_dm_mode in struct stat
 Configure miss: whether strmode is declared
 Configure miss: whether fflush works on input streams
 Configure miss: 32-bit host C ABI
+Configure miss: whether the compiler produces multi-arch binaries
+Configure miss: fake locale system (OpenBSD)
+Configure miss: Solaris 11.4 locale system
+Configure miss: CFLocaleCopyPreferredLanguages
+Configure miss: whether this system supports file names of any length
 Configure miss: whether fpurge is declared
 Configure miss: _fseeki64
-Configure miss: whether getcwd aborts when 4k < cwd_length < 16k
 Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
+Configure miss: whether mbrtowc stores incomplete characters
 Configure miss: __mktime_internal
 Configure miss: working nanosleep
 Configure miss: sys/sysmp.h
 Configure miss: sched_getaffinity_np
 Configure miss: sysmp
-Configure miss: whether localtime loops forever near extrema
+Configure miss: sys/single_threaded.h usability
+Configure miss: sys/single_threaded.h presence
+Configure miss: sys/single_threaded.h
 Configure miss: timezone_t
-Configure miss: whether tmpfile should be overridden
-Configure miss: whether tzset clobbers localtime buffer
 Configure miss: conio.h usability
 Configure miss: conio.h presence
 Configure miss: conio.h
@@ -478,21 +475,9 @@ Configure miss: ufsparse/klu.h
 Configure miss: klu/klu.h usability
 Configure miss: klu/klu.h presence
 Configure miss: klu/klu.h
-Configure miss: ida.h usability
-Configure miss: ida.h presence
-Configure miss: ida.h
-Configure miss: ida/ida_dense.h usability
-Configure miss: ida/ida_dense.h presence
-Configure miss: ida/ida_dense.h
-Configure miss: ida_dense.h usability
-Configure miss: ida_dense.h presence
-Configure miss: ida_dense.h
-Configure miss: whether SUNDIALS IDA includes the IDADENSE linear solver
-Configure miss: ida/ida_klu.h usability
-Configure miss: ida/ida_klu.h presence
-Configure miss: ida/ida_klu.h
-Configure miss: ida_klu.h usability
-Configure miss: ida_klu.h presence
-Configure miss: ida_klu.h
-Configure miss: whether SUNDIALS IDA is configured with IDAKLU enabled
+Configure miss: ida_direct.h usability
+Configure miss: ida_direct.h presence
+Configure miss: ida_direct.h
+Configure miss: sunlinsol/sunlinsol_klu.h
+Configure miss: SUNKLU in -lsundials_sunlinsolklu
 Configure miss: dseupd in -larpack
