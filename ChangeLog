@@ -1,3 +1,1114 @@
+2021-07-11  John W. Eaton  <jwe@octave.org>
+
+	bump version info after 6.3.0 release
+
+	* configure.ac (AC_INIT): Set version to 6.3.1.
+	(OCTAVE_PATCH_VERSION): Now 1.
+
+	Files: configure.ac
+
+	Added tag release-6-3-0 for changeset 754013c36587
+
+	Files: .hgtags
+
+	Version 6.3.0 released.
+
+	* configure.ac (AC_INIT): Set version to 6.3.0.
+	(OCTAVE_MINOR_VERSION): Now 3.
+	(OCTAVE_PATCH_VERSION): Now 0.
+	(OCTAVE_RELEASE_DATE): Set to "2021-07-11".
+	* etc/icons/org.octave.Octave.appdata.xml: Add release info for
+	version 6.3.0.
+	* NEWS: Update release date.
+
+	Files: NEWS configure.ac etc/icons/org.octave.Octave.appdata.xml
+
+2021-07-03  Markus Mützel  <markus.muetzel@gmx.de>
+
+	NEWS: Update with latest changes again.
+
+	* NEWS: Add items from commit log.
+
+	Files: NEWS
+
+2021-07-02  John W. Eaton  <jwe@octave.org>
+
+	avoid crash with dbquit when executing command in terminal from gui (bug #60813)
+
+	* pt-eval.cc (tree_evaluator::repl): Also catch quit_debug_exception.
+
+	Files: libinterp/parse-tree/pt-eval.cc
+
+	move top-level REPL from interpreter to evaluator
+
+	* pt-eval.h, pt-eval.cc (tree_evaluator::m_in_top_level_repl):
+	New member variable.
+	(tree_evaluator::in_top_level_repl): New function.
+	(tree_evaluator::repl): New function, adapted from interepreter::main_loop.
+	* interpreter.h interpreter.cc (interpreter::m_in_top_level_repl): Delete.
+	(interpreter::in_top_level_repl): Forward to tree_evaluator::in_top_level_repl.
+	(interpreter::main_loop): Forward to tree_evaluator::repl.
+
+	Files: libinterp/corefcn/interpreter.cc libinterp/corefcn/interpreter.h
+	libinterp/parse-tree/pt-eval.cc libinterp/parse-tree/pt-eval.h
+
+2021-07-01  Markus Mützel  <markus.muetzel@gmx.de>
+
+	ls-mat5.cc: Avoid integer overflow in calculation of buffer size for zlib (bug #55427).
+
+	* ls-mat5.cc (save_mat5_binary_element): Use zlib function "compressBound" to
+	  query upper limit for output buffer when compressing.
+
+	Files: libinterp/corefcn/ls-mat5.cc
+
+2021-06-29  Markus Mützel  <markus.muetzel@gmx.de>
+
+	build: Fix file name.
+
+	* test/fcn-handle/module.mk: Fix typo in file extension.
+
+	Files: test/fcn-handle/module.mk
+
+	NEWS: Update with latest changes ahead of release.
+
+	* NEWS: Add items from commit log.
+
+	Files: NEWS
+
+2021-06-29  John W. Eaton  <jwe@octave.org>
+
+	fix scoping issue for handles to sibling nested functions (bug #60845)
+
+	* pt-eval.cc (tree_evaluator::make_fcn_handle): Also use parent stack
+	frame as context for handle to nested function when the function is a
+	sibling of the current function.
+
+	* bug60845.m, handle-to-sibling.tst: New test files.
+	* test/fcn-handle/module.mk: Update.
+
+	Files: libinterp/parse-tree/pt-eval.cc test/fcn-handle/bug60845.m test/fcn-
+	handle/handle-to-sibling.tst test/fcn-handle/module.mk
+
+2021-06-28  Markus Mützel  <markus.muetzel@gmx.de>
+
+	mrdivide, mldivide: Document that functions might return minimum norm solutions (bug #60839).
+
+	* libinterp/corefcn/data.cc (Fmrdivide, Fmldivide): Document that functions
+	  might return minimum norm solutions.
+
+	Files: libinterp/corefcn/data.cc
+
+	ind2sub: Fix typo in "see also" section of docstring (bug #60842).
+
+	* libinterp/corefcn/sub2ind.cc (Find2sub): Add "sub2ind" to list of references
+	  in "see also" section instead of "ind2sub".
+
+	Files: libinterp/corefcn/sub2ind.cc
+
+2021-06-25  Torsten Lilge  <ttl-octave@mailbox.org>
+
+	octave-qscintilla.cc (contextmenu_run): fix keyboard command handling
+
+	Files: libgui/src/m-editor/octave-qscintilla.cc
+
+2021-06-24  Rik  <rik@octave.org>
+
+	Improve documentation for log2 function (bug #60817).
+
+	* data.cc (Flog2): Add clearer description of 2-output calling form.
+
+	Files: libinterp/corefcn/data.cc
+
+2021-06-24  Markus Mützel  <markus.muetzel@gmx.de>
+
+	rgb2ind.m: Suppress output in test.
+
+	* scripts/image/rgb2ind.m: Suppress output in test.
+
+	Files: scripts/image/rgb2ind.m
+
+	build: Set DL_LDFLAGS in the build rules for .oct or .mex files.
+
+	* test/mex/module.mk: Set DL_LDFLAGS in the build rules for .oct or .mex files.
+	  We need to override the default value of that variable on macOS to build these
+	  files before installing Octave.
+
+	Files: test/mex/module.mk
+
+	build: Fix typo in folder to libraries when building .oct or .mex files.
+
+	* test/mex/module.mk: Fix typo in folder to libraries when building .oct or
+	  .mex files in the build tree.
+
+	Files: test/mex/module.mk
+
+	build: Use correct path to octave binary in build tree on macOS.
+
+	* m4/acinclude.m4: Use correct path to octave binary in DL_LDFLAGS on macOS.
+
+	Files: m4/acinclude.m4
+
+2021-06-23  Markus Mützel  <markus.muetzel@gmx.de>
+
+	logm.m: Allow larger tolerance for test on macOS.
+
+	* scripts/linear-algebra/logm.m: Allow larger tolerance for test on macOS.
+	  See: https://octave.discourse.group/t/release-candidate-available/1227/70
+
+	Files: scripts/linear-algebra/logm.m
+
+2021-06-22  John W. Eaton  <jwe@octave.org>
+
+	reduce memory usage and eliminate randomness in rgb2ind test
+
+	* rgb2ind.m: Use nchoosek instead of rand to create matrices with
+	unique sets of elements.
+
+	Files: scripts/image/rgb2ind.m
+
+2021-06-21  John W. Eaton  <jwe@octave.org>
+
+	bump stable branch version after release candidate
+
+	* configure.ac (AC_INIT): Set version to 6.2.93.
+	(OCTAVE_PATCH_VERSION): Now 93.
+
+	Files: configure.ac
+
+	bump version for 6.2.92 release candidate
+
+	* configure.ac (AC_INIT): Set version to 6.2.92.
+	(OCTAVE_PATCH_VERSION): Set to 92.
+	(OCTAVE_RELEASE_DATE): Set to 2021-06-21.
+
+	Files: configure.ac
+
+2021-06-21  Kai T. Ohlhus  <k.ohlhus@gmail.com>
+
+	hist.m: improve regression tests (bug #60783)
+
+	Addition to cset 5113ae64136b.
+
+	* scripts/plot/draw/hist.m: Use non-random test matrix to avoid tolerance
+	 problems.  Thanks to Markus for pointing me to this.
+
+	Files: scripts/plot/draw/hist.m
+
+2021-05-01  Markus Mützel  <markus.muetzel@gmx.de>
+
+	logspace.m: Mark tests as known to fail on macOS (bug #55538).
+
+	* scripts/general/logspace.m: Duplicate tests to mark them as known errors on
+	  macOS.
+	(grafted from 955832ec3af146c1e22019a9e4136a48029c0e3f)
+
+	Files: scripts/general/logspace.m
+
+2021-06-20  Markus Mützel  <markus.muetzel@gmx.de>
+
+	tests: Relax tolerance for tests on macOS.
+
+	* libinterp/corefcn/mappers.cc (asin): Use larger tolerance for tests on macOS.
+	* scripts/specfun/expint.m: Slightly relax tolerance for the test to also pass
+	  on macOS.
+
+	Files: libinterp/corefcn/mappers.cc scripts/specfun/expint.m
+
+2021-06-17  Markus Mützel  <markus.muetzel@gmx.de>
+
+	expm.m, logm.m: Use function "isdiag" to detect if input is a diagonal matrix (bug #60738).
+
+	* scripts/linear-algebra/expm.m, scripts/linear-algebra/logm.m: Use function
+	  "isdiag" to detect if input is a diagonal matrix. Add tests.
+	* scripts/linear-algebra/isdiag.m: Add test.
+
+	Files: scripts/linear-algebra/expm.m scripts/linear-algebra/isdiag.m
+	scripts/linear-algebra/logm.m
+
+2021-06-15  Steven  <steven.waldrip@gmail.com>
+
+	logm.m: Allow tolerance in check for real negative values in complex vector (bug #60738).
+
+	* scripts/linear-algebra/logm.m: Allow tolerance in check for real negative
+	  values in complex vector.
+
+	Files: scripts/linear-algebra/logm.m
+
+2021-06-16  Kai T. Ohlhus  <k.ohlhus@gmail.com>
+
+	hist.m: improve handling and docstring for third "norm" parameter (bug #60783)
+
+	* scripts/plot/draw/hist.m: Explicitly check for the shape of "norm", it can be
+	 either a positive scalar or a vector of positive scalars of length
+	 "column (y)".  Improve docstring.  BIST added.
+
+	Files: scripts/plot/draw/hist.m
+
+2021-06-14  John W. Eaton  <jwe@octave.org>
+
+	declare base_parser destructor virtual
+
+	* parse.h (base_parser::~base_parser): Declare virtual because class
+	has a virtual function.
+
+	Files: libinterp/parse-tree/parse.h
+
+2021-06-11  John W. Eaton  <jwe@octave.org>
+
+	Backed out changeset 52b2680e091c (bug #60771)
+
+	* __init_fltk__.cc: Don't hide __fltk_check__ from the interpreter
+	because it may be called directly from the ginput function.
+
+	Files: libinterp/dldfcn/__init_fltk__.cc
+
+2021-05-07  John W. Eaton  <jwe@octave.org>
+
+	avoid crash when closing GUI with open editor tabs (bug #60500)
+
+	* file-editor.cc (file_editor::handle_tab_ready_to_close,
+	file_editor::handle_tab_remove_request): Use deleteLater to delete
+	file editor tab objects.
+
+	Files: libgui/src/m-editor/file-editor.cc
+
+2021-06-08  Kai T. Ohlhus  <k.ohlhus@gmail.com>
+
+	doc: Improve Differential Equations chapter and example for lsode (bug #57508)
+
+	* libinterp/corefcn/lsode.cc: Add "Van der Pol" example from other odeX solvers.
+	 Add ODEPACK citation that only applies to lsode more interesting here.
+
+	* doc/interpreter/diffeq.txi: Remove info that all solvers are written in
+	 Fortran (odeX solvers are not!).  Lift Matlab-compatible solvers up in TOC.
+	 Those solvers solve both ODEs and DAEs.
+
+	* NEWS: Announce this change before the 6.3 release.
+
+	Files: NEWS doc/interpreter/diffeq.txi libinterp/corefcn/lsode.cc
+
+2021-06-07  Markus Mützel  <markus.muetzel@gmx.de>
+
+	build: Set necessary flags to allow execution on Windows Vista (bug #60746).
+
+	* configure.ac: Add "-DPSAPI_VERSION=1" to CPPFLAGS to allow execution on
+	  Windows prior to Windows 7.
+
+	Files: configure.ac
+
+	logm.m: Fix check for real negative values in complex vector (bug #60738).
+
+	* scripts/linear-algebra/logm.m: Fix check for real negative values in complex
+	  vector. Add BIST.
+
+	Files: scripts/linear-algebra/logm.m
+
+2021-06-06  John W. Eaton  <jwe@octave.org>
+
+	Added tag rc-6-2-90 for changeset 9d70a797d54a
+
+	Files: .hgtags
+
+	bump stable branch version after release candidate
+
+	* configure.ac (AC_INIT): Set version to 6.2.91.
+	(OCTAVE_PATCH_VERSION): Now 91.
+
+	Files: configure.ac
+
+2021-06-05  John W. Eaton  <jwe@octave.org>
+
+	bump version for 6.2.90 release candidate
+
+	* configure.ac (AC_INIT): Set version to 6.2.90.
+	(OCTAVE_PATCH_VERSION): Set to 90.
+	(OCTAVE_RELEASE_DATE): Set to 2021-06-05.
+	(OCTAVE_API_VERSION): Set to api-v56.
+
+	* liboctave/module.mk, libgui/module.mk, libinterp/module.mk:
+	Bump version numbers for library revision.
+
+	Files: configure.ac libgui/module.mk libinterp/module.mk
+	liboctave/module.mk
+
+2021-06-05  Markus Mützel  <markus.muetzel@gmx.de>
+
+	Prepare NEWS file ahead of 6.3 release.
+
+	* NEWS: Add items from commit log.
+
+	Files: NEWS
+
+2021-05-28  Torsten Lilge  <ttl-octave@mailbox.org>
+
+	fix auto indentation of switch-strucutre in GUI editor (bug #60649)
+
+	* octave-qscintilla.cc (smart_indent): consider case ot otherwise
+	  already being correctly indented, unindent endswitch twice,
+	  (smart_indent_line_or_selected_text): remove duplicate handling of
+	  otherwise
+
+	Files: libgui/src/m-editor/octave-qscintilla.cc
+
+2021-05-21  Pantxo Diribarne  <pantxo.diribarne@gmail.com>
+
+	print: Fix error when "px" word is present in a figure (bug #60641)
+
+	* gl2ps-print.cc (gl2ps_renderer::draw): Only try to replace "px" at the same
+	  line as the "svg" element.
+
+	Files: libinterp/corefcn/gl2ps-print.cc
+
+2021-05-08  Mike Miller  <mtmiller@octave.org>
+
+	lscov.m: relax BIST tolerance to pass with OpenBLAS (bug #60552)
+
+	* lscov.m: Relax BIST tolerance from eps to 2*eps to allow test to pass.
+
+	Files: scripts/linear-algebra/lscov.m
+
+2021-05-16  Markus Mützel  <markus.muetzel@gmx.de>
+
+	Avoid ambiguous match of overloaded function (bug #60531).
+
+	* debug.cc (do_dbstack): Cast integer literal "0" to exact type.
+
+	Files: libinterp/corefcn/debug.cc
+
+2021-05-14  Rik  <rik@octave.org>
+
+	Return proper number of stack frames for dbstack (N) call (bug #60531).
+
+	* debug.cc (do_dbstack): Declare nskip as octave_idx_type rather than size_t.
+	When nskip > 0, use delete_elements() to remove stack frames.  Redo calculation
+	of current frame index such that it returns 0 (invalid) if number of skipped
+	frames is larger than current frame.
+
+	Files: libinterp/corefcn/debug.cc
+
+	doc: Spellcheck documentation ahead of 6.3 release.
+
+	* plot.txi, print.m: Spellcheck documentation ahead of 6.3 release.
+
+	Files: doc/interpreter/plot.txi scripts/plot/util/print.m
+
+	doc: Grammarcheck documentation ahead of 6.3 release.
+
+	* basics.txi, func.txi, plot.txi, help.cc, area.m, stairs.m,
+	subplot.m: Grammarcheck documentation ahead of 6.3 release.
+
+	Files: doc/interpreter/basics.txi doc/interpreter/func.txi
+	doc/interpreter/plot.txi libinterp/corefcn/help.cc
+	scripts/plot/draw/area.m scripts/plot/draw/stairs.m
+	scripts/plot/util/subplot.m
+
+2021-05-13  Rik  <rik@octave.org>
+
+	betainc.m, betaincinv.m: Correct non-Tex definition of beta incomplete integral.
+
+	* betainc.m, betaincinv.m: Add normalization factor 1/beta(a,b) to non-Tex
+	definition of beta incomplete integral.
+
+	Files: scripts/specfun/betainc.m scripts/specfun/betaincinv.m
+
+2021-05-12  Rik  <rik@octave.org>
+
+	maint: use std::size_t in more instances (bug #60471)
+
+	* file-editor-tab.cc, debug.cc, hook-fcn.h, variables.cc, lex.ll, pt-eval.cc,
+	pt-eval.h, file-ops.cc, lo-sysdep.cc, file-info.h, betaincinv.m,
+	mkoctfile.in.cc: use std::size_t rather than just size_t.
+
+	Files: libgui/src/m-editor/file-editor-tab.cc libinterp/corefcn/debug.cc
+	libinterp/corefcn/hook-fcn.h libinterp/corefcn/variables.cc
+	libinterp/parse-tree/lex.ll libinterp/parse-tree/pt-eval.cc
+	libinterp/parse-tree/pt-eval.h liboctave/system/file-ops.cc
+	liboctave/system/lo-sysdep.cc liboctave/util/file-info.h
+	scripts/specfun/betaincinv.m src/mkoctfile.in.cc
+
+2021-04-28  John W. Eaton  <jwe@octave.org>
+
+	use std::size_t and std::ptrdiff_t in C++ code (bug #60471)
+
+	Files affected: make_int.cc, file-editor-tab.cc, octave-qscintilla.cc,
+	Cell.cc, Cell.h, call-stack.cc, call-stack.h, cellfun.cc, data.cc,
+	debug.cc, dlmread.cc, error.cc, event-queue.h, fcn-info.cc,
+	fcn-info.h, file-io.cc, ft-text-renderer.cc, gl2ps-print.cc,
+	graphics.cc, graphics.in.h, help.cc, hex2num.cc, input.cc,
+	latex-text-renderer.cc, load-path.cc, load-save.cc, load-save.h,
+	ls-hdf5.cc, ls-mat-ascii.cc, ls-mat5.cc, ls-oct-text.cc, mex.cc,
+	mexproto.h, mxarray.h, oct-map.cc, oct-stream.cc, oct-stream.h,
+	pager.cc, pager.h, pr-output.cc, regexp.cc, settings.h,
+	stack-frame.cc, stack-frame.h, strfns.cc, syminfo.cc, symrec.h,
+	symscope.cc, symscope.h, symtab.cc, sysdep.cc, toplev.cc, utils.cc,
+	utils.h, variables.cc, __fltk_uigetfile__.cc, __init_fltk__.cc,
+	audioread.cc, gzip.cc, cdef-class.cc, cdef-manager.cc, cdef-method.cc,
+	cdef-object.cc, cdef-object.h, ov-base-diag.cc, ov-base-diag.h,
+	ov-base-mat.cc, ov-base-mat.h, ov-base-scalar.cc, ov-base-scalar.h,
+	ov-base-sparse.h, ov-base.cc, ov-base.h, ov-cell.cc, ov-cell.h,
+	ov-ch-mat.cc, ov-class.cc, ov-class.h, ov-classdef.cc,
+	ov-fcn-handle.cc, ov-java.cc, ov-lazy-idx.h, ov-perm.cc, ov-perm.h,
+	ov-range.h, ov-str-mat.cc, ov-struct.cc, ov-struct.h, ov-usr-fcn.cc,
+	ov-usr-fcn.h, ov.cc, ov.h, ovl.cc, octave.cc, bp-table.cc, jit-ir.cc,
+	jit-ir.h, jit-typeinfo.cc, jit-typeinfo.h, jit-util.h, lex.h, lex.ll,
+	oct-lvalue.cc, oct-parse.yy, parse.h, profiler.h, pt-eval.cc,
+	pt-eval.h, pt-jit.cc, pt-jit.h, pt-pr-code.cc, pt-tm-const.cc,
+	pt-tm-const.h, Array.h, CMatrix.cc, DiagArray2.h, PermMatrix.h,
+	Sparse.h, dMatrix.cc, fCMatrix.cc, fMatrix.cc, bsxfun-defs.cc,
+	oct-fftw.cc, oct-fftw.h, randpoisson.cc, sparse-chol.cc,
+	mx-inlines.cc, file-ops.cc, lo-sysdep.cc, oct-env.cc, oct-time.cc,
+	action-container.cc, action-container.h, base-list.h, caseless-str.h,
+	cmd-edit.cc, cmd-hist.cc, data-conv.cc, data-conv.h, f77-fcn.h,
+	file-info.cc, file-info.h, kpse.cc, kpse.h, lo-cutils.h, lo-hash.h,
+	lo-regexp.cc, oct-base64.cc, oct-base64.h, oct-binmap.h, oct-glob.cc,
+	oct-shlib.cc, oct-shlib.h, oct-sort.cc, oct-sparse.h, oct-string.cc,
+	quit.cc, unwind-prot.h, url-transfer.cc, main.in.cc, mkoctfile.in.cc,
+	and shared-fcns.h.
+	(grafted from aef11bb4e6d1f303ad9de5688fcb7244ef48867e)
+
+	Files: examples/code/make_int.cc libgui/src/m-editor/file-editor-tab.cc
+	libgui/src/m-editor/octave-qscintilla.cc libinterp/corefcn/Cell.cc
+	libinterp/corefcn/Cell.h libinterp/corefcn/call-stack.cc
+	libinterp/corefcn/call-stack.h libinterp/corefcn/cellfun.cc
+	libinterp/corefcn/data.cc libinterp/corefcn/debug.cc
+	libinterp/corefcn/dlmread.cc libinterp/corefcn/error.cc
+	libinterp/corefcn/event-queue.h libinterp/corefcn/fcn-info.cc
+	libinterp/corefcn/fcn-info.h libinterp/corefcn/file-io.cc
+	libinterp/corefcn/ft-text-renderer.cc libinterp/corefcn/gl2ps-
+	print.cc libinterp/corefcn/graphics.cc
+	libinterp/corefcn/graphics.in.h libinterp/corefcn/help.cc
+	libinterp/corefcn/hex2num.cc libinterp/corefcn/input.cc
+	libinterp/corefcn/load-path.cc libinterp/corefcn/load-save.cc
+	libinterp/corefcn/load-save.h libinterp/corefcn/ls-hdf5.cc
+	libinterp/corefcn/ls-mat-ascii.cc libinterp/corefcn/ls-mat5.cc
+	libinterp/corefcn/ls-oct-text.cc libinterp/corefcn/mex.cc
+	libinterp/corefcn/mexproto.h libinterp/corefcn/mxarray.in.h
+	libinterp/corefcn/oct-map.cc libinterp/corefcn/oct-stream.cc
+	libinterp/corefcn/oct-stream.h libinterp/corefcn/pager.cc
+	libinterp/corefcn/pager.h libinterp/corefcn/pr-output.cc
+	libinterp/corefcn/regexp.cc libinterp/corefcn/settings.h
+	libinterp/corefcn/stack-frame.cc libinterp/corefcn/stack-frame.h
+	libinterp/corefcn/strfns.cc libinterp/corefcn/syminfo.cc
+	libinterp/corefcn/symrec.h libinterp/corefcn/symscope.cc
+	libinterp/corefcn/symscope.h libinterp/corefcn/symtab.cc
+	libinterp/corefcn/sysdep.cc libinterp/corefcn/toplev.cc
+	libinterp/corefcn/utils.cc libinterp/corefcn/utils.h
+	libinterp/corefcn/variables.cc
+	libinterp/dldfcn/__fltk_uigetfile__.cc
+	libinterp/dldfcn/__init_fltk__.cc libinterp/dldfcn/audioread.cc
+	libinterp/dldfcn/gzip.cc libinterp/octave-value/cdef-class.cc
+	libinterp/octave-value/cdef-manager.cc libinterp/octave-value/cdef-
+	method.cc libinterp/octave-value/cdef-object.cc libinterp/octave-
+	value/cdef-object.h libinterp/octave-value/ov-base-diag.cc
+	libinterp/octave-value/ov-base-diag.h libinterp/octave-value/ov-
+	base-mat.cc libinterp/octave-value/ov-base-mat.h libinterp/octave-
+	value/ov-base-scalar.cc libinterp/octave-value/ov-base-scalar.h
+	libinterp/octave-value/ov-base-sparse.h libinterp/octave-value/ov-
+	base.cc libinterp/octave-value/ov-base.h libinterp/octave-value/ov-
+	cell.cc libinterp/octave-value/ov-cell.h libinterp/octave-value/ov-
+	ch-mat.cc libinterp/octave-value/ov-class.cc libinterp/octave-
+	value/ov-class.h libinterp/octave-value/ov-classdef.cc
+	libinterp/octave-value/ov-fcn-handle.cc libinterp/octave-value/ov-
+	java.cc libinterp/octave-value/ov-lazy-idx.h libinterp/octave-
+	value/ov-perm.cc libinterp/octave-value/ov-perm.h libinterp/octave-
+	value/ov-range.h libinterp/octave-value/ov-str-mat.cc
+	libinterp/octave-value/ov-struct.cc libinterp/octave-value/ov-
+	struct.h libinterp/octave-value/ov-usr-fcn.cc libinterp/octave-
+	value/ov-usr-fcn.h libinterp/octave-value/ov.cc libinterp/octave-
+	value/ov.h libinterp/octave-value/ovl.cc libinterp/octave.cc
+	libinterp/parse-tree/jit-ir.cc libinterp/parse-tree/jit-ir.h
+	libinterp/parse-tree/jit-typeinfo.cc libinterp/parse-tree/jit-
+	typeinfo.h libinterp/parse-tree/jit-util.h libinterp/parse-
+	tree/lex.h libinterp/parse-tree/lex.ll libinterp/parse-tree/oct-
+	lvalue.cc libinterp/parse-tree/oct-parse.yy libinterp/parse-
+	tree/parse.h libinterp/parse-tree/profiler.h libinterp/parse-
+	tree/pt-eval.cc libinterp/parse-tree/pt-eval.h libinterp/parse-
+	tree/pt-jit.cc libinterp/parse-tree/pt-jit.h libinterp/parse-
+	tree/pt-pr-code.cc libinterp/parse-tree/pt-tm-const.cc
+	libinterp/parse-tree/pt-tm-const.h liboctave/array/Array.h
+	liboctave/array/CMatrix.cc liboctave/array/DiagArray2.h
+	liboctave/array/PermMatrix.h liboctave/array/Sparse.h
+	liboctave/array/dMatrix.cc liboctave/array/fCMatrix.cc
+	liboctave/array/fMatrix.cc liboctave/numeric/bsxfun-defs.cc
+	liboctave/numeric/oct-fftw.cc liboctave/numeric/oct-fftw.h
+	liboctave/numeric/randpoisson.cc liboctave/numeric/sparse-chol.cc
+	liboctave/operators/mx-inlines.cc liboctave/system/file-ops.cc
+	liboctave/system/lo-sysdep.cc liboctave/system/oct-env.cc
+	liboctave/system/oct-time.cc liboctave/util/action-container.cc
+	liboctave/util/action-container.h liboctave/util/base-list.h
+	liboctave/util/caseless-str.h liboctave/util/cmd-edit.cc
+	liboctave/util/cmd-hist.cc liboctave/util/data-conv.cc
+	liboctave/util/data-conv.h liboctave/util/f77-fcn.h
+	liboctave/util/file-info.cc liboctave/util/file-info.h
+	liboctave/util/kpse.cc liboctave/util/kpse.h liboctave/util/lo-
+	cutils.h liboctave/util/lo-hash.h liboctave/util/lo-regexp.cc
+	liboctave/util/oct-base64.cc liboctave/util/oct-base64.h
+	liboctave/util/oct-binmap.h liboctave/util/oct-glob.cc
+	liboctave/util/oct-shlib.cc liboctave/util/oct-shlib.h
+	liboctave/util/oct-sort.cc liboctave/util/oct-string.cc
+	liboctave/util/quit.cc liboctave/util/unwind-prot.h
+	liboctave/util/url-transfer.cc src/main.in.cc src/mkoctfile.in.cc
+	src/shared-fcns.h
+
+	* lo-array-errwarn.cc: Include <limits>.   (bug #60470)
+	(grafted from 6d827dcde2b937ece40a1f5c4d6da1f14dfd8d18)
+
+	Files: liboctave/util/lo-array-errwarn.cc
+
+2021-05-11  Torsten Lilge  <ttl-octave@mailbox.org>
+
+	fix eol mode when saving files under new names (bug #60585)
+
+	* file-editor-tab.cc (notice_settings): read m_save_as_desired_eol from
+	  the settings file
+
+	Files: libgui/src/m-editor/file-editor-tab.cc
+
+2021-05-10  Markus Mützel  <markus.muetzel@gmx.de>
+
+	Fix error if test suite is run before Octave is installed (bug #60554).
+
+	* libinterp/octave-value/ov-usr-fcn.cc (mark_as_system_fcn_file),
+	  libinterp/octave-value/ov-dld-fcn.cc (octave_dld_function),
+	  libinterp/octave-value/ov-mex-fcn.cc (octave_mex_function): Use non-canonical
+	  path as a fallback.
+
+	Files: libinterp/octave-value/ov-dld-fcn.cc libinterp/octave-value/ov-mex-
+	fcn.cc libinterp/octave-value/ov-usr-fcn.cc
+
+2021-05-08  Markus Mützel  <markus.muetzel@gmx.de>
+
+	Mark compiled system functions correctly if OCTAVE_HOME is non-canonical (bug #60554).
+
+	* libinterp/octave-value/ov-dld-fcn.cc (octave_dld_function),
+	  libinterp/octave-value/ov-mex-fcn.cc (octave_mex_function): Canonicalize
+	  compiled function file directory before comparing strings.
+
+	Files: libinterp/octave-value/ov-dld-fcn.cc libinterp/octave-value/ov-mex-
+	fcn.cc
+
+	Mark system functions correctly if OCTAVE_HOME is non-canonical (bug #60554).
+
+	* libinterp/octave-value/ov-usr-fcn.cc (mark_as_system_fcn_file): Canonicalize
+	  function file directory before comparing strings.
+
+	Files: libinterp/octave-value/ov-usr-fcn.cc
+
+2021-05-06  Gene Harvey  <gharveymn@gmail.com>
+
+	unistd-wrappers.c: Allocate sufficient memory for new_argv (bug #60535).
+
+	* liboctave/wrappers/unistd-wrappers.c: Multiply number of elements in malloc
+	  for new_argv by size of char *.
+
+	Files: liboctave/wrappers/unistd-wrappers.c
+
+2021-05-05  Rik  <rik@octave.org>
+
+	betaincinv.m: Correctly handle inputs very close to 1.0 (bug #60528)
+
+	* betaincinv.m (newtons_method): if any value of x is greater than zero,
+	replace with 1-eps() to make the value minimally less than 1.  Add BIST test
+	for bug #60528.
+
+	Files: scripts/specfun/betaincinv.m
+
+	betaincinv.m: Correctly handle small inputs (bug #60528)
+
+	* betaincinv.m (newtons_method): if any value of x is less than zero, replace
+	with eps() to make the value minimally positive.  Add BIST test for bug #60528.
+
+	Files: scripts/specfun/betaincinv.m
+
+2021-04-30  Markus Mützel  <markus.muetzel@gmx.de>
+
+	pkg.m: Use default prefixes unless otherwise set previously (bug #60472).
+
+	* scripts/pkg/pkg.m: Use default prefixes for global or local store unless a
+	  prefix was set manually.
+
+	Files: scripts/pkg/pkg.m
+
+2021-04-29  John W. Eaton  <jwe@octave.org>
+
+	avoid crash in GUI for rmdir("") (bug #60473)
+
+	* file-editor.cc (handle_remove_file): Avoid out of bounds indexing
+	for QString object.
+
+	Files: libgui/src/m-editor/file-editor.cc
+
+2021-04-23  Markus Mützel  <markus.muetzel@gmx.de>
+
+	qz.cc: Let test pass with LAPACK 3.9.1 and earlier versions (bug #60357).
+
+	* libinterp/corefcn/qz.cc: Re-phrase BIST to have it pass with the results
+	  returned by LAPACK 3.9.1 and with the (differing) result returned by earlier
+	  versions.
+	(grafted from 33556123b892449d14fb90fe1a7c0b244f0bc3d1)
+
+	Files: libinterp/corefcn/qz.cc
+
+2021-04-23  Rik  <rik@octave.org>
+
+	qz.cc: return correct number of eigenvalues (bug #60357).
+
+	* qz.cc (Fqz): Change docstring to emphasize that QZ factorization is the main
+	output, and eigenvalues are secondary.  Don't truncate number of eigenvalues
+	to the number returned by LAPACK.  For eigenvalues that are not defined,
+	return Inf as the eig() function does.
+	(grafted from 06f4bb661d966b4ffd504a29685bb265b6350395)
+
+	Files: libinterp/corefcn/qz.cc
+
+2021-04-24  Markus Mützel  <markus.muetzel@gmx.de>
+
+	build: Make relocation of dependencies with Octave optional (bug #60413).
+
+	* configure.ac: Add new option "--enable-relocate-all".
+	* build-aux/subst-config-vals.in.sh, build-aux/subst-cross-config-vals.in.sh:
+	  Replace parts of flags that match the prefix only optionally.
+	* src/mkoctfile.in.cc (replace_prefix): Only replace arts of flags that match
+	  the prefix only if configured to do so.
+
+	Files: build-aux/subst-config-vals.in.sh build-aux/subst-cross-config-
+	vals.in.sh configure.ac src/mkoctfile.in.cc
+
+2021-04-20  John W. Eaton  <jwe@octave.org>
+
+	perform shutdown actions in interpreter destructor (bug #60334)
+
+	* interpreter.cc (interpreter::~interpreter): Call shutdown.
+	(interpreter::shutdown): Return immediately if m_initialized is
+	false and set m_initialized to false to prevent shutdown from being
+	executed recursively.
+	* embedded.cc (main): Don't call shutdown for interpreter object.
+	* octave.cc (cli_application::execute): Likewise.
+
+	Files: examples/code/embedded.cc libinterp/corefcn/interpreter.cc
+	libinterp/octave.cc
+
+2021-04-14  Markus Mützel  <markus.muetzel@gmx.de>
+
+	mpoles.m: Fix detection of pole multiplicity (bug #60384).
+
+	* scripts/polynomial/mpoles.m: Fix detection of pole multiplicity. Adjust
+	  documentation. Always return column vector for ORDR. Add BIST.
+	* scripts/polynomial/residue.m: Adapt BIST. Add BIST.
+	(grafted from 852489d1fcb8d9e6c48b3e9ce587e407cc698aa1)
+
+	Files: scripts/polynomial/mpoles.m scripts/polynomial/residue.m
+
+2021-04-08  Rik  <rik@octave.org>
+
+	doc: Use Texinfo commands to improve transpose() docstring rendering.
+
+	* data.cc (Ftranspose): Use '@:' syntax to remove excess spacing after a
+	non-sentence ending period.
+	* data.cc (Fuplus): Remove "minus" from @seealso link to make docstring
+	consistent with Fuminus.
+
+	Files: libinterp/corefcn/data.cc
+
+	doc: Update keyword docstrings (bug #60275).
+
+	* op-kw-docs: Revamp the documentation for keywords.
+
+	Files: libinterp/op-kw-docs
+
+	doc: Explain how to write dual-purpose executable scripts and Octave functions (bug #60291).
+
+	* basics.txi: Add new node "Dual-Purpose Executable Scripts and Octave Functions".
+	Add documentation for topic.
+
+	* octave.texi: Add new node to @detailmenu listing.
+
+	Files: doc/interpreter/basics.txi doc/interpreter/octave.texi
+
+2021-04-08  John W. Eaton  <jwe@octave.org>
+
+	issue warning when gnuplot graphics toolkit is initialized
+
+	* __init_gnuplot__.cc (gnuplot_graphics_toolkit constructor):
+	Issue warning on the first call.
+
+	Files: libinterp/dldfcn/__init_gnuplot__.cc
+
+2021-04-05  Rik  <rik@octave.org>
+
+	isprop.m: Document that function only works on graphics objects in Octave 6.X (bug #60295)
+
+	isprop.m: Document that function only works on graphics objects in Octave 6.X,
+	but that it has already been extended to classdef objects on the development
+	branch.
+
+	Files: scripts/plot/util/isprop.m
+
+2021-04-01  Markus Mützel  <markus.muetzel@gmx.de>
+
+	eigs: Prevent possible segmentation fault at exit (bug #60311).
+
+	* libinterp/corefcn/__eigs__.cc (F__eigs__): Reset static variable "eigs_fcn"
+	  on function exit.
+
+	Files: libinterp/corefcn/__eigs__.cc
+
+2021-03-30  John W. Eaton  <jwe@octave.org>
+
+	hold references to closure frames in anon functions if needed (bug #60237)
+
+	If an anonymous function is created in a scope where there are
+	nested functions it may need to have access to the stack frames that
+	are active when the anonymous function is created (the same as for
+	handles to nested functions) in addition to any captured variables
+	from the immediate stack frame.
+
+	Similar to the previous change for breaking circular reference cycles
+	for handles to nested functions, we now perform a similar action for
+	anonymous function handles.
+
+	* ov-fcn-handle.h, ov-fcn-handle.cc (base_anonymous_fcn_handle):
+	New base class for anonymous functions.
+	(anonymous_fcn_handle, weak_anonymous_handle): New classes to
+	represent anonymous function handles.  Currently all handles to
+	anonymous functions begin as anonymous_fcn_handle objects but are
+	convert to weak_anonymous_handle objects when the functions where they
+	are created return.
+
+	* pt-fcn-handle.cc (tree_anon_fcn_handle::evaluate): If handle is
+	created in context containing nested functions, pass current stack
+	frame context to function handle object.
+	* call-stack.h, call-stack.cc (call_stack::push): In overload for
+	anonymous functions that includes local_vars as an argument, also
+	accept closure frames.
+	* pt-eval.h, pt-eval.cc (tree_evaluator::push_stack_frame): Likewise.
+
+	* stack-frame.h, stack-frame.cc (stack_frame::user_fcn_stack_frame):
+	In constructor for anonymous functions that includes local_vars as an
+	argument, also accept closure frames (access_link) and handle it the
+	same way as for frames created for calls to nested fucntions.
+
+	* ov.cc (octave_value::break_closure_cycles): Also check for
+	anonymous function handles.
+
+	* test/bug-60237/bug-60237.tst, test/bug-60237/bug_60237.m,
+	test/bug-60237/module.mk: New files for test.
+	* test/module.mk: Update.
+
+	Files: libinterp/corefcn/call-stack.cc libinterp/corefcn/call-stack.h
+	libinterp/corefcn/stack-frame.cc libinterp/corefcn/stack-frame.h
+	libinterp/octave-value/ov-fcn-handle.cc libinterp/octave-value/ov-
+	fcn-handle.h libinterp/octave-value/ov.cc libinterp/parse-tree/pt-
+	eval.cc libinterp/parse-tree/pt-eval.h libinterp/parse-tree/pt-fcn-
+	handle.cc test/bug-60237/bug-60237.tst test/bug-60237/bug_60237.m
+	test/bug-60237/module.mk test/module.mk
+
+2021-03-05  John W. Eaton  <jwe@octave.org>
+
+	avoid memory leaks when returning handles to nested functions
+
+	When a handle to a nested function is created with a std::shared_ptr
+	object holding a reference to the stack frames associated with the
+	parent function, we create a circular reference because the referenced
+	stack frame contains the function handle object.  To break the link,
+	we'll scan the stack frame associated with the nested function handle
+	and convert the shared_ptr links to be weak_ptr links instead,
+	breaking the circular reference allowing the resources held by the
+	closure frames to be released when all external references are cleared.
+
+	Another possible solution to this problem is to create weak_ptr links
+	initially and then convert them to shared_ptr links when the closure
+	"escapes" the scope of the function.  While that might be slightly
+	more efficient (we would only have to look at assignments to global
+	variables and the values that are actually returned from the
+	function) the current design of global assignments does not make that
+	easy because it is possible to ask for a reference to a global
+	variable, so either all places where we grab references and then later
+	perform assignments must be checked for assignments of handles to
+	nested functions, or we must eliminate the interface that returns
+	references to global variables and only allow assignments so that we
+	would only have to perform the check in the assignment function(s).
+	Perhaps this can be done in a future version, but for now, it works
+	well enough to break the closure cycles in local variables when a
+	function returns.
+
+	* call-stack.cc (call_stack::pop): If popped stack frame is a closure
+	context, then break closure cycles.
+
+	* stack-frame.h, stack-frame.cc (stack_frame::m_is_closure_context):
+	New member variable.
+	(stack_frame::break_closure_cycles,
+	user_fcn_stack_frame::break_closure_cycles): New functions.
+	(stack_frame::mark_closure_context, stack_frame::is_closure_context):
+	New functions.
+
+	* ov-fcn-handle.h, ov-fcn-handle.cc (base_nested_fcn_handle):
+	New base class for handles to nested functions.
+	(nested_fcn_handle, weak_nested_fcn_handle): New classes to represent
+	handles to nested functions.  Currently, all handles to nested
+	functions begin as nested_fcn_handle objects but are converted to
+	weak_nested_fcn_handles when the functions where they are created
+	return.
+	(base_fcn_handle::is_nested (const std::shared_ptr<stack_frame>&) const,
+	base_fcn_handle::make_weak_nested_handle,
+	New virtual functions.
+	(octave_fcn_handle::is_nested, octave_fcn_handle::is_weak_nested,
+	octave_fcn_handle::make_weak_nested_handle): New functions.
+
+	* ov-struct.h, ov-struct.cc (octave_scalar_map::break_closure_cycles,
+	octave_map::break_closure_cycles): New functions.
+	* ov.h, ov.cc (octave_value::break_closure_cycles): New function.
+	* ov-base.h (octave_base_value::break_closure_cycles): New virtual function.
+	* cdef-object.h (cdef_object::break_closure_cycles): New function.
+	(cdef_object_rep::break_closure_cycles): New virtual function.
+	* cdef-object.h, cdef-object.cc (cdef_object_scalar::break_closure_cycles):
+	New function.
+	* ov-cell.h, ov-cell.cc (octave_cell::break_closure_cycles): New function.
+	* ov-class.h, ov-class.cc (octave_class::break_closure_cycles): New function.
+	* ov-classdef.h (octave_classdef::break_closure_cycles): New function.
+
+	Files: libinterp/corefcn/call-stack.cc libinterp/corefcn/stack-frame.cc
+	libinterp/corefcn/stack-frame.h libinterp/octave-value/cdef-
+	object.cc libinterp/octave-value/cdef-object.h libinterp/octave-
+	value/ov-base.h libinterp/octave-value/ov-cell.cc libinterp/octave-
+	value/ov-cell.h libinterp/octave-value/ov-class.cc libinterp/octave-
+	value/ov-class.h libinterp/octave-value/ov-classdef.h
+	libinterp/octave-value/ov-fcn-handle.cc libinterp/octave-value/ov-
+	fcn-handle.h libinterp/octave-value/ov-struct.cc libinterp/octave-
+	value/ov-struct.h libinterp/octave-value/ov.cc libinterp/octave-
+	value/ov.h
+
+2021-03-02  John W. Eaton  <jwe@octave.org>
+
+	defer clearing function vars until stack frame is deleted (bug #60137)
+
+	* pt-eval.cc (tree_evaluator::execute_user_function): Don't use
+	unwind_action object to clear local variables; they will be deleted
+	when the containing stack frame is deleted.
+
+	Files: libinterp/parse-tree/pt-eval.cc
+
+2021-03-23  Torsten Lilge  <ttl-octave@mailbox.org>
+
+	prevent floating widgets from reopening after restart (bug #60279)
+
+	* main-window.cc (set_window_layout): hide floating widget if not saved as
+	  visible in settings, since it was already made visible by resetting
+	  the window layout at startup before restoring the previous layout
+
+	Files: libgui/src/main-window.cc
+
+2021-03-20  Markus Mützel  <markus.muetzel@gmx.de>
+
+	doc: Expand on documentation for command syntax (bug #60084).
+
+	* doc/interpreter/func.txi: Rename section "Commands" to "Command Syntax and
+	  Function Syntax". Add information about how to pass strings with spaces in
+	  command syntax. Add information about command syntax and output arguments.
+	* doc/interpreter/octave.texi: Rename node.
+
+	Files: doc/interpreter/func.txi doc/interpreter/octave.texi
+
+	doc: Minor changes to documentation of single precision issues with OpenGL (bug #59418).
+
+	* doc/interpreter/plot.txi: Minor formatting. Add hint for similar strategies
+	  for other (non-datetime) data.
+	* doc/interpreter/octave.texi: Add section "Precision issues" to @detailmenu.
+
+	Files: doc/interpreter/octave.texi doc/interpreter/plot.txi
+
+	doc: Document single precision issues with OpenGL graphics toolkits (bug #59418).
+
+	* doc/interpreter/plot.txi: Add section about single precision issues with
+	  OpenGL graphics toolkits and possible work-arounds.
+	* doc/interpreter/plotimages.m, doc/interpreter/images: Add build rule for
+	  example figure.
+
+	Files: doc/interpreter/images doc/interpreter/plot.txi
+	doc/interpreter/plotimages.m
+
+2021-03-20  Torsten Lilge  <ttl-octave@mailbox.org>
+
+	fix restoring the horizontal position of docked gui widgets (bug #59426)
+
+	* main-window.cc (set_window_layout): reset the window layout before
+	  restoring it from the settings file, do not save layout after reset;
+	  (do_reset_windows): new second argument whether the new layout is saved
+	  in the settings
+
+	* main-window.h: new argument for do_reset_windows
+
+	Files: libgui/src/main-window.cc libgui/src/main-window.h
+
+2021-03-18  Torsten Lilge  <ttl-octave@mailbox.org>
+
+	fix crash when gui tries to restore missing previous octave dir (bug #60255)
+
+	* main-window.cc (handle_octave_ready): test length of current dir list
+	  before accessing the first element, using simplifying value function
+	  from derived gui-settings
+
+	Files: libgui/src/main-window.cc
+
+2021-03-15  Pantxo Diribarne  <pantxo.diribarne@gmail.com>
+
+	print.m: Warn when figure is too large to be printed to output page (bug #60236)
+
+	* __print_parse_opts__.m: Warn if the "paperposition" exceeds the boundaries of
+	  the output page.
+
+	Files: scripts/plot/util/private/__print_parse_opts__.m
+
+2021-03-14  Torsten Lilge  <ttl-octave@mailbox.org>
+
+	fix confirm overwrite for native editor file save as dialogs (bug #60214)
+
+	* file-editor-tab.cc (save_file_as): disable confirming file overwrite
+	  by native file dialogs, since not reliable in case of default suffixes
+	  (handle_save_file_as_answer): add manual test for existence of target
+	  file
+
+	Files: libgui/src/m-editor/file-editor-tab.cc
+
+	do not run files that are not saved as octave files (bug #60214)
+
+	* file-editor-tab.cc (run_file): check for valid file name and for octave
+	  file before running the file
+
+	Files: libgui/src/m-editor/file-editor-tab.cc
+
+2021-03-13  Torsten Lilge  <ttl-octave@mailbox.org>
+
+	fix missing file suffix m when saving a new script (bug #60214)
+
+	* file-editor-tab.cc (handle_save_as_filter_selected): ignore spurious
+	  filter selected signals;
+	  (handle_save_file_as_answer): as workaround for Qt bug 59401, test if
+	  a file suffix is missing although the dialog has a default suffix and add
+	  the missing suffix
+
+	Files: libgui/src/m-editor/file-editor-tab.cc
+
+2021-03-12  Markus Mützel  <markus.muetzel@gmx.de>
+
+	doc: Change example for Delaunay triangulation to match the generating code (bug #60216).
+
+	* doc/interpreter/geometry.txi: Show the same code in the example block that is
+	  used in geometryimages.m to generate the image.
+
+	Files: doc/interpreter/geometry.txi
+
+2021-03-10  Torsten Lilge  <ttl-octave@mailbox.org>
+
+	fix calling external editor (bug #60198)
+
+	* external-editor-interface.cc (call_custom_editor): separate program name
+	  and arguments
+
+	Files: libgui/src/external-editor-interface.cc
+
+2021-03-07  John W. Eaton  <jwe@octave.org>
+
+	fix context link when creating handle to nested function
+
+	* pt-eval.cc (tree_evaluator::make_fcn_handle): When creating a handle
+	to a nested from from inside that function, set context link to parent
+	stack frame.
+
+	Files: libinterp/parse-tree/pt-eval.cc
+
+2021-03-04  John W. Eaton  <jwe@octave.org>
+
+	avoid ambiguous call to pow (bug #60169)
+
+	* Table.cc (FORMATNUMBER): Avoid calling pow(int,int).
+
+	Files: libgui/graphics/Table.cc
+
+2021-03-08  Markus Mützel  <markus.muetzel@gmx.de>
+
+	doc: Add note that wildcard patterns for "save" are glob patterns (bug #60157).
+
+	* libinterp/corefcn/load-save.cc (Fsave): Add note that the supported wildcard
+	  patterns are glob patterns.
+
+	Files: libinterp/corefcn/load-save.cc
+
+2021-03-03  John W. Eaton  <jwe@octave.org>
+
+	check for stropts.h (bug #60163)
+
+	* configure.ac: Check for stropts.h and sys/stropts.h.
+	* kpty.cpp: Also optionally include <stropts.h>.
+
+	Files: configure.ac libgui/qterminal/libqterminal/unix/kpty.cpp
+
+2021-03-03  Markus Mützel  <markus.muetzel@gmx.de>
+
+	Fix compilation error with iconv_t on Solaris (bug #60162).
+
+	* liboctave/wrappers/iconv-wrappers.c: Use same function prototypes in
+	  definition as in declaration. Explicitly cast between (void *) and (iconv_t).
+
+	Files: liboctave/wrappers/iconv-wrappers.c
+
+2021-03-01  Jim Van Zandt  <jim.vanzandt@gmail.com>
+
+	fsolve.m: Fix undefined output error when using Output function (bug #60144).
+
+	* fsolve.m: Define "output" structure and "fjac" output when
+	solving is cut short by Output function.
+
+	Files: scripts/optimization/fsolve.m
+
+2021-02-23  Rik  <rik@octave.org>
+
+	Fix occasional segfault in symbfact (bug #60101).
+	Variables scoped to within an if block were used to populate a
+	variable passed to cholmod library.  However, when local variables
+	went out of scope garbage collection could alter the values at runtime.
+
+	* symbfact.cc: Declare *function* local variables sm (SparseMatrix) and scm
+	(SparseComplexMatrix) and use these to populate matrix A that is passed to
+	cholmod.
+
+	Files: libinterp/corefcn/symbfact.cc
+
+2021-02-22  Kai T. Ohlhus  <k.ohlhus@gmail.com>
+
+	doc: Update NEWS file for 6.2.0 release (bug #60085).
+
+	* NEWS: Add items from website.
+
+	Files: NEWS
+
+2021-02-21  Markus Mützel  <markus.muetzel@gmx.de>
+
+	ls-hdf5.cc: Handle non-zero terminated type strings (bug #60081).
+
+	* ls-hdf5.cc (hdf5_read_next_data_internal): Use only valid chars of type char
+	  array.
+
+	Files: libinterp/corefcn/ls-hdf5.cc
+
+	ls-hdf5.cc: Avoid throwing inside HDF5 function (bug #60081).
+
+	* ls-hdf5.cc (hdf5_read_next_data_internal): Don't throw an error inside a
+	  function that is called by the HDF5 library. Catch the exception and let the
+	  HDF5 library recover from any error cleanly instead.
+
+	Files: libinterp/corefcn/ls-hdf5.cc
+
+2021-02-15  Markus Mützel  <markus.muetzel@gmx.de>
+
+	doc: Clarify usage of "Depends" keyword in package DESCRIPTION file (bug #60053).
+
+	* doc/interpreter/package.txi (The DESCRIPTION File): Clarify that ranges for
+	  package version can be specified and that Octave core versions can be
+	  required.
+
+	Files: doc/interpreter/package.txi
+
 2021-02-19  John W. Eaton  <jwe@octave.org>
 
 	Added tag rc-6-1-90 for changeset 55008004bb9a

@@ -214,6 +214,15 @@ Configure miss: sqr1up in -lqrupdate
 Configure miss: st_dm_mode in struct stat
 Configure miss: st_dm_mode in struct stat
 Configure miss: st_dm_mode in struct stat
+Configure miss: stropts.h
+Configure miss: stropts.h
+Configure miss: stropts.h
+Configure miss: stropts.h presence
+Configure miss: stropts.h presence
+Configure miss: stropts.h presence
+Configure miss: stropts.h usability
+Configure miss: stropts.h usability
+Configure miss: stropts.h usability
 Configure miss: struct exception in math.h
 Configure miss: struct exception in math.h
 Configure miss: struct exception in math.h
@@ -295,18 +304,24 @@ Configure miss: suitesparse/umfpack.h usability
 Configure miss: sunlinsol/sunlinsol_klu.h
 Configure miss: sunlinsol/sunlinsol_klu.h
 Configure miss: sunlinsol/sunlinsol_klu.h
-Configure miss: sys/single_threaded.h
-Configure miss: sys/single_threaded.h
-Configure miss: sys/single_threaded.h
-Configure miss: sys/single_threaded.h presence
-Configure miss: sys/single_threaded.h presence
-Configure miss: sys/single_threaded.h presence
-Configure miss: sys/single_threaded.h usability
-Configure miss: sys/single_threaded.h usability
-Configure miss: sys/single_threaded.h usability
+Configure miss: sys/stropts.h
+Configure miss: sys/stropts.h
+Configure miss: sys/stropts.h
+Configure miss: sys/stropts.h presence
+Configure miss: sys/stropts.h presence
+Configure miss: sys/stropts.h presence
+Configure miss: sys/stropts.h usability
+Configure miss: sys/stropts.h usability
+Configure miss: sys/stropts.h usability
+Configure miss: sys/sysctl.h
+Configure miss: sys/sysctl.h
+Configure miss: sys/sysctl.h
 Configure miss: sys/sysmp.h
 Configure miss: sys/sysmp.h
 Configure miss: sys/sysmp.h
+Configure miss: sysctl
+Configure miss: sysctl
+Configure miss: sysctl
 Configure miss: sysmp
 Configure miss: sysmp
 Configure miss: sysmp
@@ -433,6 +448,9 @@ Configure miss: whether stl_algo.h is broken
 Configure miss: whether strmode is declared
 Configure miss: whether strmode is declared
 Configure miss: whether strmode is declared
+Configure miss: whether sys_siglist is declared
+Configure miss: whether sys_siglist is declared
+Configure miss: whether sys_siglist is declared
 Configure miss: whether the compiler is clang
 Configure miss: whether the compiler is clang
 Configure miss: whether the compiler is clang
