@@ -6,7 +6,7 @@
 #
 Name     : octave
 Version  : 6.3.0
-Release  : 29
+Release  : 30
 URL      : https://mirrors.kernel.org/gnu/octave/octave-6.3.0.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/octave/octave-6.3.0.tar.xz
 Source1  : https://mirrors.kernel.org/gnu/octave/octave-6.3.0.tar.xz.sig
@@ -15,6 +15,7 @@ Group    : Development/Tools
 License  : GPL-3.0
 Requires: octave-bin = %{version}-%{release}
 Requires: octave-data = %{version}-%{release}
+Requires: octave-filemap = %{version}-%{release}
 Requires: octave-lib = %{version}-%{release}
 Requires: octave-libexec = %{version}-%{release}
 Requires: octave-license = %{version}-%{release}
@@ -63,6 +64,7 @@ Group: Binaries
 Requires: octave-data = %{version}-%{release}
 Requires: octave-libexec = %{version}-%{release}
 Requires: octave-license = %{version}-%{release}
+Requires: octave-filemap = %{version}-%{release}
 
 %description bin
 bin components for the octave package.
@@ -89,12 +91,21 @@ Requires: octave = %{version}-%{release}
 dev components for the octave package.
 
 
+%package filemap
+Summary: filemap components for the octave package.
+Group: Default
+
+%description filemap
+filemap components for the octave package.
+
+
 %package lib
 Summary: lib components for the octave package.
 Group: Libraries
 Requires: octave-data = %{version}-%{release}
 Requires: octave-libexec = %{version}-%{release}
 Requires: octave-license = %{version}-%{release}
+Requires: octave-filemap = %{version}-%{release}
 
 %description lib
 lib components for the octave package.
@@ -104,6 +115,7 @@ lib components for the octave package.
 Summary: libexec components for the octave package.
 Group: Default
 Requires: octave-license = %{version}-%{release}
+Requires: octave-filemap = %{version}-%{release}
 
 %description libexec
 libexec components for the octave package.
@@ -133,15 +145,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1626116274
+export SOURCE_DATE_EPOCH=1633738273
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=4 -fno-semantic-interposition -mprefer-vector-width=256 "
-export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=4 -fno-semantic-interposition -mprefer-vector-width=256 "
-export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=4 -fno-semantic-interposition -mprefer-vector-width=256 "
-export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=4 -fno-semantic-interposition -mprefer-vector-width=256 "
+export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
 %configure --disable-static --enable-openmp \
 --disable-docs \
 --with-blas=openblas
@@ -149,11 +161,11 @@ make  %{?_smp_mflags}
 
 unset PKG_CONFIG_PATH
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=haswell"
-export CXXFLAGS="$CXXFLAGS -m64 -march=haswell"
-export FFLAGS="$FFLAGS -m64 -march=haswell"
-export FCFLAGS="$FCFLAGS -m64 -march=haswell"
-export LDFLAGS="$LDFLAGS -m64 -march=haswell"
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3"
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3"
+export FFLAGS="$FFLAGS -m64 -march=x86-64-v3"
+export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3"
+export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
 %configure --disable-static --enable-openmp \
 --disable-docs \
 --with-blas=openblas
@@ -161,29 +173,32 @@ make  %{?_smp_mflags}
 popd
 unset PKG_CONFIG_PATH
 pushd ../buildavx512/
-export CFLAGS="$CFLAGS -m64 -march=skylake-avx512 -mprefer-vector-width=256"
-export CXXFLAGS="$CXXFLAGS -m64 -march=skylake-avx512 -mprefer-vector-width=256"
-export FFLAGS="$FFLAGS -m64 -march=skylake-avx512 -mprefer-vector-width=256"
-export FCFLAGS="$FCFLAGS -m64 -march=skylake-avx512 -mprefer-vector-width=256"
-export LDFLAGS="$LDFLAGS -m64 -march=skylake-avx512"
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=256"
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=256"
+export FFLAGS="$FFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=256"
+export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=256"
+export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v4"
 %configure --disable-static --enable-openmp \
 --disable-docs \
 --with-blas=openblas
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1626116274
+export SOURCE_DATE_EPOCH=1633738273
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/octave
 cp %{_builddir}/octave-6.3.0/COPYING %{buildroot}/usr/share/package-licenses/octave/31a3d460bb3c7d98845187c716a30db81c44b615
+cp %{_builddir}/octave-6.3.0/doc/interpreter/octave.html/Copying.html %{buildroot}/usr/share/package-licenses/octave/f27799cab49d25227f5cdeb79b9deb2650a47931
 cp %{_builddir}/octave-6.3.0/doc/liboctave/liboctave.html/Copying.html %{buildroot}/usr/share/package-licenses/octave/9bdab8329d4a0fcd61e7b9b9f8d0413687cb0c4f
 cp %{_builddir}/octave-6.3.0/test/pkg/mfile_basic_test/COPYING %{buildroot}/usr/share/package-licenses/octave/21f3db650be936f00c242e559a23b6a16eaf9318
 cp %{_builddir}/octave-6.3.0/test/pkg/mfile_minimal_test/COPYING %{buildroot}/usr/share/package-licenses/octave/21f3db650be936f00c242e559a23b6a16eaf9318
-pushd ../buildavx512/
-%make_install_avx512
-popd
 pushd ../buildavx2/
-%make_install_avx2
+%make_install_v3
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+popd
+pushd ../buildavx512/
+%make_install_v4
+/usr/bin/elf-move.py avx512 %{buildroot}-v4 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 popd
 %make_install
 
@@ -205,22 +220,6 @@ popd
 
 %files bin
 %defattr(-,root,root,-)
-/usr/bin/haswell/avx512_1/mkoctfile
-/usr/bin/haswell/avx512_1/mkoctfile-6.3.0
-/usr/bin/haswell/avx512_1/octave
-/usr/bin/haswell/avx512_1/octave-6.3.0
-/usr/bin/haswell/avx512_1/octave-cli
-/usr/bin/haswell/avx512_1/octave-cli-6.3.0
-/usr/bin/haswell/avx512_1/octave-config
-/usr/bin/haswell/avx512_1/octave-config-6.3.0
-/usr/bin/haswell/mkoctfile
-/usr/bin/haswell/mkoctfile-6.3.0
-/usr/bin/haswell/octave
-/usr/bin/haswell/octave-6.3.0
-/usr/bin/haswell/octave-cli
-/usr/bin/haswell/octave-cli-6.3.0
-/usr/bin/haswell/octave-config
-/usr/bin/haswell/octave-config-6.3.0
 /usr/bin/mkoctfile
 /usr/bin/mkoctfile-6.3.0
 /usr/bin/octave
@@ -229,6 +228,7 @@ popd
 /usr/bin/octave-cli-6.3.0
 /usr/bin/octave-config
 /usr/bin/octave-config-6.3.0
+/usr/share/clear/optimized-elf/bin*
 
 %files data
 %defattr(-,root,root,-)
@@ -2571,26 +2571,12 @@ popd
 /usr/lib64/pkgconfig/octave.pc
 /usr/lib64/pkgconfig/octinterp.pc
 
+%files filemap
+%defattr(-,root,root,-)
+/usr/share/clear/filemap/filemap-octave
+
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/octave/6.3.0/haswell/avx512_1/liboctave.so
-/usr/lib64/octave/6.3.0/haswell/avx512_1/liboctave.so.8
-/usr/lib64/octave/6.3.0/haswell/avx512_1/liboctave.so.8.0.2
-/usr/lib64/octave/6.3.0/haswell/avx512_1/liboctgui.so
-/usr/lib64/octave/6.3.0/haswell/avx512_1/liboctgui.so.6
-/usr/lib64/octave/6.3.0/haswell/avx512_1/liboctgui.so.6.1.0
-/usr/lib64/octave/6.3.0/haswell/avx512_1/liboctinterp.so
-/usr/lib64/octave/6.3.0/haswell/avx512_1/liboctinterp.so.9
-/usr/lib64/octave/6.3.0/haswell/avx512_1/liboctinterp.so.9.0.0
-/usr/lib64/octave/6.3.0/haswell/liboctave.so
-/usr/lib64/octave/6.3.0/haswell/liboctave.so.8
-/usr/lib64/octave/6.3.0/haswell/liboctave.so.8.0.2
-/usr/lib64/octave/6.3.0/haswell/liboctgui.so
-/usr/lib64/octave/6.3.0/haswell/liboctgui.so.6
-/usr/lib64/octave/6.3.0/haswell/liboctgui.so.6.1.0
-/usr/lib64/octave/6.3.0/haswell/liboctinterp.so
-/usr/lib64/octave/6.3.0/haswell/liboctinterp.so.9
-/usr/lib64/octave/6.3.0/haswell/liboctinterp.so.9.0.0
 /usr/lib64/octave/6.3.0/liboctave.so
 /usr/lib64/octave/6.3.0/liboctave.so.8
 /usr/lib64/octave/6.3.0/liboctave.so.8.0.2
@@ -2600,14 +2586,17 @@ popd
 /usr/lib64/octave/6.3.0/liboctinterp.so
 /usr/lib64/octave/6.3.0/liboctinterp.so.9
 /usr/lib64/octave/6.3.0/liboctinterp.so.9.0.0
+/usr/share/clear/optimized-elf/lib*
 
 %files libexec
 %defattr(-,root,root,-)
 /usr/libexec/octave/6.3.0/exec/x86_64-generic-linux-gnu/octave-gui
 /usr/libexec/octave/6.3.0/exec/x86_64-generic-linux-gnu/octave-svgconvert
+/usr/share/clear/optimized-elf/exec*
 
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/octave/21f3db650be936f00c242e559a23b6a16eaf9318
 /usr/share/package-licenses/octave/31a3d460bb3c7d98845187c716a30db81c44b615
 /usr/share/package-licenses/octave/9bdab8329d4a0fcd61e7b9b9f8d0413687cb0c4f
+/usr/share/package-licenses/octave/f27799cab49d25227f5cdeb79b9deb2650a47931

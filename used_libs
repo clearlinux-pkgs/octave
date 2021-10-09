@@ -19,7 +19,6 @@ libcholmod.so.3
 libcolamd.so.2
 libcurl.so.4
 libcxsparse.so.3
-libdl.so.2
 libfftw3.so.3
 libfftw3_threads.so.3
 libfftw3f.so.3
@@ -33,9 +32,9 @@ libgfortran.so.5
 libgomp.so.1
 libhdf5.so.103
 libm.so.6
+libmvec.so.1
 libopenblas.so.0
 libpcre.so.1
-libpthread.so.0
 libqhull.so.7
 libreadline.so.8
 libsndfile.so.1
@@ -44,5 +43,4 @@ libsuitesparseconfig.so.5
 libsundials_ida.so.5
 libtinfo.so.6
 libumfpack.so.5
-libutil.so.1
 libz.so.1
