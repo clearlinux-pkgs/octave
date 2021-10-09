@@ -6,7 +6,7 @@
 #
 Name     : octave
 Version  : 6.3.0
-Release  : 31
+Release  : 32
 URL      : https://mirrors.kernel.org/gnu/octave/octave-6.3.0.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/octave/octave-6.3.0.tar.xz
 Source1  : https://mirrors.kernel.org/gnu/octave/octave-6.3.0.tar.xz.sig
@@ -145,7 +145,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1633810010
+export SOURCE_DATE_EPOCH=1633819471
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -184,7 +184,7 @@ export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v4"
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1633810010
+export SOURCE_DATE_EPOCH=1633819471
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/octave
 cp %{_builddir}/octave-6.3.0/COPYING %{buildroot}/usr/share/package-licenses/octave/31a3d460bb3c7d98845187c716a30db81c44b615
