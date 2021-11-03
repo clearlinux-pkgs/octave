@@ -1,3 +1,243 @@
+2021-10-30  John W. Eaton  <jwe@octave.org>
+
+	bump stable branch version after release
+
+	* configure.ac (AC_INIT): Set version to 6.4.1.
+	(OCTAVE_PATCH_VERSION): Now 1.
+
+	Files: configure.ac
+
+	Added tag release-6-4-0 for changeset 8d7671609955
+
+	Files: .hgtags
+
+	Version 6.4.0 released.
+
+	* configure.ac (AC_INIT): Set version to 6.4.0.
+	(OCTAVE_MINOR_VERSION): Now 4.
+	(OCTAVE_PATCH_VERSION): Now 0.
+	(OCTAVE_RELEASE_DATE): Set to "2021-10-30".
+	* etc/icons/org.octave.Octave.appdata.xml: Add release info for
+	version 6.4.0.
+	* CITATION: Update for 6.4.0.
+	* NEWS: Update release date.
+
+	Files: CITATION NEWS configure.ac etc/icons/org.octave.Octave.appdata.xml
+
+2021-10-28  Markus Mützel  <markus.muetzel@gmx.de>
+
+	NEWS: Update with latest changes ahead of release.
+
+	* NEWS: Add items from commit log.
+
+	Files: NEWS
+
+2021-10-25  Petter Tomner  <tomner@kth.se>
+
+	build: Correct error message for incompatible CXSparse (bug #61385).
+
+	* configure.ac: Replace "--disable-cxsparse" with "--without-cxsparse" in error
+	  message.
+
+	Files: configure.ac
+
+2021-10-19  John W. Eaton  <jwe@octave.org>
+
+	bump stable branch version after release candidate
+
+	* configure.ac (AC_INIT): Set version to 6.3.91.
+	(OCTAVE_PATCH_VERSION): Now 91.
+
+	Files: configure.ac
+
+	Added tag rc-6-3-90 for changeset 3dc9decc98f9
+
+	Files: .hgtags
+
+	bump version for 6.3.90 release candidate
+
+	* configure.ac (AC_INIT): Set version to 6.3.90.
+	(OCTAVE_PATCH_VERSION): Set to 90.
+	(OCTAVE_RELEASE_DATE): Set to 2021-10-19.
+
+	Files: configure.ac
+
+2021-10-08  Arun Giridhar  <arungiridhar@gmail.com>
+
+	doc: Document fsolve output "info" -2 (bug #61310).
+
+	* scripts/optimization/fsolve.m: Document output "info" being -2.
+
+	Files: scripts/optimization/fsolve.m
+
+2021-10-03  Markus Mützel  <markus.muetzel@gmx.de>
+
+	Prepare NEWS file ahead of 6.4 release.
+
+	* NEWS: Add items from commit log.
+
+	Files: NEWS
+
+2021-10-01  Markus Mützel  <markus.muetzel@gmx.de>
+
+	doc: Add Hungarian translation for project description files.
+
+	* octave.doap, etc/icons/org.octave.Octave.appdata.xml,
+	  etc/icons/org.octave.Octave.desktop.in: Add Hungarian translation provided by
+	  user "ovari" on GitHub.
+	  See https://github.com/flathub/org.octave.Octave/issues/184
+
+	Files: etc/icons/org.octave.Octave.appdata.xml
+	etc/icons/org.octave.Octave.desktop.in octave.doap
+
+2021-09-24  Markus Mützel  <markus.muetzel@gmx.de>
+
+	rmpath: Prevent removing the current directory from the load path (bug #61216).
+
+	* libinterp/corefcn/load-path.cc (load_path::remove): Prevent removing the
+	  current directory from the load path when using relative paths.
+
+	Files: libinterp/corefcn/load-path.cc
+
+2021-09-21  John W. Eaton  <jwe@octave.org>
+
+	avoid internal error and segfault with eval and scripts (bug #61191)
+
+	* stack-frame.cc (script_stack_frame::get_val_offsets_with_insert):
+	If frame_offset is initially zero then update frame_offset from
+	m_lexical_frame_offsets after calling set_script_offsets_internal.
+
+	* test/bug-61191/bug-61191.tst, test/bug-61191/subdir/bug_61191.m:
+	New files.
+	* test/bug-61191/module.mk: Update.
+	* test/module.mk: Update.
+
+	Files: libinterp/corefcn/stack-frame.cc test/bug-61191/bug-61191.tst
+	test/bug-61191/module.mk test/bug-61191/subdir/bug_61191.m
+	test/module.mk
+
+2021-09-14  Nicholas R. Jankowski  <jankowskin@asme.org>
+
+	dsearchn.m: Added optional distance ouput description to docstring (bug #61156)
+
+	* dsearchn.m: Document optional output 'd'.
+
+	Files: scripts/geometry/dsearchn.m
+
+2021-09-01  John W. Eaton  <jwe@octave.org>
+
+	store parent name in function object when caching parents in scope (bug #61105)
+
+	* symscope.h, symscope.cc (symbol_scope_rep::cache_parent_fcn_names):
+	Also store parent function name in function object.
+
+	* bug-61105/bug-61105.tst, bug-61105/nested_test_1.m,
+	bug-61105/nested_test_2.m, bug-61105/nested_test_3.m: New test files.
+	* test/bug-61105/module.mk: New file.
+	* test/module.mk: Update.
+
+	Files: libinterp/corefcn/symscope.cc libinterp/corefcn/symscope.h
+	test/bug-61105/bug-61105.tst test/bug-61105/module.mk
+	test/bug-61105/nested_test_1.m test/bug-61105/nested_test_2.m
+	test/bug-61105/nested_test_3.m test/module.mk
+
+2021-08-21  Markus Mützel  <markus.muetzel@gmx.de>
+
+	pkg: Improve similar package name suggestion (bug #61067).
+
+	* scripts/pkg/private/get_forge_pkg.m (fdist): Reduce distance added for
+	  additional characters or wrong case. Minor style changes.
+
+	Files: scripts/pkg/private/get_forge_pkg.m
+
+2021-08-16  Markus Mützel  <markus.muetzel@gmx.de>
+
+	cbrt: Clarify that function errors for non-real input.
+
+	* libinterp/corefcn/mappers.cc (Fcbrt): Clarify that function errors for
+	  non-real input.
+
+	Files: libinterp/corefcn/mappers.cc
+
+2021-07-31  Torsten Lilge  <ttl-octave@mailbox.org>
+
+	fix opening a file in a custom editor (bug #60990)
+
+	* external-editor-interface.cc (call_custom_editor): call custom editor
+	  even for valid line numbers, avoid negative line numbers
+
+	* file-editor.cc (request_open_file): check preference for custom editor
+	  and if set, do nothing in case of debugging
+
+	Files: libgui/src/external-editor-interface.cc libgui/src/m-editor/file-
+	editor.cc
+
+	fix missing interpreter event in octave-scintilla
+
+	* octave-qscintilla.h: declare missing
+	  interpreter_event (const fcn_callback& fcn)
+
+	Files: libgui/src/m-editor/octave-qscintilla.h
+
+2021-07-30  José Luis García Pallero  <jgpallero@gmail.com>
+
+	doc: disable_diagonal_matrix, disable_diagonal_matrix, and disable_range (patch #10089).
+
+	* libinterp/octave-value/ov.cc (Fdisable_diagonal_matrix,
+	  Fdisable_diagonal_matrix, Fdisable_range): Clarify that the input and output
+	  arguments specify whether the corresponding special matrix types are disabled.
+
+	Files: libinterp/octave-value/ov.cc
+
+2021-07-25  Markus Mützel  <markus.muetzel@gmx.de>
+
+	interp1.m: Don't interpret later numeric input as "xi" (bug #60967).
+
+	* scripts/general/interp1.m: Fix input check to potentially interpret only the
+	  first optional argument as "xi". Add tests that have numeric "extrap" value.
+
+	Files: scripts/general/interp1.m
+
+2021-07-22  John W. Eaton  <jwe@octave.org>
+
+	disable getopt error reporting in wrapper program (bug #60886)
+
+	* getopt-wrapper.h, getopt-wrapper.c (octave_get_opterr_wrapper,
+	octave_set_opterr_wrapper): New functions.
+	* main.in.cc (main): Call octave_set_opterr_wrapper to disable getopt
+	error reporting.
+
+	Files: liboctave/wrappers/getopt-wrapper.c liboctave/wrappers/getopt-
+	wrapper.h src/main.in.cc
+
+2021-07-22  Markus Mützel  <markus.muetzel@gmx.de>
+
+	main.cc: Remove invalid case (bug #60886).
+
+	* src/main.in.cc (main): Remove invalid case. Fix typo.
+
+	Files: src/main.in.cc
+
+2021-07-18  Markus Mützel  <markus.muetzel@gmx.de>
+
+	main.cc: Use getopt to parse command line arguments (bug #60886).
+
+	* src/main.in.cc (main): Use getopt to parse command line arguments.
+	* libinterp/options-usage.h: Split into options.h and usage.h.
+	* libinterp/options.h (octave_getopt_options long_opts): Add command line
+	  options "force-gui" and "no-gui-libs" to struct.
+	(grafted from bc19d9360bace492accb86414badda5ab9ba8cde)
+
+	Files: libinterp/module.mk libinterp/octave.cc libinterp/octave.h
+	libinterp/options-usage.h libinterp/options.h libinterp/usage.h
+	src/main.in.cc
+
+2021-07-14  Rik  <rik@octave.org>
+
+	maint: merge away extra head on stable branch.
+
+	Files: 
+
 2021-07-11  John W. Eaton  <jwe@octave.org>
 
 	bump version info after 6.3.0 release
@@ -22,6 +262,22 @@
 	* NEWS: Update release date.
 
 	Files: NEWS configure.ac etc/icons/org.octave.Octave.appdata.xml
+
+2021-07-08  Rik  <rik@octave.org>
+
+	hgsave.m, copyobj.m: Use 'qt' graphics toolkit in BISTs.
+
+	hgsave.m, copyobj.m: Use %!testif to check for 'qt' toolkit before running
+	specific BISTs.
+
+	Files: scripts/plot/util/copyobj.m scripts/plot/util/hgsave.m
+
+	Reduce memory usage in BIST tests for copyobj, hgsave (bug #57591)
+
+	* copyobj.m, hgsave.m: Use option '-r100' in print() code in BISTs to reduce
+	resolution and save memory.
+
+	Files: scripts/plot/util/copyobj.m scripts/plot/util/hgsave.m
 
 2021-07-03  Markus Mützel  <markus.muetzel@gmx.de>
 
@@ -2825,26 +3081,6 @@
 
 	Files: scripts/sparse/eigs.m
 
-2020-05-21  John W. Eaton  <jwe@octave.org>
-
-	tmp: graphics manager locking
-
-	Files: libgui/graphics/BaseControl.cc libgui/graphics/ButtonControl.cc
-	libgui/graphics/ButtonGroup.cc libgui/graphics/Canvas.cc
-	libgui/graphics/Container.cc libgui/graphics/ContextMenu.cc
-	libgui/graphics/Figure.cc libgui/graphics/GLCanvas.cc
-	libgui/graphics/Object.cc libgui/graphics/Panel.cc
-	libgui/graphics/SliderControl.cc libgui/graphics/Table.cc
-	libgui/graphics/qt-graphics-toolkit.cc libgui/src/graphics-init.cc
-	libinterp/corefcn/graphics.cc libinterp/corefcn/graphics.in.h
-	libinterp/corefcn/utils.cc
-
-	tmp: graphics object locking
-
-	Files: libinterp/corefcn/graphics.cc libinterp/corefcn/graphics.in.h
-
-2021-01-05  Markus Mützel  <markus.muetzel@gmx.de>
-
 	tests: Make tests that depend on CXSparse conditional.
 
 	* libinterp/corefcn/qr.cc, scripts/sparse/spaugment.m, test/mk-sparse-tst.sh:
@@ -3232,24 +3468,6 @@
 
 	Files: 
 
-2020-11-26  Markus Mützel  <markus.muetzel@gmx.de>
-
-	linkprop.m: Lock file to avoid invalid function handles to subfunctions (bug #59551).
-
-	* scripts/plot/util/linkprop.m: Lock file to avoid invalid function handles to
-	  subfunctions after clearing functions.
-
-	Files: scripts/plot/util/linkprop.m
-
-	eigs.m: Add necessary compile time conditions to some BISTs.
-
-	* scripts/sparse/eigs.m: Skip tests that depend on UMFPACK or CHOLMOD if Octave
-	  was compiled without them.
-
-	Files: scripts/sparse/eigs.m
-
-2020-11-27  John W. Eaton  <jwe@octave.org>
-
 	maint: Bump version for post 6.1.0 release bug fixing phase
 
 	Files: configure.ac
@@ -3273,6 +3491,22 @@
 	* NEWS: Update release date.
 
 	Files: NEWS configure.ac etc/icons/org.octave.Octave.appdata.xml
+
+2020-11-26  Markus Mützel  <markus.muetzel@gmx.de>
+
+	linkprop.m: Lock file to avoid invalid function handles to subfunctions (bug #59551).
+
+	* scripts/plot/util/linkprop.m: Lock file to avoid invalid function handles to
+	  subfunctions after clearing functions.
+
+	Files: scripts/plot/util/linkprop.m
+
+	eigs.m: Add necessary compile time conditions to some BISTs.
+
+	* scripts/sparse/eigs.m: Skip tests that depend on UMFPACK or CHOLMOD if Octave
+	  was compiled without them.
+
+	Files: scripts/sparse/eigs.m
 
 2020-11-24  Torsten Lilge  <ttl-octave@mailbox.org>
 
