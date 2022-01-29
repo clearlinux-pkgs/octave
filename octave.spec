@@ -6,7 +6,7 @@
 #
 Name     : octave
 Version  : 6.4.0
-Release  : 37
+Release  : 38
 URL      : https://mirrors.kernel.org/gnu/octave/octave-6.4.0.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/octave/octave-6.4.0.tar.xz
 Source1  : https://mirrors.kernel.org/gnu/octave/octave-6.4.0.tar.xz.sig
