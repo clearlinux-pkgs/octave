@@ -6,7 +6,7 @@
 #
 Name     : octave
 Version  : 6.4.0
-Release  : 40
+Release  : 41
 URL      : https://mirrors.kernel.org/gnu/octave/octave-6.4.0.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/octave/octave-6.4.0.tar.xz
 Source1  : https://mirrors.kernel.org/gnu/octave/octave-6.4.0.tar.xz.sig
@@ -147,15 +147,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1643513617
+export SOURCE_DATE_EPOCH=1656569367
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mno-vzeroupper -mprefer-vector-width=256 "
-export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mno-vzeroupper -mprefer-vector-width=256 "
-export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mno-vzeroupper -mprefer-vector-width=256 "
-export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mno-vzeroupper -mprefer-vector-width=256 "
+export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
 %configure --disable-static --enable-openmp \
 --disable-docs \
 --with-blas=openblas
@@ -186,7 +186,7 @@ export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v4"
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1643513617
+export SOURCE_DATE_EPOCH=1656569367
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/octave
 cp %{_builddir}/octave-6.4.0/COPYING %{buildroot}/usr/share/package-licenses/octave/31a3d460bb3c7d98845187c716a30db81c44b615
@@ -201,8 +201,8 @@ pushd ../buildavx512/
 %make_install_v4
 popd
 %make_install
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
-/usr/bin/elf-move.py avx512 %{buildroot}-v4 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx512 %{buildroot}-v4 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
@@ -2594,7 +2594,6 @@ popd
 /usr/lib64/octave/6.4.0/liboctinterp.so
 /usr/lib64/octave/6.4.0/liboctinterp.so.9
 /usr/lib64/octave/6.4.0/liboctinterp.so.9.0.0
-/usr/share/clear/optimized-elf/lib*
 
 %files libexec
 %defattr(-,root,root,-)
