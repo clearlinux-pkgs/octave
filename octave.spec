@@ -6,7 +6,7 @@
 #
 Name     : octave
 Version  : 6.4.0
-Release  : 41
+Release  : 42
 URL      : https://mirrors.kernel.org/gnu/octave/octave-6.4.0.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/octave/octave-6.4.0.tar.xz
 Source1  : https://mirrors.kernel.org/gnu/octave/octave-6.4.0.tar.xz.sig
@@ -2594,6 +2594,7 @@ popd
 /usr/lib64/octave/6.4.0/liboctinterp.so
 /usr/lib64/octave/6.4.0/liboctinterp.so.9
 /usr/lib64/octave/6.4.0/liboctinterp.so.9.0.0
+/usr/share/clear/optimized-elf/other*
 
 %files libexec
 %defattr(-,root,root,-)
