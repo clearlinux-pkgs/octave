@@ -35,9 +35,10 @@ libm.so.6
 libmvec.so.1
 libopenblas.so.0
 libpcre.so.1
-libqhull.so.7
+libqhull_r.so.7
 libreadline.so.8
 libsndfile.so.1
+libspqr.so.2
 libstdc++.so.6
 libsuitesparseconfig.so.5
 libsundials_ida.so.6
