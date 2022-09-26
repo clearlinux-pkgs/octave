@@ -6,7 +6,7 @@
 #
 Name     : octave
 Version  : 7.2.0
-Release  : 46
+Release  : 47
 URL      : https://mirrors.kernel.org/gnu/octave/octave-7.2.0.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/octave/octave-7.2.0.tar.xz
 Source1  : https://mirrors.kernel.org/gnu/octave/octave-7.2.0.tar.xz.sig
