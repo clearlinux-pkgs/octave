@@ -24,6 +24,7 @@ llvm-dev
 ncurses-dev
 openblas-dev
 openjdk-dev
+pcre-dev
 qhull-dev
 qtbase-dev
 qttools-dev
