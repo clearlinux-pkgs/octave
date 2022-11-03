@@ -1,204 +1,51 @@
 Configure miss: 32-bit host C ABI
 Configure miss: 32-bit host C ABI
 Configure miss: 32-bit host C ABI
-Configure miss: 32-bit host C ABI
-Configure miss: 32-bit host C ABI
-Configure miss: 32-bit host C ABI
-Configure miss: CFLocaleCopyPreferredLanguages
-Configure miss: CFLocaleCopyPreferredLanguages
-Configure miss: CFLocaleCopyPreferredLanguages
 Configure miss: CFLocaleCopyPreferredLanguages
 Configure miss: CFLocaleCopyPreferredLanguages
 Configure miss: CFLocaleCopyPreferredLanguages
 Configure miss: OpenGL/glext.h
 Configure miss: OpenGL/glext.h
 Configure miss: OpenGL/glext.h
-Configure miss: OpenGL/glext.h
-Configure miss: OpenGL/glext.h
-Configure miss: OpenGL/glext.h
 Configure miss: QGLFunctions_1_1
 Configure miss: QGLFunctions_1_1
 Configure miss: QGLFunctions_1_1
-Configure miss: QGLFunctions_1_1
-Configure miss: QGLFunctions_1_1
-Configure miss: QGLFunctions_1_1
-Configure miss: QGLFunctions_1_1 presence
-Configure miss: QGLFunctions_1_1 presence
-Configure miss: QGLFunctions_1_1 presence
-Configure miss: QGLFunctions_1_1 usability
-Configure miss: QGLFunctions_1_1 usability
-Configure miss: QGLFunctions_1_1 usability
 Configure miss: SUNDenseLinearSolver
 Configure miss: SUNDenseLinearSolver
 Configure miss: SUNDenseLinearSolver
-Configure miss: SUNDenseLinearSolver
-Configure miss: SUNDenseLinearSolver
-Configure miss: SUNDenseLinearSolver
-Configure miss: SUNKLU in -lsundials_sunlinsolklu
-Configure miss: SUNKLU in -lsundials_sunlinsolklu
-Configure miss: SUNKLU in -lsundials_sunlinsolklu
 Configure miss: SUNLinSol_KLU in -lsundials_sunlinsolklu
 Configure miss: SUNLinSol_KLU in -lsundials_sunlinsolklu
 Configure miss: SUNLinSol_KLU in -lsundials_sunlinsolklu
 Configure miss: Solaris 11.4 locale system
 Configure miss: Solaris 11.4 locale system
 Configure miss: Solaris 11.4 locale system
-Configure miss: Solaris 11.4 locale system
-Configure miss: Solaris 11.4 locale system
-Configure miss: Solaris 11.4 locale system
 Configure miss: __mktime_internal
 Configure miss: __mktime_internal
 Configure miss: __mktime_internal
-Configure miss: __mktime_internal
-Configure miss: __mktime_internal
-Configure miss: __mktime_internal
-Configure miss: _fseeki64
-Configure miss: _fseeki64
-Configure miss: _fseeki64
-Configure miss: _fseeki64
-Configure miss: _fseeki64
-Configure miss: _fseeki64
-Configure miss: _getch
-Configure miss: _getch
-Configure miss: _getch
 Configure miss: _getch
 Configure miss: _getch
 Configure miss: _getch
 Configure miss: _kbhit
 Configure miss: _kbhit
 Configure miss: _kbhit
-Configure miss: _kbhit
-Configure miss: _kbhit
-Configure miss: _kbhit
-Configure miss: amd/amd.h
-Configure miss: amd/amd.h
-Configure miss: amd/amd.h
-Configure miss: amd/amd.h
-Configure miss: amd/amd.h
-Configure miss: amd/amd.h
-Configure miss: amd/amd.h presence
-Configure miss: amd/amd.h presence
-Configure miss: amd/amd.h presence
-Configure miss: amd/amd.h usability
-Configure miss: amd/amd.h usability
-Configure miss: amd/amd.h usability
-Configure miss: camd/camd.h
-Configure miss: camd/camd.h
-Configure miss: camd/camd.h
-Configure miss: camd/camd.h
-Configure miss: camd/camd.h
-Configure miss: camd/camd.h
-Configure miss: camd/camd.h presence
-Configure miss: camd/camd.h presence
-Configure miss: camd/camd.h presence
-Configure miss: camd/camd.h usability
-Configure miss: camd/camd.h usability
-Configure miss: camd/camd.h usability
-Configure miss: ccolamd/ccolamd.h
-Configure miss: ccolamd/ccolamd.h
-Configure miss: ccolamd/ccolamd.h
-Configure miss: ccolamd/ccolamd.h
-Configure miss: ccolamd/ccolamd.h
-Configure miss: ccolamd/ccolamd.h
-Configure miss: ccolamd/ccolamd.h presence
-Configure miss: ccolamd/ccolamd.h presence
-Configure miss: ccolamd/ccolamd.h presence
-Configure miss: ccolamd/ccolamd.h usability
-Configure miss: ccolamd/ccolamd.h usability
-Configure miss: ccolamd/ccolamd.h usability
-Configure miss: cholmod/cholmod.h
-Configure miss: cholmod/cholmod.h
-Configure miss: cholmod/cholmod.h
-Configure miss: cholmod/cholmod.h
-Configure miss: cholmod/cholmod.h
-Configure miss: cholmod/cholmod.h
-Configure miss: cholmod/cholmod.h presence
-Configure miss: cholmod/cholmod.h presence
-Configure miss: cholmod/cholmod.h presence
-Configure miss: cholmod/cholmod.h usability
-Configure miss: cholmod/cholmod.h usability
-Configure miss: cholmod/cholmod.h usability
-Configure miss: colamd/colamd.h
-Configure miss: colamd/colamd.h
-Configure miss: colamd/colamd.h
-Configure miss: colamd/colamd.h
-Configure miss: colamd/colamd.h
-Configure miss: colamd/colamd.h
-Configure miss: colamd/colamd.h presence
-Configure miss: colamd/colamd.h presence
-Configure miss: colamd/colamd.h presence
-Configure miss: colamd/colamd.h usability
-Configure miss: colamd/colamd.h usability
-Configure miss: colamd/colamd.h usability
-Configure miss: compiler option needed when checking for declarations
-Configure miss: compiler option needed when checking for declarations
-Configure miss: compiler option needed when checking for declarations
 Configure miss: compiler option needed when checking for declarations
 Configure miss: compiler option needed when checking for declarations
 Configure miss: compiler option needed when checking for declarations
 Configure miss: conio.h
 Configure miss: conio.h
 Configure miss: conio.h
-Configure miss: conio.h
-Configure miss: conio.h
-Configure miss: conio.h
-Configure miss: conio.h presence
-Configure miss: conio.h presence
-Configure miss: conio.h presence
-Configure miss: conio.h usability
-Configure miss: conio.h usability
-Configure miss: conio.h usability
 Configure miss: crtdefs.h
 Configure miss: crtdefs.h
 Configure miss: crtdefs.h
-Configure miss: crtdefs.h
-Configure miss: crtdefs.h
-Configure miss: crtdefs.h
-Configure miss: cxsparse/cs.h
-Configure miss: cxsparse/cs.h
-Configure miss: cxsparse/cs.h
-Configure miss: cxsparse/cs.h
-Configure miss: cxsparse/cs.h
-Configure miss: cxsparse/cs.h
-Configure miss: cxsparse/cs.h presence
-Configure miss: cxsparse/cs.h presence
-Configure miss: cxsparse/cs.h presence
-Configure miss: cxsparse/cs.h usability
-Configure miss: cxsparse/cs.h usability
-Configure miss: cxsparse/cs.h usability
-Configure miss: dseupd in -larpack
-Configure miss: dseupd in -larpack
-Configure miss: dseupd in -larpack
 Configure miss: dseupd in -larpack
 Configure miss: dseupd in -larpack
 Configure miss: dseupd in -larpack
 Configure miss: fake locale system (OpenBSD)
 Configure miss: fake locale system (OpenBSD)
 Configure miss: fake locale system (OpenBSD)
-Configure miss: fake locale system (OpenBSD)
-Configure miss: fake locale system (OpenBSD)
-Configure miss: fake locale system (OpenBSD)
 Configure miss: fontconfig.h
 Configure miss: fontconfig.h
 Configure miss: fontconfig.h
-Configure miss: fontconfig.h
-Configure miss: fontconfig.h
-Configure miss: fontconfig.h
-Configure miss: fontconfig.h presence
-Configure miss: fontconfig.h presence
-Configure miss: fontconfig.h presence
-Configure miss: fontconfig.h usability
-Configure miss: fontconfig.h usability
-Configure miss: fontconfig.h usability
-Configure miss: fpurge
-Configure miss: fpurge
-Configure miss: fpurge
-Configure miss: fpurge
-Configure miss: fpurge
-Configure miss: fpurge
-Configure miss: g++ option to enable C++11 features
-Configure miss: g++ option to enable C++11 features
-Configure miss: g++ option to enable C++11 features
 Configure miss: g++ option to enable C++11 features
 Configure miss: g++ option to enable C++11 features
 Configure miss: g++ option to enable C++11 features
@@ -211,549 +58,159 @@ Configure miss: gfind
 Configure miss: gl2ps.h
 Configure miss: gl2ps.h
 Configure miss: gl2ps.h
-Configure miss: gl2ps.h
-Configure miss: gl2ps.h
-Configure miss: gl2ps.h
-Configure miss: gl2ps.h presence
-Configure miss: gl2ps.h presence
-Configure miss: gl2ps.h presence
-Configure miss: gl2ps.h usability
-Configure miss: gl2ps.h usability
-Configure miss: gl2ps.h usability
 Configure miss: glpk.h
 Configure miss: glpk.h
 Configure miss: glpk.h
-Configure miss: glpk.h
-Configure miss: glpk.h
-Configure miss: glpk.h
-Configure miss: glpk.h presence
-Configure miss: glpk.h presence
-Configure miss: glpk.h presence
-Configure miss: glpk.h usability
-Configure miss: glpk.h usability
-Configure miss: glpk.h usability
 Configure miss: glpk/glpk.h
 Configure miss: glpk/glpk.h
 Configure miss: glpk/glpk.h
-Configure miss: glpk/glpk.h
-Configure miss: glpk/glpk.h
-Configure miss: glpk/glpk.h
-Configure miss: glpk/glpk.h presence
-Configure miss: glpk/glpk.h presence
-Configure miss: glpk/glpk.h presence
-Configure miss: glpk/glpk.h usability
-Configure miss: glpk/glpk.h usability
-Configure miss: glpk/glpk.h usability
 Configure miss: icotool
 Configure miss: icotool
 Configure miss: icotool
-Configure miss: icotool
-Configure miss: icotool
-Configure miss: icotool
+Configure miss: ida.h
+Configure miss: ida.h
+Configure miss: ida.h
 Configure miss: ida_direct.h
 Configure miss: ida_direct.h
 Configure miss: ida_direct.h
-Configure miss: ida_direct.h
-Configure miss: ida_direct.h
-Configure miss: ida_direct.h
-Configure miss: ida_direct.h presence
-Configure miss: ida_direct.h presence
-Configure miss: ida_direct.h presence
-Configure miss: ida_direct.h usability
-Configure miss: ida_direct.h usability
-Configure miss: ida_direct.h usability
 Configure miss: klu/klu.h
 Configure miss: klu/klu.h
 Configure miss: klu/klu.h
-Configure miss: klu/klu.h
-Configure miss: klu/klu.h
-Configure miss: klu/klu.h
-Configure miss: klu/klu.h presence
-Configure miss: klu/klu.h presence
-Configure miss: klu/klu.h presence
-Configure miss: klu/klu.h usability
-Configure miss: klu/klu.h usability
-Configure miss: klu/klu.h usability
-Configure miss: library containing yywrap
-Configure miss: library containing yywrap
-Configure miss: library containing yywrap
-Configure miss: lrelease-qt5
-Configure miss: lrelease-qt5
-Configure miss: lrelease-qt5
 Configure miss: lrelease-qt5
 Configure miss: lrelease-qt5
 Configure miss: lrelease-qt5
 Configure miss: moc-qt5
 Configure miss: moc-qt5
 Configure miss: moc-qt5
-Configure miss: moc-qt5
-Configure miss: moc-qt5
-Configure miss: moc-qt5
+Configure miss: nvector_serial.h
+Configure miss: nvector_serial.h
+Configure miss: nvector_serial.h
 Configure miss: portaudio.h
 Configure miss: portaudio.h
 Configure miss: portaudio.h
-Configure miss: portaudio.h
-Configure miss: portaudio.h
-Configure miss: portaudio.h
-Configure miss: portaudio.h presence
-Configure miss: portaudio.h presence
-Configure miss: portaudio.h presence
-Configure miss: portaudio.h usability
-Configure miss: portaudio.h usability
-Configure miss: portaudio.h usability
 Configure miss: qcollectiongenerator-qt5
 Configure miss: qcollectiongenerator-qt5
 Configure miss: qcollectiongenerator-qt5
 Configure miss: qhelpgenerator-qt5
 Configure miss: qhelpgenerator-qt5
 Configure miss: qhelpgenerator-qt5
-Configure miss: qhelpgenerator-qt5
-Configure miss: qhelpgenerator-qt5
-Configure miss: qhelpgenerator-qt5
-Configure miss: qhelpgenerator-qt5
-Configure miss: qhelpgenerator-qt5
-Configure miss: qhelpgenerator-qt5
 Configure miss: qtchooser
 Configure miss: qtchooser
 Configure miss: qtchooser
-Configure miss: qtchooser
-Configure miss: qtchooser
-Configure miss: qtchooser
-Configure miss: rcc-qt5
-Configure miss: rcc-qt5
-Configure miss: rcc-qt5
+Configure miss: rapidjson/rapidjson.h
+Configure miss: rapidjson/rapidjson.h
+Configure miss: rapidjson/rapidjson.h
 Configure miss: rcc-qt5
 Configure miss: rcc-qt5
 Configure miss: rcc-qt5
 Configure miss: resolvepath
 Configure miss: resolvepath
 Configure miss: resolvepath
-Configure miss: resolvepath
-Configure miss: resolvepath
-Configure miss: resolvepath
-Configure miss: sched_getaffinity_np
-Configure miss: sched_getaffinity_np
-Configure miss: sched_getaffinity_np
 Configure miss: sched_getaffinity_np
 Configure miss: sched_getaffinity_np
 Configure miss: sched_getaffinity_np
 Configure miss: sqr1up in -lqrupdate
 Configure miss: sqr1up in -lqrupdate
 Configure miss: sqr1up in -lqrupdate
-Configure miss: sqr1up in -lqrupdate
-Configure miss: sqr1up in -lqrupdate
-Configure miss: sqr1up in -lqrupdate
-Configure miss: st_dm_mode in struct stat
-Configure miss: st_dm_mode in struct stat
-Configure miss: st_dm_mode in struct stat
-Configure miss: st_dm_mode in struct stat
-Configure miss: st_dm_mode in struct stat
-Configure miss: st_dm_mode in struct stat
 Configure miss: stropts.h
 Configure miss: stropts.h
 Configure miss: stropts.h
-Configure miss: stropts.h
-Configure miss: stropts.h
-Configure miss: stropts.h
-Configure miss: stropts.h presence
-Configure miss: stropts.h presence
-Configure miss: stropts.h presence
-Configure miss: stropts.h usability
-Configure miss: stropts.h usability
-Configure miss: stropts.h usability
-Configure miss: struct exception in math.h
-Configure miss: struct exception in math.h
-Configure miss: struct exception in math.h
 Configure miss: struct exception in math.h
 Configure miss: struct exception in math.h
 Configure miss: struct exception in math.h
 Configure miss: struct group.gr_passwd
 Configure miss: struct group.gr_passwd
 Configure miss: struct group.gr_passwd
-Configure miss: struct group.gr_passwd
-Configure miss: struct group.gr_passwd
-Configure miss: struct group.gr_passwd
-Configure miss: suitesparse/amd.h
-Configure miss: suitesparse/amd.h
-Configure miss: suitesparse/amd.h
-Configure miss: suitesparse/amd.h
-Configure miss: suitesparse/amd.h
-Configure miss: suitesparse/amd.h
-Configure miss: suitesparse/amd.h presence
-Configure miss: suitesparse/amd.h presence
-Configure miss: suitesparse/amd.h presence
-Configure miss: suitesparse/amd.h usability
-Configure miss: suitesparse/amd.h usability
-Configure miss: suitesparse/amd.h usability
-Configure miss: suitesparse/camd.h
-Configure miss: suitesparse/camd.h
-Configure miss: suitesparse/camd.h
-Configure miss: suitesparse/camd.h
-Configure miss: suitesparse/camd.h
-Configure miss: suitesparse/camd.h
-Configure miss: suitesparse/camd.h presence
-Configure miss: suitesparse/camd.h presence
-Configure miss: suitesparse/camd.h presence
-Configure miss: suitesparse/camd.h usability
-Configure miss: suitesparse/camd.h usability
-Configure miss: suitesparse/camd.h usability
-Configure miss: suitesparse/ccolamd.h
-Configure miss: suitesparse/ccolamd.h
-Configure miss: suitesparse/ccolamd.h
-Configure miss: suitesparse/ccolamd.h
-Configure miss: suitesparse/ccolamd.h
-Configure miss: suitesparse/ccolamd.h
-Configure miss: suitesparse/ccolamd.h presence
-Configure miss: suitesparse/ccolamd.h presence
-Configure miss: suitesparse/ccolamd.h presence
-Configure miss: suitesparse/ccolamd.h usability
-Configure miss: suitesparse/ccolamd.h usability
-Configure miss: suitesparse/ccolamd.h usability
-Configure miss: suitesparse/cholmod.h
-Configure miss: suitesparse/cholmod.h
-Configure miss: suitesparse/cholmod.h
-Configure miss: suitesparse/cholmod.h
-Configure miss: suitesparse/cholmod.h
-Configure miss: suitesparse/cholmod.h
-Configure miss: suitesparse/cholmod.h presence
-Configure miss: suitesparse/cholmod.h presence
-Configure miss: suitesparse/cholmod.h presence
-Configure miss: suitesparse/cholmod.h usability
-Configure miss: suitesparse/cholmod.h usability
-Configure miss: suitesparse/cholmod.h usability
-Configure miss: suitesparse/colamd.h
-Configure miss: suitesparse/colamd.h
-Configure miss: suitesparse/colamd.h
-Configure miss: suitesparse/colamd.h
-Configure miss: suitesparse/colamd.h
-Configure miss: suitesparse/colamd.h
-Configure miss: suitesparse/colamd.h presence
-Configure miss: suitesparse/colamd.h presence
-Configure miss: suitesparse/colamd.h presence
-Configure miss: suitesparse/colamd.h usability
-Configure miss: suitesparse/colamd.h usability
-Configure miss: suitesparse/colamd.h usability
-Configure miss: suitesparse/cs.h
-Configure miss: suitesparse/cs.h
-Configure miss: suitesparse/cs.h
-Configure miss: suitesparse/cs.h
-Configure miss: suitesparse/cs.h
-Configure miss: suitesparse/cs.h
-Configure miss: suitesparse/cs.h presence
-Configure miss: suitesparse/cs.h presence
-Configure miss: suitesparse/cs.h presence
-Configure miss: suitesparse/cs.h usability
-Configure miss: suitesparse/cs.h usability
-Configure miss: suitesparse/cs.h usability
 Configure miss: suitesparse/klu.h
 Configure miss: suitesparse/klu.h
 Configure miss: suitesparse/klu.h
-Configure miss: suitesparse/klu.h
-Configure miss: suitesparse/klu.h
-Configure miss: suitesparse/klu.h
-Configure miss: suitesparse/klu.h presence
-Configure miss: suitesparse/klu.h presence
-Configure miss: suitesparse/klu.h presence
-Configure miss: suitesparse/klu.h usability
-Configure miss: suitesparse/klu.h usability
-Configure miss: suitesparse/klu.h usability
-Configure miss: suitesparse/umfpack.h
-Configure miss: suitesparse/umfpack.h
-Configure miss: suitesparse/umfpack.h
-Configure miss: suitesparse/umfpack.h
-Configure miss: suitesparse/umfpack.h
-Configure miss: suitesparse/umfpack.h
-Configure miss: suitesparse/umfpack.h presence
-Configure miss: suitesparse/umfpack.h presence
-Configure miss: suitesparse/umfpack.h presence
-Configure miss: suitesparse/umfpack.h usability
-Configure miss: suitesparse/umfpack.h usability
-Configure miss: suitesparse/umfpack.h usability
-Configure miss: sunlinsol/sunlinsol_klu.h
-Configure miss: sunlinsol/sunlinsol_klu.h
-Configure miss: sunlinsol/sunlinsol_klu.h
 Configure miss: sunlinsol/sunlinsol_klu.h
 Configure miss: sunlinsol/sunlinsol_klu.h
 Configure miss: sunlinsol/sunlinsol_klu.h
 Configure miss: sys/stropts.h
 Configure miss: sys/stropts.h
 Configure miss: sys/stropts.h
-Configure miss: sys/stropts.h
-Configure miss: sys/stropts.h
-Configure miss: sys/stropts.h
-Configure miss: sys/stropts.h presence
-Configure miss: sys/stropts.h presence
-Configure miss: sys/stropts.h presence
-Configure miss: sys/stropts.h usability
-Configure miss: sys/stropts.h usability
-Configure miss: sys/stropts.h usability
-Configure miss: sys/sysctl.h
-Configure miss: sys/sysctl.h
-Configure miss: sys/sysctl.h
 Configure miss: sys/sysctl.h
 Configure miss: sys/sysctl.h
 Configure miss: sys/sysctl.h
 Configure miss: sys/sysmp.h
 Configure miss: sys/sysmp.h
 Configure miss: sys/sysmp.h
-Configure miss: sys/sysmp.h
-Configure miss: sys/sysmp.h
-Configure miss: sys/sysmp.h
-Configure miss: sysctl
-Configure miss: sysctl
-Configure miss: sysctl
 Configure miss: sysctl
 Configure miss: sysctl
 Configure miss: sysctl
 Configure miss: sysmp
 Configure miss: sysmp
 Configure miss: sysmp
-Configure miss: sysmp
-Configure miss: sysmp
-Configure miss: sysmp
-Configure miss: the QScintilla library for Qt 5
-Configure miss: the QScintilla library for Qt 5
-Configure miss: the QScintilla library for Qt 5
 Configure miss: the QScintilla library for Qt 5
 Configure miss: the QScintilla library for Qt 5
 Configure miss: the QScintilla library for Qt 5
 Configure miss: timezone_t
 Configure miss: timezone_t
 Configure miss: timezone_t
-Configure miss: timezone_t
-Configure miss: timezone_t
-Configure miss: timezone_t
-Configure miss: ufsparse/amd.h
-Configure miss: ufsparse/amd.h
-Configure miss: ufsparse/amd.h
-Configure miss: ufsparse/amd.h
-Configure miss: ufsparse/amd.h
-Configure miss: ufsparse/amd.h
-Configure miss: ufsparse/amd.h presence
-Configure miss: ufsparse/amd.h presence
-Configure miss: ufsparse/amd.h presence
-Configure miss: ufsparse/amd.h usability
-Configure miss: ufsparse/amd.h usability
-Configure miss: ufsparse/amd.h usability
-Configure miss: ufsparse/camd.h
-Configure miss: ufsparse/camd.h
-Configure miss: ufsparse/camd.h
-Configure miss: ufsparse/camd.h
-Configure miss: ufsparse/camd.h
-Configure miss: ufsparse/camd.h
-Configure miss: ufsparse/camd.h presence
-Configure miss: ufsparse/camd.h presence
-Configure miss: ufsparse/camd.h presence
-Configure miss: ufsparse/camd.h usability
-Configure miss: ufsparse/camd.h usability
-Configure miss: ufsparse/camd.h usability
-Configure miss: ufsparse/ccolamd.h
-Configure miss: ufsparse/ccolamd.h
-Configure miss: ufsparse/ccolamd.h
-Configure miss: ufsparse/ccolamd.h
-Configure miss: ufsparse/ccolamd.h
-Configure miss: ufsparse/ccolamd.h
-Configure miss: ufsparse/ccolamd.h presence
-Configure miss: ufsparse/ccolamd.h presence
-Configure miss: ufsparse/ccolamd.h presence
-Configure miss: ufsparse/ccolamd.h usability
-Configure miss: ufsparse/ccolamd.h usability
-Configure miss: ufsparse/ccolamd.h usability
-Configure miss: ufsparse/cholmod.h
-Configure miss: ufsparse/cholmod.h
-Configure miss: ufsparse/cholmod.h
-Configure miss: ufsparse/cholmod.h
-Configure miss: ufsparse/cholmod.h
-Configure miss: ufsparse/cholmod.h
-Configure miss: ufsparse/cholmod.h presence
-Configure miss: ufsparse/cholmod.h presence
-Configure miss: ufsparse/cholmod.h presence
-Configure miss: ufsparse/cholmod.h usability
-Configure miss: ufsparse/cholmod.h usability
-Configure miss: ufsparse/cholmod.h usability
-Configure miss: ufsparse/colamd.h
-Configure miss: ufsparse/colamd.h
-Configure miss: ufsparse/colamd.h
-Configure miss: ufsparse/colamd.h
-Configure miss: ufsparse/colamd.h
-Configure miss: ufsparse/colamd.h
-Configure miss: ufsparse/colamd.h presence
-Configure miss: ufsparse/colamd.h presence
-Configure miss: ufsparse/colamd.h presence
-Configure miss: ufsparse/colamd.h usability
-Configure miss: ufsparse/colamd.h usability
-Configure miss: ufsparse/colamd.h usability
-Configure miss: ufsparse/cs.h
-Configure miss: ufsparse/cs.h
-Configure miss: ufsparse/cs.h
-Configure miss: ufsparse/cs.h
-Configure miss: ufsparse/cs.h
-Configure miss: ufsparse/cs.h
-Configure miss: ufsparse/cs.h presence
-Configure miss: ufsparse/cs.h presence
-Configure miss: ufsparse/cs.h presence
-Configure miss: ufsparse/cs.h usability
-Configure miss: ufsparse/cs.h usability
-Configure miss: ufsparse/cs.h usability
 Configure miss: ufsparse/klu.h
 Configure miss: ufsparse/klu.h
 Configure miss: ufsparse/klu.h
-Configure miss: ufsparse/klu.h
-Configure miss: ufsparse/klu.h
-Configure miss: ufsparse/klu.h
-Configure miss: ufsparse/klu.h presence
-Configure miss: ufsparse/klu.h presence
-Configure miss: ufsparse/klu.h presence
-Configure miss: ufsparse/klu.h usability
-Configure miss: ufsparse/klu.h usability
-Configure miss: ufsparse/klu.h usability
-Configure miss: ufsparse/umfpack.h
-Configure miss: ufsparse/umfpack.h
-Configure miss: ufsparse/umfpack.h
-Configure miss: ufsparse/umfpack.h
-Configure miss: ufsparse/umfpack.h
-Configure miss: ufsparse/umfpack.h
-Configure miss: ufsparse/umfpack.h presence
-Configure miss: ufsparse/umfpack.h presence
-Configure miss: ufsparse/umfpack.h presence
-Configure miss: ufsparse/umfpack.h usability
-Configure miss: ufsparse/umfpack.h usability
-Configure miss: ufsparse/umfpack.h usability
 Configure miss: uic-qt5
 Configure miss: uic-qt5
 Configure miss: uic-qt5
-Configure miss: uic-qt5
-Configure miss: uic-qt5
-Configure miss: uic-qt5
-Configure miss: umfpack/umfpack.h
-Configure miss: umfpack/umfpack.h
-Configure miss: umfpack/umfpack.h
-Configure miss: umfpack/umfpack.h
-Configure miss: umfpack/umfpack.h
-Configure miss: umfpack/umfpack.h
-Configure miss: umfpack/umfpack.h presence
-Configure miss: umfpack/umfpack.h presence
-Configure miss: umfpack/umfpack.h presence
-Configure miss: umfpack/umfpack.h usability
-Configure miss: umfpack/umfpack.h usability
-Configure miss: umfpack/umfpack.h usability
-Configure miss: whether /usr/bin/ld -m elf_x86_64 accepts -framework Carbon
-Configure miss: whether /usr/bin/ld -m elf_x86_64 accepts -framework Carbon
-Configure miss: whether /usr/bin/ld -m elf_x86_64 accepts -framework Carbon
 Configure miss: whether /usr/bin/ld -m elf_x86_64 accepts -framework Carbon
 Configure miss: whether /usr/bin/ld -m elf_x86_64 accepts -framework Carbon
 Configure miss: whether /usr/bin/ld -m elf_x86_64 accepts -framework Carbon
 Configure miss: whether /usr/bin/ld -m elf_x86_64 accepts -framework OpenGL
 Configure miss: whether /usr/bin/ld -m elf_x86_64 accepts -framework OpenGL
 Configure miss: whether /usr/bin/ld -m elf_x86_64 accepts -framework OpenGL
-Configure miss: whether /usr/bin/ld -m elf_x86_64 accepts -framework OpenGL
-Configure miss: whether /usr/bin/ld -m elf_x86_64 accepts -framework OpenGL
-Configure miss: whether /usr/bin/ld -m elf_x86_64 accepts -framework OpenGL
-Configure miss: whether HDF5 library has enforced version 1.6 API
-Configure miss: whether HDF5 library has enforced version 1.6 API
-Configure miss: whether HDF5 library has enforced version 1.6 API
 Configure miss: whether HDF5 library has enforced version 1.6 API
 Configure miss: whether HDF5 library has enforced version 1.6 API
 Configure miss: whether HDF5 library has enforced version 1.6 API
 Configure miss: whether MIPS processor is using non-standard NaN encoding
 Configure miss: whether MIPS processor is using non-standard NaN encoding
 Configure miss: whether MIPS processor is using non-standard NaN encoding
-Configure miss: whether MIPS processor is using non-standard NaN encoding
-Configure miss: whether MIPS processor is using non-standard NaN encoding
-Configure miss: whether MIPS processor is using non-standard NaN encoding
+Configure miss: whether api.prefix applies to yysymbol_kind_t
+Configure miss: whether api.prefix applies to yysymbol_kind_t
+Configure miss: whether api.prefix applies to yysymbol_kind_t
 Configure miss: whether complex class can reference components independently
 Configure miss: whether complex class can reference components independently
 Configure miss: whether complex class can reference components independently
-Configure miss: whether complex class can reference components independently
-Configure miss: whether complex class can reference components independently
-Configure miss: whether complex class can reference components independently
-Configure miss: whether fflush works on input streams
-Configure miss: whether fflush works on input streams
-Configure miss: whether fflush works on input streams
-Configure miss: whether fflush works on input streams
-Configure miss: whether fflush works on input streams
-Configure miss: whether fflush works on input streams
-Configure miss: whether fpurge is declared
-Configure miss: whether fpurge is declared
-Configure miss: whether fpurge is declared
-Configure miss: whether fpurge is declared
-Configure miss: whether fpurge is declared
-Configure miss: whether fpurge is declared
-Configure miss: whether mbrtowc stores incomplete characters
-Configure miss: whether mbrtowc stores incomplete characters
-Configure miss: whether mbrtowc stores incomplete characters
 Configure miss: whether mbrtowc stores incomplete characters
 Configure miss: whether mbrtowc stores incomplete characters
 Configure miss: whether mbrtowc stores incomplete characters
 Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
 Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
 Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
-Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
-Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
-Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
-Configure miss: whether stl_algo.h is broken
-Configure miss: whether stl_algo.h is broken
-Configure miss: whether stl_algo.h is broken
 Configure miss: whether stl_algo.h is broken
 Configure miss: whether stl_algo.h is broken
 Configure miss: whether stl_algo.h is broken
 Configure miss: whether strmode is declared
 Configure miss: whether strmode is declared
 Configure miss: whether strmode is declared
-Configure miss: whether strmode is declared
-Configure miss: whether strmode is declared
-Configure miss: whether strmode is declared
-Configure miss: whether sys_siglist is declared
-Configure miss: whether sys_siglist is declared
-Configure miss: whether sys_siglist is declared
 Configure miss: whether sys_siglist is declared
 Configure miss: whether sys_siglist is declared
 Configure miss: whether sys_siglist is declared
 Configure miss: whether the compiler is clang
 Configure miss: whether the compiler is clang
 Configure miss: whether the compiler is clang
-Configure miss: whether the compiler is clang
-Configure miss: whether the compiler is clang
-Configure miss: whether the compiler is clang
-Configure miss: whether the compiler produces multi-arch binaries
-Configure miss: whether the compiler produces multi-arch binaries
-Configure miss: whether the compiler produces multi-arch binaries
 Configure miss: whether the compiler produces multi-arch binaries
 Configure miss: whether the compiler produces multi-arch binaries
 Configure miss: whether the compiler produces multi-arch binaries
 Configure miss: whether this system supports file names of any length
 Configure miss: whether this system supports file names of any length
 Configure miss: whether this system supports file names of any length
-Configure miss: whether this system supports file names of any length
-Configure miss: whether this system supports file names of any length
-Configure miss: whether this system supports file names of any length
 Configure miss: working nanosleep
 Configure miss: working nanosleep
 Configure miss: working nanosleep
-Configure miss: working nanosleep
-Configure miss: working nanosleep
-Configure miss: working nanosleep
-Configure miss: x86_64-generic-linux-gnu-lrelease
-Configure miss: x86_64-generic-linux-gnu-lrelease
-Configure miss: x86_64-generic-linux-gnu-lrelease
+Configure miss: x86_64-generic-linux-gnu-file
+Configure miss: x86_64-generic-linux-gnu-file
+Configure miss: x86_64-generic-linux-gnu-file
 Configure miss: x86_64-generic-linux-gnu-lrelease
 Configure miss: x86_64-generic-linux-gnu-lrelease
 Configure miss: x86_64-generic-linux-gnu-lrelease
 Configure miss: x86_64-generic-linux-gnu-lrelease-qt5
 Configure miss: x86_64-generic-linux-gnu-lrelease-qt5
 Configure miss: x86_64-generic-linux-gnu-lrelease-qt5
-Configure miss: x86_64-generic-linux-gnu-lrelease-qt5
-Configure miss: x86_64-generic-linux-gnu-lrelease-qt5
-Configure miss: x86_64-generic-linux-gnu-lrelease-qt5
 Configure miss: x86_64-generic-linux-gnu-moc
 Configure miss: x86_64-generic-linux-gnu-moc
 Configure miss: x86_64-generic-linux-gnu-moc
-Configure miss: x86_64-generic-linux-gnu-moc
-Configure miss: x86_64-generic-linux-gnu-moc
-Configure miss: x86_64-generic-linux-gnu-moc
-Configure miss: x86_64-generic-linux-gnu-moc-qt5
-Configure miss: x86_64-generic-linux-gnu-moc-qt5
-Configure miss: x86_64-generic-linux-gnu-moc-qt5
 Configure miss: x86_64-generic-linux-gnu-moc-qt5
 Configure miss: x86_64-generic-linux-gnu-moc-qt5
 Configure miss: x86_64-generic-linux-gnu-moc-qt5
@@ -766,48 +223,21 @@ Configure miss: x86_64-generic-linux-gnu-qcollectiongenerator-qt5
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
-Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
-Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
-Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
-Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
-Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
-Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
-Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
-Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
-Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
-Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
-Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
-Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
 Configure miss: x86_64-generic-linux-gnu-qtchooser
 Configure miss: x86_64-generic-linux-gnu-qtchooser
 Configure miss: x86_64-generic-linux-gnu-qtchooser
-Configure miss: x86_64-generic-linux-gnu-qtchooser
-Configure miss: x86_64-generic-linux-gnu-qtchooser
-Configure miss: x86_64-generic-linux-gnu-qtchooser
-Configure miss: x86_64-generic-linux-gnu-rcc
-Configure miss: x86_64-generic-linux-gnu-rcc
-Configure miss: x86_64-generic-linux-gnu-rcc
 Configure miss: x86_64-generic-linux-gnu-rcc
 Configure miss: x86_64-generic-linux-gnu-rcc
 Configure miss: x86_64-generic-linux-gnu-rcc
 Configure miss: x86_64-generic-linux-gnu-rcc-qt5
 Configure miss: x86_64-generic-linux-gnu-rcc-qt5
 Configure miss: x86_64-generic-linux-gnu-rcc-qt5
-Configure miss: x86_64-generic-linux-gnu-rcc-qt5
-Configure miss: x86_64-generic-linux-gnu-rcc-qt5
-Configure miss: x86_64-generic-linux-gnu-rcc-qt5
 Configure miss: x86_64-generic-linux-gnu-uic
 Configure miss: x86_64-generic-linux-gnu-uic
 Configure miss: x86_64-generic-linux-gnu-uic
-Configure miss: x86_64-generic-linux-gnu-uic
-Configure miss: x86_64-generic-linux-gnu-uic
-Configure miss: x86_64-generic-linux-gnu-uic
-Configure miss: x86_64-generic-linux-gnu-uic-qt5
-Configure miss: x86_64-generic-linux-gnu-uic-qt5
-Configure miss: x86_64-generic-linux-gnu-uic-qt5
 Configure miss: x86_64-generic-linux-gnu-uic-qt5
 Configure miss: x86_64-generic-linux-gnu-uic-qt5
 Configure miss: x86_64-generic-linux-gnu-uic-qt5

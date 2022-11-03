@@ -1,3 +1,523 @@
+2022-11-02  John W. Eaton  <jwe@octave.org>
+
+	bump stable branch version after release
+
+	* configure.ac (AC_INIT): Set version to 7.3.1.
+	(OCTAVE_PATCH_VERSION): Now 1.
+	* NEWS.7.md: Create section for a future 7.4 release.
+
+	Files: configure.ac etc/NEWS.7.md
+
+	Added tag release-7-3-0 for changeset 2c037ce00450
+
+	Files: .hgtags
+
+	Version 7.3.0 released.
+
+	* configure.ac (AC_INIT): Set version to 7.3.0.
+	(OCTAVE_MINOR_VERSION): Now 3.
+	(OCTAVE_PATCH_VERSION): Now 0.
+	(OCTAVE_RELEASE_DATE): Set to "2022-11-02".
+	* org.octave.Octave.appdata.xml: Add release info for version 7.3.0.
+	* CITATION: Update for 7.3.0.
+	* NEWS.7.md: Update release date.
+
+	Files: CITATION configure.ac etc/NEWS.7.md
+	etc/icons/org.octave.Octave.appdata.xml
+
+2022-11-02  Markus Mützel  <markus.muetzel@gmx.de>
+
+	NEWS.7.md: Update NEWS file with recent changes for Octave 7.3.0.
+
+	* etc/NEWS.7.md: Update NEWS file with recent changes for Octave 7.3.0.
+
+	Files: etc/NEWS.7.md
+
+	Fix out of bound indexing in in-place broadcasting operations (bug #63303).
+
+	* liboctave/numeric/bsxfun-defs.cc (do_inplace_bsxfun_op): Do not discard
+	result of dim_vector::redim.
+
+	Files: liboctave/numeric/bsxfun-defs.cc
+
+2022-11-01  Arun Giridhar  <arungiridhar@gmail.com>
+
+	doc: Fix terminology in da3ac42a143d
+
+	schur.cc: A strict interpretation of "eigendecomposition" applies
+	only to diagonalizable matrices.  The Schur decomposition, even
+	though it gives the eigenvalues, applies to both diagonalizable
+	and non-diagonalizable matrices, so the terminology has been changed.
+
+	Files: libinterp/corefcn/schur.cc
+
+2022-10-31  Arun Giridhar  <arungiridhar@gmail.com>
+
+	doc: Update doc for schur.cc
+
+	schur.cc: Remove references to non-existent functions "are" and "dare".
+	Remove repeated text about eigenvalues appearing along the diagonal.
+	Convert a paragraph of text to a short table of options.
+
+	Files: libinterp/corefcn/schur.cc
+
+2022-10-30  Nicholas R. Jankowski  <jankowski.nicholas@gmail.com>
+
+	var.m: Use bsxfun rather than broadcasting with vector weighting (bug #63291)
+
+	* var.m: Replace broadcasting with bsxfun for var calculation in vector
+	weighting codepath. Add FIXME note that it can revert to broadcasting when
+	sparse and diagonal matrix types no longer produce errors. Add BISTs for
+	sparse and diagonal input handling and xtests for preserving sparseness.
+	* etc/NEWS.7.md: Note bugfix for sparse and diagonal inputs under Improvements
+	and fixes.
+
+	Files: etc/NEWS.7.md scripts/statistics/var.m
+
+2022-10-26  Markus Mützel  <markus.muetzel@gmx.de>
+
+	NEWS.7.md: Update NEWS file with recent changes for Octave 7.3.0.
+
+	* etc/NEWS.7.md: Update NEWS file with recent changes for Octave 7.3.0.
+
+	Files: etc/NEWS.7.md
+
+	glpk.m: Avoid using isfinite on potentially sparse input.
+
+	* scripts/optimization/glpk.m: Sparse input to this function is likely mostly
+	finite. Avoid using "isfinite" which might cause out of memory errors for
+	sparsily populated input. Use "isinf" and "isnan" instead.
+
+	Files: scripts/optimization/glpk.m
+
+2022-10-25  Rik  <rik@octave.org>
+
+	build: Use Autoconf macro to find egrep executable.
+
+	* configure.ac: Call AC_PROG_EGREP macro.
+
+	* m4/acinclude.m4: Use '$EGREP' instead of bare 'egrep' in file.
+
+	Files: configure.ac m4/acinclude.m4
+
+2022-10-25  Arun Giridhar  <arungiridhar@gmail.com>
+
+	dec2bin.m: Fix input validation (bug #63089)
+
+	dec2bin.m: Input validation to allow only real integer input.
+	Cells are OK, but complex and struct types are not.
+	Throw error for non-integer inputs for self-consistency.
+
+	Files: scripts/strings/dec2bin.m
+
+2022-10-22  Markus Mützel  <markus.muetzel@gmx.de>
+
+	GitHub-CI (windows): Cache location changed with newer ccache version.
+
+	* .github/workflows/make.yaml (windows): The cache location has changed since
+	ccache was updated to a newer version in MSYS2. Use new location for
+	configuration and cache action.
+	(grafted from 53987cfe08a083ecd88120a6f015a631e21f9500)
+
+	Files: .github/workflows/make.yaml
+
+	GitHub-CI: Replace deprecated set-output command with output file.
+
+	* .github/workflows/make.yaml (ubuntu, macos, windows): The set-output command
+	is deprecated. Use output file instead.
+
+	See: https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+	(grafted from 49972715a95add5b62bdaacf94bdd937c6eb6023)
+
+	Files: .github/workflows/make.yaml
+
+2022-10-24  Markus Mützel  <markus.muetzel@gmx.de>
+
+	GitHub-CI (ubuntu): Reduce ccache size to approx. 2x the size after a clean run.
+
+	* .github/workflows/make.yaml (ubuntu): Reduce ccache size to approx. 2x the
+	cache size when started with an empty cache.
+
+	Files: .github/workflows/make.yaml
+
+2022-10-23  Pantxo Diribarne  <pantxo.diribarne@gmail.com>
+
+	legend.m: fix error with contour plot containing clabels (bug #63262)
+
+	* legend.m (create_item): Remove text objects from the list of children to
+	  consider for shaping the legend icon.
+	(grafted from 472df5147221f1bd304aefda0e9f84e44873bf2e)
+
+	Files: scripts/plot/appearance/legend.m
+
+2022-10-17  Markus Mützel  <markus.muetzel@gmx.de>
+
+	test: Add test for number of methods with classdef in @folder (bug #62802).
+
+	* test/classdef/classdef.tst: Add test for number of methods returned for
+	classdef that defines methods in an @folder and in the function definition.
+	* test/classdef/@class_bug62802/amethod.m,
+	test/classdef/@class_bug62802/class_bug62802.m: Add new files.
+	* test/classdef/module.mk: Add new files to dist.
+
+	Files: test/classdef/@class_bug62802/amethod.m
+	test/classdef/@class_bug62802/class_bug62802.m
+	test/classdef/classdef.tst test/classdef/module.mk
+
+2022-10-15  Markus Mützel  <markus.muetzel@gmx.de>
+
+	NEWS.7.md: Update NEWS file with recent changes for Octave 7.3.0.
+
+	* etc/NEWS.7.md: Update NEWS file with recent changes for Octave 7.3.0.
+
+	Files: etc/NEWS.7.md
+
+2022-10-15  Nicholas R. Jankowski  <jankowski.nicholas@gmail.com>
+
+	var.m: Ensure consistent NaN outputs for Inf and NaN inputs (bug #63203)
+
+	* var.m: Add Inf and NaN input check to the shortcut codepath when the
+	operating dimension length is 1, and ensure a NaN output instead of 0.  Add
+	BISTs to verify compatible outputs for NaN and Inf.
+	* NEWS.7.md: Note bugfix under Improvements and fixes.
+
+	Files: etc/NEWS.7.md scripts/statistics/var.m
+
+2022-10-14  Arun Giridhar  <arungiridhar@gmail.com>
+
+	doc: More copyedits for function documentation
+
+	Files: doc/interpreter/func.txi
+
+	doc: Minor additions and copyedits to function documentation
+
+	Files: doc/interpreter/func.txi
+
+	doc: Update text on function argument checking
+
+	Files: doc/interpreter/func.txi
+
+2022-10-13  Markus Mützel  <markus.muetzel@gmx.de>
+
+	Respect confirmation when deleting files in file browser widget (bug #63198).
+
+	* libgui/src/files-dock-widget.cc (files_dock_widget::contextmenu_delete):
+	Compare result of confirmation dialog to "Yes".
+
+	Files: libgui/src/files-dock-widget.cc
+
+	GitHub-CI: Update to newer action versions.
+
+	* .github/workflows/make.yaml (ubuntu, macos, windows): Update cache actions to
+	newer versions. Actions requiring Node.js 12 are deprecated.
+	See: https://github.blog/changelog/2022-09-22-github-actions-all-actions-will-begin-running-on-node16-instead-of-node12/
+
+	Files: .github/workflows/make.yaml
+
+2022-10-11  Georg Wiora <gwiora>  <gwiora>
+
+	addtodate.m: correct for months with unequal number of days (bug #60671)
+
+	* addtodate.m: corrects for different number of days at the end of the month
+	when adding or subtracting months to the date.
+	* NEWS.7.md: notes correction to addtodate end of month behavior
+
+	Files: etc/NEWS.7.md scripts/time/addtodate.m
+
+2022-10-09  Arun Giridhar  <arungiridhar@gmail.com>
+
+	pqpnonneg.m: increase tolerance on BIST (bug #63178)
+
+	Files: scripts/optimization/pqpnonneg.m
+
+2022-10-09  Markus Mützel  <markus.muetzel@gmx.de>
+
+	NEWS.7.md: Prepare NEWS file for Octave 7.3.0.
+
+	Files: etc/NEWS.7.md
+
+2022-10-07  Arun Giridhar  <arungiridhar@gmail.com>
+
+	doc: Fix error in TeX docstring for curl
+
+	curl.m: TeX docstring had extra "d" symbols in the partial derivatives.
+	This patch fixes the equation to render correctly.
+
+	Files: scripts/general/curl.m
+
+	doc: Make TeX and non-TeX docstrings agree for lsode
+
+	lsode.cc: Give same Jacobian matrix in both TeX and non-TeX docstrings
+	Make both matrices have M rows and N columns, not implying that they
+	need to be square.
+
+	Files: libinterp/corefcn/lsode.cc
+
+	doc: Improve docstring readability for pqpnonneg.m
+
+	pqpnonneg.m: Single quotes were being used to present an expression with
+	multiple transpose operators, causing confusion.  This patch adds parentheses
+	and spaces for readability.
+
+	Files: scripts/optimization/pqpnonneg.m
+
+	Fix incorrect lambda outputs for lsqnonneg and pqpnonneg (bug #63178)
+
+	The previously undocumented lambda output from lsqnonneg and pqpnonneg
+	is supposed to be a Lagrange multiplier, but the code was erroneously
+	returning the conjugate of that, and would sometimes also encounter
+	a size mismatch error.  This patch fixes the output, updates the
+	docstring, and adds new BISTs.
+
+	lsqnonneg.m: Fix lambda output, update docstring, add BISTs.
+	pqpnonneg.m: Same
+
+	Files: scripts/optimization/lsqnonneg.m scripts/optimization/pqpnonneg.m
+
+2022-10-06  Arun Giridhar  <arungiridhar@gmail.com>
+
+	doc: Documented undocumented outputs for lsqnonneg and pqpnonneg
+
+	lsqnonneg.m: Edited docstring to describe what the output lambda was,
+	previously not documented.  In the course of testing, an error was
+	found for an (unlikely) edge case.  Marked that with FIXME for now.
+
+	pqpnonneg.m: Same as above.
+
+	Files: scripts/optimization/lsqnonneg.m scripts/optimization/pqpnonneg.m
+
+2022-10-02  Arun Giridhar  <arungiridhar@gmail.com>
+
+	doc: Minor wording change to hashing documentation
+
+	system.txi: Remove implication that MD5 and SHA1 are cryptographically
+	suitable hash functions, since both have been deprecated for cryptographic
+	applications for 10 to 15 years now.
+
+	Files: doc/interpreter/system.txi
+
+2022-09-28  Arun Giridhar  <arungiridhar@gmail.com>
+
+	dec2bin.m and dec2hex.m: graft bugfixes from dd6b37f67db2 to stable (bug #63089)
+
+	Fix behavior of dec2bin and dec2hex for negative integer-type inputs
+
+	Files: scripts/strings/dec2bin.m scripts/strings/dec2hex.m
+
+2022-09-19  Markus Mützel  <markus.muetzel@gmx.de>
+
+	GitHub-CI (CodeQL): Update to CodeQL action version v2.
+
+	* .github/workflows/codeql-analysis.yaml: CodeQL action version v1 is
+	deprecated. Update to CodeQL action version v2.
+	See: https://github.blog/changelog/2022-04-27-code-scanning-deprecation-of-codeql-action-v1/
+
+	Files: .github/workflows/codeql-analysis.yaml
+
+2022-08-31  Pantxo Diribarne  <pantxo.diribarne@gmail.com>
+
+	pie3: Fix "Too many input" args error.
+
+	* __pie__.m (update_text_pos): Change prototype to match the expected number of
+	  input arguments.
+
+	Files: scripts/plot/draw/private/__pie__.m
+
+2022-08-30  Rik  <rik@octave.org>
+
+	imformats.m: Fix "isa" function in return value (bug #62974)
+
+	* imformats.m (isa_magick): Fix typo "Format" to "format" for name of field in
+	struct returned from __magick_ping__.
+
+	Files: scripts/image/imformats.m
+
+2022-08-30  Markus Mützel  <markus.muetzel@gmx.de>
+
+	canonicalize_file_name: Trim trailing file separators from root of mapped network drive (bug #62847).
+
+	* liboctave/system/file-ops.cc (canonicalize_file_name): Trim trailing file
+	separators from root of mapped network drive before potentially replacing it in
+	the canonicalized path.
+
+	Files: liboctave/system/file-ops.cc
+
+	GitHub-CI: Remove ubuntu-18.04 runners from build matrix.
+
+	* .github/workflow/make.yaml (ubuntu): GitHub-hosted runners for ubuntu-18.04
+	are being deprecated. Remove them from build matrix. See also:
+	https://github.com/actions/runner-images/issues/6002
+
+	Files: .github/workflows/make.yaml
+
+2022-08-28  Pantxo Diribarne  <pantxo.diribarne@gmail.com>
+
+	Make sure we don't pass short 8.3 path to latex on Windows (bug #62779).
+
+	* latex-text-renderer.cc (latex_renderer::write_tex_file): On Windows, use
+	canonicalized path of temporary directory.
+
+	Files: libinterp/corefcn/latex-text-renderer.cc
+
+2022-08-28  Rik  <rik@octave.org>
+
+	quad2d.m: Add BIST test to cset b0e90ca8e679 (bug #62972)
+
+	* quad2d.m: Add BIST test for bug #62972.
+
+	Files: scripts/general/quad2d.m
+
+2022-08-28  Arun Giridhar  <arungiridhar@gmail.com>
+
+	quad2d: fix unintended complex conjugate return (bug #62972)
+
+	quad2d: use .' instead of ' to avoid complex conjugate in q and qerr.
+
+	Files: scripts/general/quad2d.m
+
+2022-08-24  Rik  <rik@octave.org>
+
+	nextpow2.m: Add bug number tag to regression BIST tests (bug #62947)
+
+	* nextpow2.m: Add '<*62947>' to BIST tests for bug #62947.
+
+	Files: scripts/general/nextpow2.m
+
+2022-08-24  Markus Mützel  <markus.muetzel@gmx.de>
+
+	nextpow2: Fix for input between 0.5 and 1 (bug #62947).
+
+	* scripts/general/nextpow2.m: Switch to a naïve implementation using log2 with
+	a single output argument and ceil.
+
+	Files: scripts/general/nextpow2.m
+
+2022-08-23  Markus Mützel  <markus.muetzel@gmx.de>
+
+	canonicalize_file_name: Check root of potential mapped network drive (bug #62847).
+
+	* liboctave/system/file-ops.cc (canonicalize_file_name): Make sure to compare
+	with the canonicalized path corresponding to the root of the drive when checking
+	if a file is on a mapped network drive.
+
+	Files: liboctave/system/file-ops.cc
+
+2022-08-18  Markus Mützel  <markus.muetzel@gmx.de>
+
+	unpack.m: Escape backslashes in paths on Windows (bug #62888).
+
+	* scripts/miscalleneous/unpack.m: Escape backslashes in paths on Windows. That
+	seems to be necessary to correctly handle double backslashes that prefix UNC
+	paths.
+
+	Files: scripts/miscellaneous/unpack.m
+
+2022-08-14  Pantxo Diribarne  <pantxo.diribarne@gmail.com>
+
+	Fix wrong color in PDF printout of some latex strings (bug #62884)
+
+	* octave-svgconvert (draw): For "rect" elements only set brush color if
+	  necessary and eventually restore to previous color.
+
+	Files: src/octave-svgconvert.cc
+
+2022-08-15  Maged Rifaat  <magedrifaat@gmail.com>
+
+	fortran_vec: Fix instances of method chaining that may cause dangling pointer.
+
+	* libinterp/corefcn/quandcc.cc (Fquadcc): Replace method chaining with a
+	separate line for NDArray object to avoid going out of scope.
+	* libinterp/corefcn/__ilu__.cc (F__iluc__): Obtain RowVector and ColumnVector
+	objects in separate line to remain in scope.
+	* libinterp/corefcn/__ichol__.cc (F__icholt__): Obtain RowVector object in
+	separate line to remain in scope.
+
+	For more details: https://octave.discourse.group/t/3132
+
+	Files: libinterp/corefcn/__ichol__.cc libinterp/corefcn/__ilu__.cc
+	libinterp/corefcn/quadcc.cc
+
+2022-08-12  Markus Mützel  <markus.muetzel@gmx.de>
+
+	canonicalize_file_name: Generalize check for mapped network drive (bug #62847).
+
+	* liboctave/system/file-ops.cc (canonicalize_file_name): Any directory on a
+	share (or the share itself) can be mapped to a drive letter on Windows.
+	Generalize checks when replacing mapped root with drive letter.
+
+	Files: liboctave/system/file-ops.cc
+
+2022-08-11  Markus Mützel  <markus.muetzel@gmx.de>
+
+	doc: Clarify number of processors returned by "nproc" with hyperthreading.
+
+	* libinterp/corefcn/nproc.cc (Fnproc): Clarify that the number of processors
+	returned by this function might be higher than the number of physical cores
+	(for processors with hyperthreading).
+
+	See: https://octave.discourse.group/t/3121/20
+
+	Files: libinterp/corefcn/nproc.cc
+
+2022-08-04  Markus Mützel  <markus.muetzel@gmx.de>
+
+	canonicalize_file_name: Handle symlinks to UNC network shares (bug #62847).
+
+	* liboctave/system/file-ops.cc (canonicalize_file_name): Check if canonical path
+	of UNC share corresponds to UNC path of mapped network drive. Support
+	canonicalizing paths to symbolic link directories that point to a network share.
+
+	Files: liboctave/system/file-ops.cc
+
+2022-08-03  Rik  <rik@octave.org>
+
+	Fix duplicate names displayed with mixed @class/classdef classes (Bug #62802)
+
+	* ov-classdef.cc (F__methods__): If class is a classdef one then use
+	get_method_map() to find methods.  Otherwise, class is a legacy @class one
+	and use load_path.methods() to get methods.
+
+	Files: libinterp/octave-value/ov-classdef.cc
+
+2022-08-03  Markus Mützel  <markus.muetzel@gmx.de>
+
+	io.tst: Add test case for scanf (bug #62723).
+
+	* test/io.tst: Add test case for sscanf that reaches the end of stream with
+	a pattern that matches characters.
+
+	Files: test/io.tst
+
+2022-08-02  Markus Mützel  <markus.muetzel@gmx.de>
+
+	scanf: Don't set error when reaching end of stream (bug #62723).
+
+	* libinterp/corefcn/oct-stream.cc (base_stream::do_scanf): Don't set error when
+	reaching end of stream.
+
+	Files: libinterp/corefcn/oct-stream.cc
+
+2022-07-29  Rik  <rik@octave.org>
+
+	uitable.m: Fix example code in DOCSTRING (bug #62824).
+
+	* uitable.m: Fix example code in DOCSTRING which required removing
+	space between function call and '('.
+
+	Files: scripts/gui/uitable.m
+
+2022-07-29  John W. Eaton  <jwe@octave.org>
+
+	maint: Merge away extra head on stable.
+
+	Files: 
+
+2022-07-28  Arun Giridhar  <arungiridhar@gmail.com>
+
+	test: Set random state and increase tolerance for interpn.m test (bug #62817)
+
+	Files: scripts/general/interpn.m
+
 2022-07-28  John W. Eaton  <jwe@octave.org>
 
 	bump stable branch version after release
