@@ -6,7 +6,7 @@
 #
 Name     : octave
 Version  : 7.2.0
-Release  : 48
+Release  : 49
 URL      : https://mirrors.kernel.org/gnu/octave/octave-7.2.0.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/octave/octave-7.2.0.tar.xz
 Source1  : https://mirrors.kernel.org/gnu/octave/octave-7.2.0.tar.xz.sig
@@ -144,15 +144,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1664323493
+export SOURCE_DATE_EPOCH=1667436380
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
-export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
-export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
-export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
+export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
 %configure --disable-static --enable-openmp \
 --disable-docs \
 --with-blas=openblas
@@ -172,10 +172,10 @@ make  %{?_smp_mflags}
 popd
 unset PKG_CONFIG_PATH
 pushd ../buildavx512/
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=256 -Wl,-z,x86-64-v4"
-export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=256 -Wl,-z,x86-64-v4"
-export FFLAGS="$FFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=256"
-export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=256"
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=512 -Wl,-z,x86-64-v4 -mtune=sapphirerapids "
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=512 -Wl,-z,x86-64-v4 -mtune=sapphirerapids "
+export FFLAGS="$FFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=512"
+export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=512"
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v4"
 %configure --disable-static --enable-openmp \
 --disable-docs \
@@ -183,13 +183,14 @@ export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v4"
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1664323493
+export SOURCE_DATE_EPOCH=1667436380
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/octave
-cp %{_builddir}/octave-%{version}/COPYING %{buildroot}/usr/share/package-licenses/octave/31a3d460bb3c7d98845187c716a30db81c44b615
-cp %{_builddir}/octave-%{version}/doc/liboctave/liboctave.html/Copying.html %{buildroot}/usr/share/package-licenses/octave/06f3fcab73080f0f38a849c230a9d3cef5a60112
-cp %{_builddir}/octave-%{version}/test/pkg/mfile_basic_test/COPYING %{buildroot}/usr/share/package-licenses/octave/21f3db650be936f00c242e559a23b6a16eaf9318
-cp %{_builddir}/octave-%{version}/test/pkg/mfile_minimal_test/COPYING %{buildroot}/usr/share/package-licenses/octave/21f3db650be936f00c242e559a23b6a16eaf9318
+cp %{_builddir}/octave-%{version}/COPYING %{buildroot}/usr/share/package-licenses/octave/31a3d460bb3c7d98845187c716a30db81c44b615 || :
+cp %{_builddir}/octave-%{version}/doc/interpreter/octave.html/Copying.html %{buildroot}/usr/share/package-licenses/octave/35550b45ca111ec321372b71fef7e7e971504bee || :
+cp %{_builddir}/octave-%{version}/doc/liboctave/liboctave.html/Copying.html %{buildroot}/usr/share/package-licenses/octave/06f3fcab73080f0f38a849c230a9d3cef5a60112 || :
+cp %{_builddir}/octave-%{version}/test/pkg/mfile_basic_test/COPYING %{buildroot}/usr/share/package-licenses/octave/21f3db650be936f00c242e559a23b6a16eaf9318 || :
+cp %{_builddir}/octave-%{version}/test/pkg/mfile_minimal_test/COPYING %{buildroot}/usr/share/package-licenses/octave/21f3db650be936f00c242e559a23b6a16eaf9318 || :
 pushd ../buildavx2/
 %make_install_v3
 popd
@@ -2694,3 +2695,4 @@ popd
 /usr/share/package-licenses/octave/06f3fcab73080f0f38a849c230a9d3cef5a60112
 /usr/share/package-licenses/octave/21f3db650be936f00c242e559a23b6a16eaf9318
 /usr/share/package-licenses/octave/31a3d460bb3c7d98845187c716a30db81c44b615
+/usr/share/package-licenses/octave/35550b45ca111ec321372b71fef7e7e971504bee
