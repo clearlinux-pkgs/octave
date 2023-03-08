@@ -28,6 +28,9 @@ Configure miss: _getch
 Configure miss: _kbhit
 Configure miss: _kbhit
 Configure miss: _kbhit
+Configure miss: bool, true, false
+Configure miss: bool, true, false
+Configure miss: bool, true, false
 Configure miss: compiler option needed when checking for declarations
 Configure miss: compiler option needed when checking for declarations
 Configure miss: compiler option needed when checking for declarations
@@ -112,6 +115,9 @@ Configure miss: sched_getaffinity_np
 Configure miss: sqr1up in -lqrupdate
 Configure miss: sqr1up in -lqrupdate
 Configure miss: sqr1up in -lqrupdate
+Configure miss: stdckdint.h
+Configure miss: stdckdint.h
+Configure miss: stdckdint.h
 Configure miss: stropts.h
 Configure miss: stropts.h
 Configure miss: stropts.h
@@ -172,12 +178,18 @@ Configure miss: whether api.prefix applies to yysymbol_kind_t
 Configure miss: whether complex class can reference components independently
 Configure miss: whether complex class can reference components independently
 Configure miss: whether complex class can reference components independently
+Configure miss: whether ctype.h defines __header_inline
+Configure miss: whether ctype.h defines __header_inline
+Configure miss: whether ctype.h defines __header_inline
 Configure miss: whether mbrtowc stores incomplete characters
 Configure miss: whether mbrtowc stores incomplete characters
 Configure miss: whether mbrtowc stores incomplete characters
 Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
 Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
 Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
+Configure miss: whether pthread_sigmask is a macro
+Configure miss: whether pthread_sigmask is a macro
+Configure miss: whether pthread_sigmask is a macro
 Configure miss: whether stl_algo.h is broken
 Configure miss: whether stl_algo.h is broken
 Configure miss: whether stl_algo.h is broken
