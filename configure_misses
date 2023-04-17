@@ -208,6 +208,9 @@ Configure miss: whether the compiler produces multi-arch binaries
 Configure miss: whether this system supports file names of any length
 Configure miss: whether this system supports file names of any length
 Configure miss: whether this system supports file names of any length
+Configure miss: whether using STL from LLVM or Apple
+Configure miss: whether using STL from LLVM or Apple
+Configure miss: whether using STL from LLVM or Apple
 Configure miss: working nanosleep
 Configure miss: working nanosleep
 Configure miss: working nanosleep

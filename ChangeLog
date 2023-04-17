@@ -1,4 +1,433 @@
+2023-04-13  John W. Eaton  <jwe@octave.org>
+
+	Added tag release-8-2-0 for changeset fdadf31961bb
+
+	Files: .hgtags
+
+	Version 8.2.0 released.
+
+	* configure.ac (AC_INIT): Set version to 8.2.0.
+	(OCTAVE_MINOR_VERSION): Now 2.
+	(OCTAVE_PATCH_VERSION): Now 0.
+	(OCTAVE_RELEASE_DATE): Set to "2023-04-13".
+	* org.octave.Octave.appdata.xml: Add release info for version 8.2.0.
+	* CITATION: Update for 8.2.0.
+	* NEWS.8.md: Update release date.
+
+	Files: CITATION configure.ac etc/NEWS.8.md
+	etc/icons/org.octave.Octave.appdata.xml
+
+2023-04-08  Markus Mützel  <markus.muetzel@gmx.de>
+
+	logm.m: Use larger tolerance in test with libc++.
+
+	* scripts/linear-algebra/logm.m: Add change missing from last commit.
+
+	Files: scripts/linear-algebra/logm.m
+
+	Make tests that fail with libc++ dependent on whether Octave uses it.
+
+	* libinterp/corefcn/dlmread.cc, libinterp/corefcn/strfcns.cc,
+	libinterp/corefcn/mappers.cc, scripts/general/logspace.m,
+	scripts/io/importdata.m, test/io.tst: Currently, some tests are guarded on
+	whether they execute on MacOS or not. But the test result in fact depends on
+	known differences between libstdc++ and libc++. Use HAVE_LLVM_LIBCXX as the
+	condition for these tests instead.
+
+	Files: libinterp/corefcn/dlmread.cc libinterp/corefcn/mappers.cc
+	libinterp/corefcn/strfns.cc scripts/general/logspace.m
+	scripts/io/importdata.m test/io.tst
+
+	NEWS.8.md: Update NEWS file with recent changes for Octave 8.2.0.
+
+	* etc/NEWS.8.md: Update NEWS file with recent changes for Octave 8.2.0.
+
+	Files: etc/NEWS.8.md
+
+	GitHub-CI: Switch clang runners on Ubuntu to use libc++ as the STL.
+
+	* .github/workflows/make.yaml (ubuntu): Shorten job names. Use libc++ as the
+	STL. Build without SPQR and GraphickMagick++ to avoid build issues caused by
+	mixing GNU libstdc++ and LLVM libc++.
+
+	Files: .github/workflows/make.yaml
+
+2023-04-07  Markus Mützel  <markus.muetzel@gmx.de>
+
+	fopen: Do not convert encoding for file streams with libc++ (bug #63930).
+
+	* oct-conf-post-private.in.h: Define OCTAVE_HAVE_STRICT_ENCODING_FACET if
+	Octave was linked against STL from LLVM or Apple.
+	* libinterp/corefcn/file-io.cc (Ffopen): Do not convert encoding if
+	OCTAVE_HAVE_STRICT_ENCODING_FACET is defined.
+	* test/io.tst: Skip test for encoding conversion if Octave was linked against
+	STL from LLVM or Apple.
+
+	Files: libinterp/corefcn/file-io.cc oct-conf-post-private.in.h test/io.tst
+
+2023-04-06  Markus Mützel  <markus.muetzel@gmx.de>
+
+	build: Check whether using STL from LLVM or Apple (bug #63930).
+
+	* m4/acinclude.m4 (OCTAVE_LLVM_LIBCXX): Some Octave features that rely on the
+	STL don't work correctly with libc++ from LLVM or Apple. Add a check that
+	allows referring to the used STL on build and run time.
+
+	* configure.ac: Run new DEFUN.
+
+	Files: configure.ac m4/acinclude.m4
+
+2023-04-07  Rik  <rik@octave.org>
+
+	Fix display of scalar complex variables with mixed Inf/NaN and floating point values (bug #63961)
+
+	* pr-output.cc (make_complex_scalar_format): Skip using isfinite() to influence
+	field with variables r_x and i_x.
+	* pr-output.cc (make_complex_format): Restrict code path for integers to only
+	take place when "int_only" is true (don't take this path when "inf_or_nan" is
+	true).  For case of real values, guarantee a minimum fieldwidth of 3 if
+	"inf_or_nan" is true.
+
+	Files: libinterp/corefcn/pr-output.cc
+
+2023-04-06  Rik  <rik@octave.org>
+
+	doc: Correct and improve documentation for sparse() function.
+
+	* sparse.cc (Fsparse): Correct documentation which said final NZMAX input was
+	ignored (it is implemented).  Reword portions of documentation for clarity.
+	Add example code for converting a full matrix to a sparse matrix.
+
+	Files: libinterp/corefcn/sparse.cc
+
+2023-04-05  Markus Mützel  <markus.muetzel@gmx.de>
+
+	codecvt_u8: Avoid random segmentation faults with libc++ (bug #63930).
+
+	* liboctave/util/oct-string.cc (octave::string::codecvt_u8::do_out): Set valid
+	values for pointers that are passed by reference before returning early.
+
+	Files: liboctave/util/oct-string.cc
+
+2023-04-03  Markus Mützel  <markus.muetzel@gmx.de>
+
+	Try to gather complete UTF-8 surrogates when converting encoding (bug #63930).
+
+	* liboctave/util/oct-string.cc (octave::string::codecvt_u8::do_out): Check if
+	end of buffer is a complete UTF-8 surrogate.
+
+	* test/io.tst: Add test case for transcoding with the buffer being aligned and
+	misaligned with the UTF-8 surrogate borders.
+
+	Files: liboctave/util/oct-string.cc test/io.tst
+
+	Fix converting short char arrays with invalid UTF-8 (bug #63930).
+
+	It looks like u8_conv_to_encoding checks the first input byte whether it looks
+	like an initial byte of a UTF-8 multi-byte surrogate. It returns an empty
+	string if the input buffer is too short to hold a surrogate of the expected
+	length. Additionally, it looks like it drops the trailing byte if it looks like
+	an initial byte of a multi-byte surrogate.
+	But we need it to "convert" the invalid byte sequences, e.g., to the
+	replacement character of the respective output encoding.
+
+	* liboctave/wrappers/uniconv-wrappers.c (octave_u8_conv_to_encoding_intern):
+	Add a new function that pads the input with zeros and zero terminates the
+	input string.
+	(octave_u8_conv_to_encoding, octave_u8_conv_to_encoding_strict,
+	octave_u8_conv_to_encoding_offsets): Use new function.
+
+	* scripts/strings/unicode2native.m: Add tests.
+
+	Files: liboctave/wrappers/uniconv-wrappers.c
+	scripts/strings/unicode2native.m
+
+2023-04-02  Rik  <rik@octave.org>
+
+	NEWS.8.md: Reword comment on second integral output for clarity (bug #63991).
+
+	* NEWS.8.md: Refer to "error estimate" rather than "error measurement" as
+	the integral() function does not actually measure a quantity in an empirical
+	sense.
+
+	Files: etc/NEWS.8.md
+
+2023-04-02  Markus Mützel  <markus.muetzel@gmx.de>
+
+	NEWS.8.md: Add entry about recent change (bug #63931).
+
+	* etc/NEWS.8.md: Add entry about fixed issue when writing bytes to output
+	stream with encoding facet.
+
+	Files: etc/NEWS.8.md
+
+2023-04-01  Markus Mützel  <markus.muetzel@gmx.de>
+
+	Don't use encoding facet when writing bytes to stream (bug #63931).
+
+	* libinterp/corefcn/oct-stream.h (octave::stream::output_stream): Do not return
+	output stream with encoding facet.
+	(octave::stream::preferred_output_stream): Add new function that returns output
+	stream with encoding facet if applicable.
+	* libinterp/corefcn/pr-output.cc (Ffdisp): Use new function
+	`preferred_output_stream` instead of `output_stream`.
+
+	Files: libinterp/corefcn/oct-stream.h libinterp/corefcn/pr-output.cc
+
+2023-04-01  Arun Giridhar  <arungiridhar@gmail.com>
+
+	NEWS.8.md: Merge two entries for the same bug.
+
+	Two entries both referred to bug #63940, one fix for floating point
+	and once more for integer. This edit combines them.
+
+	Files: etc/NEWS.8.md
+
+2023-04-01  Markus Mützel  <markus.muetzel@gmx.de>
+
+	NEWS.8.md: Update NEWS file with recent changes for Octave 8.2.0.
+
+	* etc/NEWS.8.md: Update NEWS file with recent changes for Octave 8.2.0. Remove
+	duplicate section further down in the file.
+
+	Files: etc/NEWS.8.md
+
+	build: Disable visibility flags by default (bug #61855, bug #63916).
+
+	* configure.ac (ENABLE_LIB_VISIBILITY_FLAGS): Change default to not using
+	visibility flags (on stable branch only).  Some symbols from using-declarations
+	don't seem to be usable on Linux if symbol visibility is limited.
+
+	Files: configure.ac
+
+	Backed out changeset fcd97a68e5f7
+
+	Files: libinterp/corefcn/oct-stream.h
+
+2023-03-31  Markus Mützel  <markus.muetzel@gmx.de>
+
+	fopen: Avoid unused variable warning.
+
+	* file-io.cc (Ffopen): Remove variable that is no longer used.
+
+	Files: libinterp/corefcn/file-io.cc
+
+	fopen: Use "UTF-8" as default encoding for fopen (bug #63930).
+
+	* file-io.cc (Ffopen): Default to no conversion between Octave's internal
+	representation of char arrays and the output stream (i.e., UTF-8).  That is
+	compatible to latest versions of Matlab.  And it will help to mitigate issues
+	when transcoding non-ASCII characters in streams when they are opened without
+	specifying an encoding.
+
+	Files: libinterp/corefcn/file-io.cc
+
+	lu: Add self-test with complex valued input.
+
+	* libinterp/corefcn/lu.cc: Add a self-test with complex valued input.
+	Thanks to Dmitri A. Sergatskov for providing that test case.
+	See also: https://octave.discourse.group/t/4289/13
+
+	Files: libinterp/corefcn/lu.cc
+
+2023-03-24  John Donoghue  <john.donoghue@ieee.org>
+
+	Remove trailing \r from curl dir list (bug #63851).
+
+	* liboctave/util/url-transfer.cc (curl_transfer::list): Remove potential
+	trailing '\r' from filenames.
+
+	Files: liboctave/util/url-transfer.cc
+
+2023-03-27  Arun Giridhar  <arungiridhar@gmail.com>
+
+	perms.m: Change "unique" output order to reverse lexicographic to match non-unique order (bug #63962)
+
+	* perms.m: The documentation says "reverse lexicographic order" for the output
+	but that was being met only for the inputs without "unique" specified.  This edit
+	makes them both comply with the documentation.
+
+	Files: scripts/specfun/perms.m
+
+2023-03-25  Rik  <rik@octave.org>
+
+	acinclude.m4: Correct typo in #define PCRE2_CODE_UNIT_WIDTH.
+
+	* acinclude.m4 (OCTAVE_CHECK_LIB_PCRE2_OK)): Correct obvious typo
+	"PCRE2_CODE-uNIT_WIDTH" with "PCRE2_CODE_UNIT_WIDTH".
+
+	Files: m4/acinclude.m4
+
+	maint: replace double semicolon ';;' line ending with just ';'.
+
+	* qfiledialog.cpp, qpagesetupdialog_win.cpp, Filter.cpp,
+	QWinTerminalImpl.cpp, gl-render.cc, ls-hdf5.cc, ls-mat4.cc, oct-map.cc,
+	regexp.cc, stack-frame.h, __init_fltk__.cc, octave.cc, lo-specfun.cc,
+	oct-rand.cc, installed_packages.m, pbaspect.m, index.tst, parser.tst:
+	Replace double semicolon ';;' line ending with just ';'.
+
+	Files: libgui/languages/build_ts/octave-qt/qfiledialog.cpp
+	libgui/languages/build_ts/octave-qt/qpagesetupdialog_win.cpp
+	libgui/qterminal/libqterminal/unix/Filter.cpp
+	libgui/qterminal/libqterminal/win32/QWinTerminalImpl.cpp
+	libinterp/corefcn/gl-render.cc libinterp/corefcn/ls-hdf5.cc
+	libinterp/corefcn/ls-mat4.cc libinterp/corefcn/oct-map.cc
+	libinterp/corefcn/regexp.cc libinterp/corefcn/stack-frame.h
+	libinterp/dldfcn/__init_fltk__.cc libinterp/octave.cc
+	liboctave/numeric/lo-specfun.cc liboctave/numeric/oct-rand.cc
+	scripts/pkg/private/installed_packages.m
+	scripts/plot/appearance/pbaspect.m test/index.tst test/parser.tst
+
+2023-03-24  Arun Giridhar  <arungiridhar@gmail.com>
+
+	file-io.cc: Fix failing BIST (bug #63930)
+
+	file-io.cc: A BIST to check text file encoding was using the binary file
+	open mode "w+" with an explicit text encoding, causing a BIST failure
+	after changeset fcd97a68e5f7. This edit changes the file mode to "wt+",
+	where text encodings make more sense.
+
+	Files: libinterp/corefcn/file-io.cc
+
+	oct-stream.h: Do not convert text encoding for binary streams (bugs 63415 and 63931)
+
+	* oct-stream.h (preferred_output_stream):  Previously, text encoding
+	conversions were skipped if the stream was in UTF-8.  This change also includes
+	binary streams as streams to skip encoding conversion for.
+
+	Files: libinterp/corefcn/oct-stream.h
+
+2023-03-24  Rik  <rik@octave.org>
+
+	doc: Improve documentation for linspace and logspace functions.
+
+	* data.cc (Flinspace), logspace.m: Improve wording and add Programming Notes
+	section detailing behavior for certain corner cases.
+
+	Files: libinterp/corefcn/data.cc scripts/general/logspace.m
+
+2023-03-23  Arun Giridhar  <arungiridhar@gmail.com>
+
+	NEWS.8.md: add bugfixes that will show in 8.2.0
+
+	NEWS.8.md: Add bugfixes on the stable branch made after 8.1.0 was released.
+
+	Files: etc/NEWS.8.md
+
+	pr-output.cc: Fix integer output for `format native-bit` (bug #63940)
+
+	pr-output.cc: Changeset d4d3098a15dc fixed the output of `format native-bit`
+	for floating point numbers to make it consistent with `format native-hex`.
+	This changeset does the same thing for integer types.
+
+	Files: libinterp/corefcn/pr-output.cc
+
+2023-03-21  Rik  <rik@octave.org>
+
+	mpoles.m: Overhaul function and use absolute tolerance for zero poles (bug #63937)
+
+	* mpoles.m: Re-write documentation to explain relative tolerance used for regular
+	poles and absolute tolerance used for zero poles.  Rename second output variable
+	to "idxp" so that it matches documentation.  Add input validation for all three
+	inputs.  Create outputs based on class of input P.  Rename internal variable
+	"ordr" to "order" for clarity.  Create new vector of tolerances which has
+	relative tolerances for ordinary poles and the value of TOL for zero poles.
+	Add BIST tests for class single inputs, for relative tolerances, for absolute
+	tolerances, and for input validation.
+
+	Files: scripts/polynomial/mpoles.m
+
+2023-03-20  John W. Eaton  <jwe@octave.org>
+
+	avoid clang warning about possible* buffer overflow
+
+	(*) Actual overflow could have only occurred for extremely large
+	screen sizes, but we might as well avoid the warning.
+
+	* Vt102Emulation.cpp (Vt102Emulation::reportCursorPosition):
+	Increase buffer from 20 to 32 bytes.
+
+	Files: libgui/qterminal/libqterminal/unix/Vt102Emulation.cpp
+
+2023-03-20  A.R. Burgers  <arburgers@gmail.com>
+
+	* if.tst: New test for bug #63935.
+
+	Files: test/if.tst
+
+2023-03-20  John W. Eaton  <jwe@octave.org>
+
+	fix evaluation of & and | expressions in conditional contexts (bug #63935)
+
+	* pt-binop.cc (tree_braindead_shortcircuit_binary_expression::evaluate):
+	Call parent class evaluate method if expression doesn't match
+	requirements for shortcut evaluation.  This step was accidentally and
+	incorrectly omitted in changeset 7781b1e77406.
+
+	Files: libinterp/parse-tree/pt-binop.cc
+
+2023-03-18  Arun Giridhar  <arungiridhar@gmail.com>
+
+	pr-output.cc: Fix output for `format native-bit` (bug #63940)
+
+	pr-output.cc: The output of `format native-bit` was reversing the order
+	of bits inside a byte as well as the order of bytes in a word. That behavior
+	was inconsistent with `format native-hex`. This changeset fixes that bug and
+	expands the documentation for `format`.
+
+	Files: libinterp/corefcn/pr-output.cc
+
+2023-03-13  A.R. Burgers  <arburgers@gmail.com>
+
+	NEWS.8.md: Fix typo in mean change summary (bug #63887)
+
+	Files: etc/NEWS.8.md
+
+2023-03-10  Torsten Lilge  <ttl-octave@mailbox.org>
+
+	speedup loading and saving preferences dialog (bug #63909)
+
+	* settings-dialog.cc (get_lexer_settings): set appropriate size adjust
+	  policy for the font combo boxes
+
+	Files: libgui/src/settings-dialog.cc
+
 2023-03-07  John W. Eaton  <jwe@octave.org>
+
+	maint: Merge away extra head on stable
+
+	Files: 
+
+2023-03-06  Arun Giridhar  <arungiridhar@gmail.com>
+
+	maint: Update comment to fix broken citation for inpolygon
+
+	inpolygon.m: A comment cited the source of the original algorithm
+	but the URL was defunct. I contacted the author through a web search
+	and I've updated the citation with the data they provided.
+
+	Files: scripts/geometry/inpolygon.m
+
+2023-03-03  Arun Giridhar  <arungiridhar@gmail.com>
+
+	inpolygon.m: Fix demo code (bug #63865)
+
+	Demo code for inpolygon.m was using "@" as a plot marker which is
+	no longer recognized.  This edit fixes that, and also uses different
+	markers for inside / on / outside the polygon, which helps with CVD
+	accessibility.
+
+	Files: scripts/geometry/inpolygon.m
+
+2023-03-07  John W. Eaton  <jwe@octave.org>
+
+	bump stable branch version after release
+
+	* configure.ac (AC_INIT): Set version to 8.1.1.
+	(OCTAVE_PATCH_VERSION): Now 1.
+	* NEWS.8.md: Create section for a future 8.2 release.
+
+	Files: configure.ac etc/NEWS.8.md
 
 	Added tag release-8-1-0 for changeset 75b1efe727d4
 
