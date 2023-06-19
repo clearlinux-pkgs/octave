@@ -7,7 +7,7 @@
 #
 Name     : octave
 Version  : 8.2.0
-Release  : 53
+Release  : 54
 URL      : https://mirrors.kernel.org/gnu/octave/octave-8.2.0.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/octave/octave-8.2.0.tar.xz
 Source1  : https://mirrors.kernel.org/gnu/octave/octave-8.2.0.tar.xz.sig
@@ -16,7 +16,6 @@ Group    : Development/Tools
 License  : GPL-3.0
 Requires: octave-bin = %{version}-%{release}
 Requires: octave-data = %{version}-%{release}
-Requires: octave-filemap = %{version}-%{release}
 Requires: octave-lib = %{version}-%{release}
 Requires: octave-libexec = %{version}-%{release}
 Requires: octave-license = %{version}-%{release}
@@ -69,7 +68,6 @@ Group: Binaries
 Requires: octave-data = %{version}-%{release}
 Requires: octave-libexec = %{version}-%{release}
 Requires: octave-license = %{version}-%{release}
-Requires: octave-filemap = %{version}-%{release}
 
 %description bin
 bin components for the octave package.
@@ -96,21 +94,12 @@ Requires: octave = %{version}-%{release}
 dev components for the octave package.
 
 
-%package filemap
-Summary: filemap components for the octave package.
-Group: Default
-
-%description filemap
-filemap components for the octave package.
-
-
 %package lib
 Summary: lib components for the octave package.
 Group: Libraries
 Requires: octave-data = %{version}-%{release}
 Requires: octave-libexec = %{version}-%{release}
 Requires: octave-license = %{version}-%{release}
-Requires: octave-filemap = %{version}-%{release}
 
 %description lib
 lib components for the octave package.
@@ -120,7 +109,6 @@ lib components for the octave package.
 Summary: libexec components for the octave package.
 Group: Default
 Requires: octave-license = %{version}-%{release}
-Requires: octave-filemap = %{version}-%{release}
 
 %description libexec
 libexec components for the octave package.
@@ -149,15 +137,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1681770567
+export SOURCE_DATE_EPOCH=1687217937
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 %configure --disable-static --enable-openmp \
 --disable-docs \
 --with-blas=openblas
@@ -188,10 +176,11 @@ export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v4"
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1681770567
+export SOURCE_DATE_EPOCH=1687217937
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/octave
 cp %{_builddir}/octave-%{version}/COPYING %{buildroot}/usr/share/package-licenses/octave/31a3d460bb3c7d98845187c716a30db81c44b615 || :
+cp %{_builddir}/octave-%{version}/doc/interpreter/octave.html/Copying.html %{buildroot}/usr/share/package-licenses/octave/ef1c0c8788f4a38e79509a429231da68d68e121e || :
 cp %{_builddir}/octave-%{version}/doc/liboctave/liboctave.html/Copying.html %{buildroot}/usr/share/package-licenses/octave/06f3fcab73080f0f38a849c230a9d3cef5a60112 || :
 cp %{_builddir}/octave-%{version}/test/pkg/mfile_basic_test/COPYING %{buildroot}/usr/share/package-licenses/octave/21f3db650be936f00c242e559a23b6a16eaf9318 || :
 cp %{_builddir}/octave-%{version}/test/pkg/mfile_minimal_test/COPYING %{buildroot}/usr/share/package-licenses/octave/21f3db650be936f00c242e559a23b6a16eaf9318 || :
@@ -207,6 +196,30 @@ popd
 
 %files
 %defattr(-,root,root,-)
+/V3/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/__delaunayn__.oct
+/V3/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/__fltk_uigetfile__.oct
+/V3/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/__glpk__.oct
+/V3/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/__init_fltk__.oct
+/V3/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/__init_gnuplot__.oct
+/V3/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/__ode15__.oct
+/V3/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/__voronoi__.oct
+/V3/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/audiodevinfo.oct
+/V3/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/audioread.oct
+/V3/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/convhulln.oct
+/V3/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/fftw.oct
+/V3/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/gzip.oct
+/V4/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/__delaunayn__.oct
+/V4/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/__fltk_uigetfile__.oct
+/V4/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/__glpk__.oct
+/V4/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/__init_fltk__.oct
+/V4/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/__init_gnuplot__.oct
+/V4/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/__ode15__.oct
+/V4/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/__voronoi__.oct
+/V4/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/audiodevinfo.oct
+/V4/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/audioread.oct
+/V4/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/convhulln.oct
+/V4/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/fftw.oct
+/V4/usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/gzip.oct
 /usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/PKG_ADD
 /usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/__delaunayn__.oct
 /usr/lib64/octave/8.2.0/oct/x86_64-generic-linux-gnu/__fltk_uigetfile__.oct
@@ -223,6 +236,14 @@ popd
 
 %files bin
 %defattr(-,root,root,-)
+/V3/usr/bin/mkoctfile-8.2.0
+/V3/usr/bin/octave-8.2.0
+/V3/usr/bin/octave-cli-8.2.0
+/V3/usr/bin/octave-config-8.2.0
+/V4/usr/bin/mkoctfile-8.2.0
+/V4/usr/bin/octave-8.2.0
+/V4/usr/bin/octave-cli-8.2.0
+/V4/usr/bin/octave-config-8.2.0
 /usr/bin/mkoctfile
 /usr/bin/mkoctfile-8.2.0
 /usr/bin/octave
@@ -231,7 +252,6 @@ popd
 /usr/bin/octave-cli-8.2.0
 /usr/bin/octave-config
 /usr/bin/octave-config-8.2.0
-/usr/share/clear/optimized-elf/bin*
 
 %files data
 %defattr(-,root,root,-)
@@ -2698,12 +2718,14 @@ popd
 /usr/lib64/pkgconfig/octave.pc
 /usr/lib64/pkgconfig/octinterp.pc
 
-%files filemap
-%defattr(-,root,root,-)
-/usr/share/clear/filemap/filemap-octave
-
 %files lib
 %defattr(-,root,root,-)
+/V3/usr/lib64/octave/8.2.0/liboctave.so.10.0.0
+/V3/usr/lib64/octave/8.2.0/liboctgui.so.9.0.0
+/V3/usr/lib64/octave/8.2.0/liboctinterp.so.11.0.0
+/V4/usr/lib64/octave/8.2.0/liboctave.so.10.0.0
+/V4/usr/lib64/octave/8.2.0/liboctgui.so.9.0.0
+/V4/usr/lib64/octave/8.2.0/liboctinterp.so.11.0.0
 /usr/lib64/octave/8.2.0/liboctave.so
 /usr/lib64/octave/8.2.0/liboctave.so.10
 /usr/lib64/octave/8.2.0/liboctave.so.10.0.0
@@ -2713,16 +2735,19 @@ popd
 /usr/lib64/octave/8.2.0/liboctinterp.so
 /usr/lib64/octave/8.2.0/liboctinterp.so.11
 /usr/lib64/octave/8.2.0/liboctinterp.so.11.0.0
-/usr/share/clear/optimized-elf/other*
 
 %files libexec
 %defattr(-,root,root,-)
+/V3/usr/libexec/octave/8.2.0/exec/x86_64-generic-linux-gnu/octave-gui
+/V3/usr/libexec/octave/8.2.0/exec/x86_64-generic-linux-gnu/octave-svgconvert
+/V4/usr/libexec/octave/8.2.0/exec/x86_64-generic-linux-gnu/octave-gui
+/V4/usr/libexec/octave/8.2.0/exec/x86_64-generic-linux-gnu/octave-svgconvert
 /usr/libexec/octave/8.2.0/exec/x86_64-generic-linux-gnu/octave-gui
 /usr/libexec/octave/8.2.0/exec/x86_64-generic-linux-gnu/octave-svgconvert
-/usr/share/clear/optimized-elf/exec*
 
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/octave/06f3fcab73080f0f38a849c230a9d3cef5a60112
 /usr/share/package-licenses/octave/21f3db650be936f00c242e559a23b6a16eaf9318
 /usr/share/package-licenses/octave/31a3d460bb3c7d98845187c716a30db81c44b615
+/usr/share/package-licenses/octave/ef1c0c8788f4a38e79509a429231da68d68e121e
