@@ -1,4 +1,414 @@
+2023-08-08  John W. Eaton  <jwe@octave.org>
+
+	Added tag release-8-3-0 for changeset 6fc591af58ba
+
+	Files: .hgtags
+
+	Version 8.2.0 released.
+
+	* configure.ac (AC_INIT): Set version to 8.3.0.
+	(OCTAVE_MINOR_VERSION): Now 3.
+	(OCTAVE_PATCH_VERSION): Now 0.
+	(OCTAVE_RELEASE_DATE): Set to "2023-08-08".
+	* org.octave.Octave.appdata.xml: Add release info for version 8.3.0.
+	* CITATION: Update for 8.3.0.
+	* NEWS.8.md: Update release date.
+	* libgui/module.mk (%canon_reldir%_liboctgui_revision): Increment.
+	* libinterp/module.mk (%canon_reldir%_liboctinterp_revision): Increment.
+	* liboctave/module.mk (%canon_reldir%_%canon_reldir%_revision): Increment.
+
+	Files: CITATION configure.ac etc/NEWS.8.md
+	etc/icons/org.octave.Octave.appdata.xml libgui/module.mk
+	libinterp/module.mk liboctave/module.mk
+
+2023-08-05  Markus Mützel  <markus.muetzel@gmx.de>
+
+	NEWS.8.md: Update NEWS file with recent changes for Octave 8.3.0.
+
+	* etc/NEWS.8.md: Update NEWS file with recent changes for Octave 8.3.0.
+
+	Files: etc/NEWS.8.md
+
+2023-05-18  Philip Nienhuis  <prnienhuis@users.sf.net>
+
+	datevec.m: Add some ISO 8601 conform formats (patch #9964).
+
+	* scripts/time/datevec.m: Add more formats that are automatically recognized.
+	Add BISTs.
+
+	Files: scripts/time/datevec.m
+
+2023-08-04  Markus Mützel  <markus.muetzel@gmx.de>
+
+	fileparts.m: Overhaul BISTs.
+
+	* scripts/miscellaneous/fileparts.m: Use multiple assert with simpler statements
+	in tests. Add more tests for trivial input.
+
+	Files: scripts/miscellaneous/fileparts.m
+
+2023-07-29  Philip Nienhuis  <prnienhuis@users.sf.net>
+
+	fileparts.m: Allow for relative path on different drive on Windows (bug #64462).
+
+	* fileparts.m: Add stanza to check for relative path on a specific drive on
+	Windows. Add BISTs.
+
+	Files: scripts/miscellaneous/fileparts.m
+
+2023-08-03  Markus Mützel  <markus.muetzel@gmx.de>
+
+	GitHub-CI (windows): Run check with "--no-gui-libs" flag.
+
+	* .github/workflows/make.yaml (windows): Run the test suite without loading
+	the GUI libraries. This works arounds a crash on the GitHub hosted Windows
+	runner.
+
+	Files: .github/workflows/make.yaml
+
+2023-08-01  Arun Giridhar  <arungiridhar@gmail.com>
+
+	lex.ll: Remove `$` as an identifier character
+
+	lex.ll: Remove `$` from list of valid identifier characters
+	to make it consistent with `isvarname` and the Octave manual.
+
+	Discussion:
+	https://octave.discourse.group/t/is-the-dollar-sign-a-valid-variable-name-or-not/4725
+
+	Files: libinterp/parse-tree/lex.ll
+
+2023-07-29  Markus Mützel  <markus.muetzel@gmx.de>
+
+	subsasgn: Add function name to error message (bug #64213).
+
+	* libinterp/octave-value/ov-struct.cc (octave_struct::subsasgn): Add function
+	name to error message.
+
+	Files: libinterp/octave-value/ov-struct.cc
+
+2023-07-28  Markus Mützel  <markus.muetzel@gmx.de>
+
+	NEWS.8.md: Update NEWS file with changes for Octave 8.3.0.
+
+	* etc/NEWS.8.md: Update NEWS file with changes for Octave 8.3.0.
+
+	Files: etc/NEWS.8.md
+
+	subsasgn: Avoid panic on invalid field names (bug #64213).
+
+	* libinterp/octave-value/ov-struct.cc (octave_struct::subsasgn,
+	octave_scalar_struct::subsasgn): Throw an exception if field name is not a
+	string instead of panicking. Add tests.
+
+	Files: libinterp/octave-value/ov-struct.cc
+
+2023-07-24  Nicholas R. Jankowski  <jankowski.nicholas@gmail.com>
+
+	ellipsoid.m: Prevent geometry data return when not requested (bug #64468)
+
+	* scripts/plot/draw/ellipsoid.m:  Change return variables from xx,yy,zz to
+	x,y,z so that nothing is returned unless the nargout > 0 condition is met.
+	Add BISTs to verify behavior and ensure ans is not overwritten when
+	nargout=0.  Remove optional variable N from first deftypefn definition.
+	* etc/NEWS.8.md:  Add bugfix note to 8.3.0 Improvements and fixes section.
+
+	Files: etc/NEWS.8.md scripts/plot/draw/ellipsoid.m
+
+2023-07-19  Sébastien Villemot  <sebastien@debian.org>
+
+	Fix FTBFS against SuiteSparse 7.1.0 when SPQR is disabled (bug #64446).
+
+	* liboctave/numeric/sparse-qr.cc sparse_qr_rep::Q): In SuiteSparse 7.1.0,
+	"cs_complex_t" is "double _Complex". (It was previously "std::complex<double>".)
+	This patches fixes the initialization syntax accordingly. Fixes code paths
+	missed in 134152cf1a3f.
+
+	Files: liboctave/numeric/sparse-qr.cc
+
+2023-07-18  Rik  <rik@octave.org>
+
+	Avoid false detection of "non-real pivot" in ichol() (bug #63785)
+
+	* __ichol__.cc (ichol_checkpivot_complex): Use comparison with a tolerance to
+	avoid issuing an error when small round-off errors are present.
+
+	Files: libinterp/corefcn/__ichol__.cc
+
+	pcg.m: Use eps tolerance in BIST test for ishermitian (Bug #63787)
+
+	* pcg.m: Use "ishermitian (x, eps)" to test for Hermitian property in BIST
+	tests.
+
+	Files: scripts/sparse/pcg.m
+
+2023-07-12  Rik  <rik@octave.org>
+
+	Remove obsolete callback constructor code for @audioplayer, @audiorecorder (bug #64379)
+
+	Remove ancient code for a calling form of @audioplayer, @audiorecorder
+	constructor that is not supported by Matlab and has been commented out
+	and unavailable in Octave for years.
+
+	* audiodevinfo.cc (init_fn): Delete function.
+	* audiodevinfo.cc (__recorder_audiorecorder__): Remove calling form with first
+	argument a function from Texinfo focumentation.  Remove input validation to
+	check for function as first argument.  Remove potential call to init_fn().
+
+	* audioplayer.m: Remove commented-out documentation for calling form with
+	callback function.  Remove input validation checking for function as first
+	argument.  Add FIXME note about incomplete input validation for this function.
+	Remove commented-out BIST tests for this functionality.  Add BIST test for
+	existing input validation.
+
+	* audiorecorder.m: Remove commented-out documentation for calling form with
+	callback function.  Remove input validation checking for function as first
+	argument.  Add FIXME note about lack of input validation for this function.
+	Remove commented-out BIST tests for this functionality.  Add BIST tests
+	for existing input validation.
+
+	Files: libinterp/dldfcn/audiodevinfo.cc
+	scripts/audio/@audioplayer/audioplayer.m
+	scripts/audio/@audiorecorder/audiorecorder.m
+
+2023-07-08  Rik  <rik@octave.org>
+
+	audioplayer.m: Emit error if input data Y is empty (bug #64379).
+
+	* audioplayer.m: Emit error if input data Y is empty.
+
+	Files: scripts/audio/@audioplayer/audioplayer.m
+
+2023-07-03  Markus Mützel  <markus.muetzel@gmx.de>
+
+	sparse-qr.cc: Fix compatibility with SuiteSparse 7.1.0 / CXSparse 4.0.4.
+
+	* liboctave/numeric/sparse-qr.cc (sparse_qr_rep::Q): "I" is a preprocessor
+	macro when <complex.h> is included. Rename variable to "I_mat".
+	(sparse_qr_rep::tall_solve, sparse_qr_rep::wide_solve): "cs_complex_t" is
+	"double _Complex" in SuiteSparse 7.1.0 / CXSparse 4.0.4 or newer.  So, it is
+	not possible to use it as a constructor with two arguments.  It was
+	"std::complex<double>" in previous versions.  Use the default one-argument
+	constructor that works with both instead.
+
+	Files: liboctave/numeric/sparse-qr.cc
+
+	fullfile.m: Return empty cell for input with empty cell (bug #64377).
+
+	* scripts/miscellaneous/fullfile.m: Don't remove empty cells from input.
+	Add test. Fix comment (filesep character on *nix is slash, not backslash).
+
+	Files: scripts/miscellaneous/fullfile.m
+
+2023-06-23  Markus Mützel  <markus.muetzel@gmx.de>
+
+	native2unicode, unicode2native: Support empty second argument (bug #64331).
+
+	* scripts/strings/native2unicode.m, scripts/strings/unicode2native.m: Restore
+	support for empty second argument. Add BIST.
+
+	Files: scripts/strings/native2unicode.m scripts/strings/unicode2native.m
+
+	unicode2native.m: Restore support for one input parameter (bug #64331).
+
+	* scripts/string/unicode2native.m: Restore support for calling form with one
+	input parameter. Add BIST.
+
+	Files: scripts/strings/unicode2native.m
+
+2023-06-21  Arun Giridhar  <arungiridhar@gmail.com>
+
+	doc: Add note to isprime.m on inputs over 2^64.
+
+	* isprime.m: Add note pointing the user to the Symbolic package for
+	inputs over 2^64, similar to the help for factor.m.
+
+	Files: scripts/specfun/isprime.m
+
+2023-06-11  Rik  <rik@octave.org>
+
+	Reset all axes properties except Units, Position with "cla ('reset')"
+
+	* graphics.cc (axes::properties::set_defaults): Add code to reset
+	"alphamap", "alphascale", "colormap", "colorscale", "fontsizemode",
+	"xlimitmethod", "ylimitmethod", "zlimitmethod".
+
+	* axis.m: Update BIST test to pass given correct behavior of cla().
+
+	Files: libinterp/corefcn/graphics.cc scripts/plot/appearance/axis.m
+
+	colorbar.m: Tag BIST test with bug number (bug #64287)
+
+	* colorbar.m: Tag BIST test in cset 13a2062926b6 with bug #64287.
+
+	Files: scripts/plot/draw/colorbar.m
+
+2023-06-11  Arun Giridhar  <arungiridhar@gmail.com>
+
+	colorbar.m: Add BIST (bug #64287)
+
+	Files: scripts/plot/draw/colorbar.m
+
+2023-06-08  Arun Giridhar  <arungiridhar@gmail.com>
+
+	colorbar.m: Fix undefined variable `d` (Bug #64287)
+
+	Files: scripts/plot/draw/colorbar.m
+
+2023-06-03  Rik  <rik@octave.org>
+
+	Fix restoring breakpoints from dbstatus breakpoint structure (bug #64271)
+
+	* debug.cc (Fdbstop): Clear "lines" variable each time through loop to add
+	breakpoints so that line numbers don't simply accumulate and aren't applied to
+	the wrong file.
+
+	Files: libinterp/corefcn/debug.cc
+
+2023-05-22  Rik  <rik@octave.org>
+
+	Fix segfault when saveobj() used with old-style class files (bug #64220)
+
+	* ov-class.cc (save_ascii, save_binary, save_hdf5): Replace accidental typo
+	"m_map" (class member variable) with "m" local variable of type octave_map
+	introduced in cset 7c8a70e4daad.
+
+	Files: libinterp/octave-value/ov-class.cc
+
+2023-05-13  Markus Mützel  <markus.muetzel@gmx.de>
+
+	lo-regexp.cc: Only include PCRE2/PCRE headers if feature test succeeded (bug #64172).
+
+	* liboctave/util/lo-regexp.cc: Condition inclusion of PCRE2/PCRE headers on
+	whether the configure test for the respective libraries succeeded.
+
+	Files: liboctave/util/lo-regexp.cc
+
+2023-05-12  Markus Mützel  <markus.muetzel@gmx.de>
+
+	uniconv-wrappers: Avoid freeing uninitialized pointer (bug #64182).
+
+	* liboctave/wrappers/uniconv-wrappers.c (octave_u8_conv_to_encoding_intern):
+	Initialize pointer with NULL that might be freed without assignment otherwise.
+
+	Files: liboctave/wrappers/uniconv-wrappers.c
+
+2023-05-07  Markus Mützel  <markus.muetzel@gmx.de>
+
+	memory: Fix execution on Cygwin.
+
+	* scripts/miscellaneous/memory.m: Check if field "Cached" exists before using
+	it.
+
+	Files: scripts/miscellaneous/memory.m
+
+2023-05-03  Markus Mützel  <markus.muetzel@gmx.de>
+
+	unicode2native: Fix conversion to UTF-16 (bug #64139).
+
+	* liboctave/wrappers/uniconv-wrappers.c (octave_u8_conv_to_encoding_intern):
+	Avoid appending a zero-byte when converting to UTF-* to avoid having to strip
+	a varying number of bytes after the conversion.
+
+	* scripts/strings/unicode2native.m: Add test for conversion to UTF-16.
+
+	Files: liboctave/wrappers/uniconv-wrappers.c
+	scripts/strings/unicode2native.m
+
+2023-05-02  Markus Mützel  <markus.muetzel@gmx.de>
+
+	GitHub-CI (macos): Fail job if test suite doesn't pass.
+
+	* .github/workflow/make.yaml (macos): Fail job for any failure or regression in
+	the test suite (instead of just emitting a warning).
+
+	Files: .github/workflows/make.yaml
+
+	betaincinv.m: Slightly increase test tolerance (for macOS 13).
+
+	* scripts/specfun/betaincinv.m: Slightly increase test tolerance to pass on
+	macOS 13.
+
+	Files: scripts/specfun/betaincinv.m
+
+2023-04-30  Markus Mützel  <markus.muetzel@gmx.de>
+
+	GitHub-CI (macos): Drop macos-11 runner and add macos-13 runner.
+
+	* .github/workflows/make.yaml (macos): Use shorter name for job. Remove macos-11
+	runner. Add macos-13 runner.
+
+	Files: .github/workflows/make.yaml
+
+2023-04-25  Rik  <rik@octave.org>
+
+	Return documentation for "help properties" (bug #64067)
+
+	* op-kw-docs: Remove delimiter character \x1d from @c comment lines
+	because it interferes with downstream processing.
+
+	Files: libinterp/op-kw-docs
+
+2023-04-20  Rik  <rik@octave.org>
+
+	Fix floating point exception when Sparse array reshaped to 0x0 (bug #64080)
+
+	* Sparse.cc (reshape): Test for empty matrix (number of rows or columns equal
+	to 0) and immediately return constructed, but unfilled, empty sparse matrix.
+
+	* data.cc (Freshape): Add BIST test for bug #64080.
+
+	Files: libinterp/corefcn/data.cc liboctave/array/Sparse.cc
+
+2023-04-18  Rik  <rik@octave.org>
+
+	Stop excessive memory usage for minor grid ticks (bug #64017).
+
+	* graphics.cc (calc_ticks_and_lims): Cap the number of minor ticks above or
+	below the current tick range at 1000 (configurable constant).
+
+	Files: libinterp/corefcn/graphics.cc
+
+2023-04-18  Markus Mützel  <markus.muetzel@gmx.de>
+
+	Include needed headers in installed .cc files (bug #63922).
+
+	* liboctave/array/Array-oct.cc, libinterp/template-inst/Array.cc: Explicitly
+	include all headers (forward) declaring the types that are used to instantiate
+	the Array template in these files.
+
+	Files: libinterp/template-inst/Array.cc liboctave/array/Array-oct.cc
+
+2023-04-16  Rik  <rik@octave.org>
+
+	undo_string_escapes: Return '\0' for NUL byte input (bug #64051)
+
+	* utils.cc (undo_string_escape): Delete test of input character
+	'c' which short-circuited function and returned immediately for
+	"c == 0".
+	* utils.cc (Fundo_string_escapes): Add BIST tests for NUL byte.
+	Add expected pattern for %!error input validation tests.
+
+	Files: libinterp/corefcn/utils.cc
+
+2023-04-16  Markus Mützel  <markus.muetzel@gmx.de>
+
+	GitHub-CI (mingw): Add missing output for build artifact name.
+
+	* .github/workflows/make.yaml (mingw): Add output "timestamp" to
+	"prepare ccache" step that is used in "upload build artifact" step.
+
+	Files: .github/workflows/make.yaml
+
 2023-04-13  John W. Eaton  <jwe@octave.org>
+
+	bump stable branch version after release
+
+	* configure.ac (AC_INIT): Set version to 8.2.1.
+	(OCTAVE_PATCH_VERSION): Now 1.
+	* NEWS.8.md: Create section for a future 8.3 release.
+
+	Files: configure.ac etc/NEWS.8.md
 
 	Added tag release-8-2-0 for changeset fdadf31961bb
 
