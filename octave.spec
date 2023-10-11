@@ -7,7 +7,7 @@
 #
 Name     : octave
 Version  : 8.3.0
-Release  : 55
+Release  : 56
 URL      : https://mirrors.kernel.org/gnu/octave/octave-8.3.0.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/octave/octave-8.3.0.tar.xz
 Source1  : https://mirrors.kernel.org/gnu/octave/octave-8.3.0.tar.xz.sig
