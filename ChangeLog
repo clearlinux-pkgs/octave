@@ -1,4 +1,331 @@
+2023-11-05  John W. Eaton  <jwe@octave.org>
+
+	Added tag release-8-4-0 for changeset 78c13a2594f3
+
+	Files: .hgtags
+
+	Version 8.4.0 released.
+
+	* configure.ac (AC_INIT): Set version to 8.4.0.
+	(OCTAVE_MINOR_VERSION): Now 4.
+	(OCTAVE_PATCH_VERSION): Now 0.
+	(OCTAVE_RELEASE_DATE): Set to "2023-11-05".
+	* org.octave.Octave.appdata.xml: Add release info for version 8.4.0.
+	* CITATION: Update for 8.4.0.
+	* NEWS.8.md: Update release date.
+	* liboctave/module.mk (%canon_reldir%_liboctave_revision): Increment.
+	* libinterp/module.mk (%canon_reldir%_liboctinterp_revision): Increment.
+
+	Files: CITATION configure.ac etc/NEWS.8.md
+	etc/icons/org.octave.Octave.appdata.xml libinterp/module.mk
+	liboctave/module.mk
+
+2023-10-31  Markus Mützel  <markus.muetzel@gmx.de>
+
+	NEWS.8.md: Update NEWS file with recent change for Octave 8.4.0.
+
+	* etc/NEWS.8.md: Update NEWS file with recent change for Octave 8.4.0.
+
+	Files: etc/NEWS.8.md
+
+2023-10-28  Markus Mützel  <markus.muetzel@gmx.de>
+
+	webread: Apply timeout also for initial connection (bug #64826).
+
+	* liboctave/util/url-transfer.cc (curl_transfer::set_weboptions): Set timeout
+	in Milliseconds for transfer and connection with CURLOPT_TIMEOUT_MS and
+	CURLOPT_CONNECTTIMEOUT_MS.
+	* scripts/web/webread.m: Fix function name in error message. Use transpose
+	operator instead of complex conjugate transpose operator.
+
+	Files: liboctave/util/url-transfer.cc scripts/web/webread.m
+
+2023-10-26  Arun Giridhar  <arungiridhar@gmail.com>
+
+	Fix minor typo for NEWS.8.md
+
+	Fix minor typo in commit logs for filename.
+
+	Files: etc/NEWS.8.md
+
+2023-10-26  Markus Mützel  <markus.muetzel@gmx.de>
+
+	NEWS.8.md: Update NEWS file with changes for Octave 8.4.0.
+
+	* etc/NEWS.8.md: Update NEWS file with changes for Octave 8.4.0.
+
+	Files: etc/NEWS.8.md
+
+2023-10-13  Nicholas R. Jankowski  <jankowski.nicholas@gmail.com>
+
+	betainf.m: Improve integer input logic and validation (bug #64726)
+
+	* betainf.m:  Add shortcut function return for integer x inputs.  Add x = 0
+	or 1 case to trivial input handling. Move tail input string check to
+	beginning of function and replace repeat checks with state variable.  Add
+	numeric type input validation test and BISTs.  Add BISTS to check inputs
+	with mix of 0, 1, and other numbers for x for both tail options.
+
+	Files: scripts/specfun/betainc.m
+
+2023-10-13  Markus Mützel  <markus.muetzel@gmx.de>
+
+	Avoid use-after-free issue (bug #60882).
+
+	* libinterp/parse-tree/oct-parse.yy (base_parser::make_for_command): Avoid
+	use-after-free in (unimplemented?) parfor block.
+
+	Files: libinterp/parse-tree/oct-parse.yy
+
+2023-10-05  Johannes Pfeifer  <Johannes Pfeifer>
+
+	intersect.m: Correct third output with "stable" flag (bug #60347).
+
+	* scripts/set/intersect.m: Return indices in third output in correct order
+	when using "stable" flag.
+
+	Files: scripts/set/intersect.m
+
+2023-10-03  Markus Mützel  <markus.muetzel@gmx.de>
+
+	fft: Avoid overwriting input for inplace operations (bug #64733).
+
+	With contributions from Markus Meisinger.
+
+	* liboctave/numeric/oct-fftw.cc (fftw_planner::do_create_plan,
+	float_fftw_planner::do_create_plan): Avoid overwriting input in planner when
+	output is returned in place.
+	* libinterp/corefcn/fft.cc: Add test cases.
+	* liboctave/util/oct-locbuf.h (OCTAVE_SCOPED_BUFFER_ANCHOR,
+	OCTAVE_SCOPED_BUFFER): Add new preprocessor macros to facilitate creating a
+	buffer which can leave the scope where it is created.
+
+	Files: libinterp/corefcn/fft.cc liboctave/numeric/oct-fftw.cc
+	liboctave/util/oct-locbuf.h
+
+2023-10-01  Markus Mützel  <markus.muetzel@gmx.de>
+
+	fft: Avoid segmentation fault with ND-arrays (bug #64729).
+
+	* liboctave/numeric/act-fftw.cc (fftw_planner::do_create_plan,
+	float_fftw_planner::do_create_plan): Allocate sufficiently large buffer for
+	FFTW plan (as suggested by Markus Meisinger).
+	* libinterp/corefcn/fft.cc: Add test cases.
+
+	Files: libinterp/corefcn/fft.cc liboctave/numeric/oct-fftw.cc
+
+2023-09-20  John W. Eaton  <jwe@octave.org>
+
+	Search for tests in and install octave-value template sources (bug #64696).
+
+	* libinterp/module.mk (LIBINTERP_TEMPLATE_SRC): New variable.
+	(octinclude_HEADERS): Include $(LIBINTERP_TEMPLATE_SRC) in the list.
+	(DIST_SRC): Likewise.
+
+	* libinterp/octave-value/module.mk: Add template source files to
+	LIBINTERP_TEMPLATE_SRC instead of libinterp_EXTRA_DIST.
+
+	Files: libinterp/module.mk libinterp/octave-value/module.mk
+
+2023-09-29  Markus Mützel  <markus.muetzel@gmx.de>
+
+	mkoctfile: Prefer parsing over passing on argument after unknown argument (bug #64725).
+
+	* src/mkoctfile.in.cc: Try to parse argument following an unknown parameter
+	before passing it on to the compiler flags.
+
+	Files: src/mkoctfile.in.cc
+
+2023-09-22  Arun Giridhar  <arungiridhar@gmail.com>
+
+	doc: Add range example and some copyedits
+
+	Files: doc/interpreter/numbers.txi
+
+	doc: Describe various pitfalls with floating point ranges (Bug #64692)
+
+	Files: doc/interpreter/numbers.txi
+
+2023-09-21  John W. Eaton  <jwe@octave.org>
+
+	allocate correct storage for interleaved complex mxArray objects (bug #64687)
+
+	Track complexity of mxArray objects in mxArray_matlab base class
+	instead of individually in derived classes.
+
+	* mex.cc (mxArray::m_is_complex): New data member.  Update
+	constructors as needed to accept argument specifying complexity.
+	Change all uses.
+	(mxArray::is_complex): Return m_complex instead of 0.
+	(mxArray::set_complexity): New function.
+	(mxArray_base_full, mxArray_base_sparse): Update constructors as
+	needed to accept argument specifying complexity.  Change all uses.
+	(mxArray_interleaved_full::is_complex): Delete.
+	(mxArray_interleaved_full::m_complex): Delete.
+	(mxArray_separate_full::is_complex): Delete.
+	(mxArray_separate_sparse::set_imag_data): Update complexity.
+	(mxArray_interleaved_sparse::is_complex): Delete.
+	(mxArray_interleaved_sparse::m_complex): Delete.
+	(mxArray_separate_sparse::is_complex): Delete.
+	(mxArray_separate_sparse::set_imag_data): Update complexity.
+
+	Files: libinterp/corefcn/mex.cc
+
+2023-09-19  John W. Eaton  <jwe@octave.org>
+
+	ensure that new test writes a text file
+
+	* ov-base-sparse.cc: In new test, use "-text" option for save command.
+
+	Files: libinterp/octave-value/ov-base-sparse.cc
+
+	correctly load all-zero sparse matrices from text files (bug #64696)
+
+	Since changeset c0d8ce61c1c9, sparse arrays have reserved at least one
+	element of storage so nzmax is always greater than 0.  That causes
+	trouble for the read_sparse_matrix function which only reads a set of
+	triplets (ROW, COL, VAL) from the input stream and assumes that the
+	sparse array that it receives and fills with values has been
+	initialized with exactly the correct amount of storage to hold all the
+	values in the file (it assumes that nnz is the same as nzmax).  But
+	that's not the case for sparse arrays created with nnz equal to 0 and
+	read_sparse_matrix attempts to read an element when it should not.  We
+	can't avoid the problem by calling Sparse<T>::nnz in
+	read_sparse_matrix because it returns zero for a newly allocated
+	sparse array and won't be correct until the values are stored in the
+	array.  Instead, we have to skip reading array elements in the
+	load_ascii function if NZ is zero.
+
+	* ov-base-sparse.cc (octave_base_sparse<T>::load_ascii): Skip input of
+	matrix elements if NNZ is zero.  New test.
+
+	Files: libinterp/octave-value/ov-base-sparse.cc
+
+2023-09-14  Nicholas R. Jankowski  <jankowski.nicholas@gmail.com>
+
+	datevec: Add help text that inputs can be arrays (bug #54679).
+
+	* datevec.m: Update help text to explain that arguments can be scalar or
+	arrays.
+
+	Files: scripts/time/datevec.m
+
+2021-11-22  Andrew Janke  <andrew@apjanke.net>
+
+	datenum: Add help text that inputs can be arrays, add examples (bug #54679).
+
+	* datenum.m: Update help text to explain that arguments can be scalar or
+	arrays.  Add docsstring examples of several use cases.
+
+	Files: scripts/time/datenum.m
+
+2023-09-13  Markus Mützel  <markus.muetzel@gmx.de>
+
+	delaunayn: Also warn for negative integers with large magnitude (bug #64658).
+
+	* scripts/geometry/delaunay.m: Also warn for negative integers with large
+	magnitude.
+
+	Files: scripts/geometry/delaunayn.m
+
+2023-09-12  Nicholas R. Jankowski  <jankowski.nicholas@gmail.com>
+
+	delaunayn: Add precision loss warning for large int inputs (bug #64658).
+
+	* delaunayn.m: Add conditional warning for int values larger that flintmax.
+	Move int-to-double conversion after call to __dalaunayn__.  Add TODO
+	note about correcting simplex checking calculations to be stable for
+	integer values.
+
+	Files: scripts/geometry/delaunayn.m
+
+	delaunayn.m: Avoid erroneous simplex removal for integer inputs (bug #64658).
+
+	* delaunany.m:  Add conditional conversion from integer to double inputs.  Add
+	BIST checking for same output with double and int inputs for known
+	problematic input.
+	* NEWS.8.md:  Note bugfix under Improvements and fixes.
+
+	Files: etc/NEWS.8.md scripts/geometry/delaunayn.m
+
+2023-09-07  Markus Mützel  <markus.muetzel@gmx.de>
+
+	Fix getting number of non-zero elements in SuiteSparse matrices.
+
+	Based on changes by @DrTimothyAldenDavis on GitHub:
+	https://github.com/DrTimothyAldenDavis/SuiteSparse/issues/221#issuecomment-1710586946
+
+	* liboctave/numeric/sparse-qr.cc (rcs2ros, ccs2cos): Add cholmod_common as
+	input argument. Use "cholmod_l_nnz" to get number of non-zero matrix elements.
+	(sparse_qr<T>::sparse_qr_rep::V): Pass cholmod_common to conversion function.
+	Get correct number of non-zero matrix elements.
+	(sparse_qr<T>::sparse_qr_rep::R): Use "cholmod_l_nnz" to get number of non-zero
+	matrix elements. Get correct number of non-zero matrix elements.
+	(sparse_qr<T>::sparse_qr_rep::tall_solve): Use "cholmod_l_nnz" to get number of
+	non-zero matrix elements.
+	(sparse_qr<T>::min2norm_solve): Pass cholmod_common to conversion function.
+
+	* liboctave/numeric/sparse-qr.cc (parse_chol<chol_type>::L): Use
+	"cholmod_[l_]nnz" to get number of non-zero matrix elements.
+
+	* liboctave/array/CSparse.cc, dSparse.cc (fsolve): Use "cholmod_[l_]nnz" to get
+	number of non-zero matrix elements.
+
+	Files: liboctave/array/CSparse.cc liboctave/array/dSparse.cc
+	liboctave/numeric/sparse-chol.cc liboctave/numeric/sparse-qr.cc
+
+2023-08-28  Markus Mützel  <markus.muetzel@gmx.de>
+
+	mkoctfile: Skip parsing for less flags (bug #64590).
+
+	* src/mkoctfile.in.cc: Don't skip parsing of arguments that follow something
+	that looks like a compiler option containing '='.
+
+	Files: src/mkoctfile.in.cc
+
+2023-08-26  Markus Mützel  <markus.muetzel@gmx.de>
+
+	doc: Clarify that heuristics are used to detect the format of a date string (bug #64563).
+
+	* scripts/time/datevec.m: Add sentences in the documentation to clarify that
+	heuristics are used when no format string is provided.
+
+	Files: scripts/time/datevec.m
+
+2023-08-23  Arun Giridhar  <arungiridhar@gmail.com>
+
+	doc: Expand documentation for gcd() and lcm()
+
+	gcd.cc: Add tip about num2cell for multiple inputs in the same array.
+
+	lcm.m: Expand documentation, mention complex inputs, add tip about
+	num2cell for multiple inputs in the same array.
+
+	Files: libinterp/corefcn/gcd.cc scripts/specfun/lcm.m
+
+2023-08-23  Nicholas R. Jankowski  <jankowski.nicholas@gmail.com>
+
+	doc: Correct variable name typo in slice.m docstring
+
+	* slice.m: Correct "parameter X, X, and Z" to "parameter X, Y, and Z".
+
+	Files: scripts/plot/draw/slice.m
+
+2023-08-10  Arun Giridhar  <arungiridhar@gmail.com>
+
+	mkpp.m: Remove stray text causing error with demo code.
+
+	Files: scripts/polynomial/mkpp.m
+
 2023-08-08  John W. Eaton  <jwe@octave.org>
+
+	bump stable branch version after release
+
+	* configure.ac (AC_INIT): Set version to 8.3.1.
+	(OCTAVE_PATCH_VERSION): Now 1.
+	* NEWS.8.md: Create section for a future 8.4 release.
+
+	Files: configure.ac etc/NEWS.8.md
 
 	Added tag release-8-3-0 for changeset 6fc591af58ba
 
