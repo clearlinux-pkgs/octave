@@ -7,9 +7,6 @@ Configure miss: CFLocaleCopyPreferredLanguages
 Configure miss: OpenGL/glext.h
 Configure miss: OpenGL/glext.h
 Configure miss: OpenGL/glext.h
-Configure miss: QGLFunctions_1_1
-Configure miss: QGLFunctions_1_1
-Configure miss: QGLFunctions_1_1
 Configure miss: SUNDenseLinearSolver
 Configure miss: SUNDenseLinearSolver
 Configure miss: SUNDenseLinearSolver
@@ -28,6 +25,9 @@ Configure miss: _getch
 Configure miss: _kbhit
 Configure miss: _kbhit
 Configure miss: _kbhit
+Configure miss: arithmetic hrtime_t
+Configure miss: arithmetic hrtime_t
+Configure miss: arithmetic hrtime_t
 Configure miss: bool, true, false
 Configure miss: bool, true, false
 Configure miss: bool, true, false
@@ -49,9 +49,9 @@ Configure miss: fake locale system (OpenBSD)
 Configure miss: fontconfig.h
 Configure miss: fontconfig.h
 Configure miss: fontconfig.h
-Configure miss: g++ option to enable C++11 features
-Configure miss: g++ option to enable C++11 features
-Configure miss: g++ option to enable C++11 features
+Configure miss: gcc option to enable large file support
+Configure miss: gcc option to enable large file support
+Configure miss: gcc option to enable large file support
 Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: gcc options needed to detect all undeclared functions
@@ -79,33 +79,75 @@ Configure miss: ida_direct.h
 Configure miss: klu/klu.h
 Configure miss: klu/klu.h
 Configure miss: klu/klu.h
-Configure miss: lrelease-qt5
-Configure miss: lrelease-qt5
-Configure miss: lrelease-qt5
-Configure miss: moc-qt5
-Configure miss: moc-qt5
-Configure miss: moc-qt5
+Configure miss: lrelease
+Configure miss: lrelease
+Configure miss: lrelease
+Configure miss: lrelease-qt6
+Configure miss: lrelease-qt6
+Configure miss: lrelease-qt6
+Configure miss: microuptime
+Configure miss: microuptime
+Configure miss: microuptime
+Configure miss: moc
+Configure miss: moc
+Configure miss: moc
+Configure miss: moc
+Configure miss: moc
+Configure miss: moc
+Configure miss: moc-qt6
+Configure miss: moc-qt6
+Configure miss: moc-qt6
+Configure miss: nanouptime
+Configure miss: nanouptime
+Configure miss: nanouptime
 Configure miss: nvector_serial.h
 Configure miss: nvector_serial.h
 Configure miss: nvector_serial.h
 Configure miss: portaudio.h
 Configure miss: portaudio.h
 Configure miss: portaudio.h
-Configure miss: qcollectiongenerator-qt5
-Configure miss: qcollectiongenerator-qt5
-Configure miss: qcollectiongenerator-qt5
-Configure miss: qhelpgenerator-qt5
-Configure miss: qhelpgenerator-qt5
-Configure miss: qhelpgenerator-qt5
-Configure miss: qtchooser
-Configure miss: qtchooser
-Configure miss: qtchooser
+Configure miss: qhelpgenerator
+Configure miss: qhelpgenerator
+Configure miss: qhelpgenerator
+Configure miss: qhelpgenerator-qt6
+Configure miss: qhelpgenerator-qt6
+Configure miss: qhelpgenerator-qt6
+Configure miss: qmake-qt6
+Configure miss: qmake-qt6
+Configure miss: qmake-qt6
+Configure miss: qmake-qt6
+Configure miss: qmake-qt6
+Configure miss: qmake-qt6
+Configure miss: qmake6
+Configure miss: qmake6
+Configure miss: qmake6
+Configure miss: qmake6
+Configure miss: qmake6
+Configure miss: qmake6
+Configure miss: qtpaths-qt6
+Configure miss: qtpaths-qt6
+Configure miss: qtpaths-qt6
+Configure miss: qtpaths-qt6
+Configure miss: qtpaths-qt6
+Configure miss: qtpaths-qt6
+Configure miss: qtpaths6
+Configure miss: qtpaths6
+Configure miss: qtpaths6
+Configure miss: qtpaths6
+Configure miss: qtpaths6
+Configure miss: qtpaths6
 Configure miss: rapidjson/rapidjson.h
 Configure miss: rapidjson/rapidjson.h
 Configure miss: rapidjson/rapidjson.h
-Configure miss: rcc-qt5
-Configure miss: rcc-qt5
-Configure miss: rcc-qt5
+Configure miss: rcc
+Configure miss: rcc
+Configure miss: rcc
+Configure miss: rcc
+Configure miss: rcc
+Configure miss: rcc
+Configure miss: rcc-qt6
+Configure miss: rcc-qt6
+Configure miss: rcc-qt6
 Configure miss: resolvepath
 Configure miss: resolvepath
 Configure miss: resolvepath
@@ -115,9 +157,6 @@ Configure miss: sched_getaffinity_np
 Configure miss: sqr1up in -lqrupdate
 Configure miss: sqr1up in -lqrupdate
 Configure miss: sqr1up in -lqrupdate
-Configure miss: stdckdint.h
-Configure miss: stdckdint.h
-Configure miss: stdckdint.h
 Configure miss: stropts.h
 Configure miss: stropts.h
 Configure miss: stropts.h
@@ -148,18 +187,24 @@ Configure miss: sysctl
 Configure miss: sysmp
 Configure miss: sysmp
 Configure miss: sysmp
-Configure miss: the QScintilla library for Qt 5
-Configure miss: the QScintilla library for Qt 5
-Configure miss: the QScintilla library for Qt 5
 Configure miss: timezone_t
 Configure miss: timezone_t
 Configure miss: timezone_t
 Configure miss: ufsparse/klu.h
 Configure miss: ufsparse/klu.h
 Configure miss: ufsparse/klu.h
-Configure miss: uic-qt5
-Configure miss: uic-qt5
-Configure miss: uic-qt5
+Configure miss: uic
+Configure miss: uic
+Configure miss: uic
+Configure miss: uic
+Configure miss: uic
+Configure miss: uic
+Configure miss: uic-qt6
+Configure miss: uic-qt6
+Configure miss: uic-qt6
+Configure miss: unreachable
+Configure miss: unreachable
+Configure miss: unreachable
 Configure miss: whether /usr/bin/ld -m elf_x86_64 accepts -framework Carbon
 Configure miss: whether /usr/bin/ld -m elf_x86_64 accepts -framework Carbon
 Configure miss: whether /usr/bin/ld -m elf_x86_64 accepts -framework Carbon
@@ -172,15 +217,24 @@ Configure miss: whether HDF5 library has enforced version 1.6 API
 Configure miss: whether MIPS processor is using non-standard NaN encoding
 Configure miss: whether MIPS processor is using non-standard NaN encoding
 Configure miss: whether MIPS processor is using non-standard NaN encoding
+Configure miss: whether SEEK_DATA works but is incompatible with GNU
+Configure miss: whether SEEK_DATA works but is incompatible with GNU
+Configure miss: whether SEEK_DATA works but is incompatible with GNU
 Configure miss: whether api.prefix applies to yysymbol_kind_t
 Configure miss: whether api.prefix applies to yysymbol_kind_t
 Configure miss: whether api.prefix applies to yysymbol_kind_t
+Configure miss: whether btowc is consistent with mbrtowc in the C locale
+Configure miss: whether btowc is consistent with mbrtowc in the C locale
+Configure miss: whether btowc is consistent with mbrtowc in the C locale
 Configure miss: whether complex class can reference components independently
 Configure miss: whether complex class can reference components independently
 Configure miss: whether complex class can reference components independently
 Configure miss: whether ctype.h defines __header_inline
 Configure miss: whether ctype.h defines __header_inline
 Configure miss: whether ctype.h defines __header_inline
+Configure miss: whether gethrtime is declared
+Configure miss: whether gethrtime is declared
+Configure miss: whether gethrtime is declared
 Configure miss: whether mbrtowc stores incomplete characters
 Configure miss: whether mbrtowc stores incomplete characters
 Configure miss: whether mbrtowc stores incomplete characters
@@ -190,9 +244,6 @@ Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
 Configure miss: whether pthread_sigmask is a macro
 Configure miss: whether pthread_sigmask is a macro
 Configure miss: whether pthread_sigmask is a macro
-Configure miss: whether stl_algo.h is broken
-Configure miss: whether stl_algo.h is broken
-Configure miss: whether stl_algo.h is broken
 Configure miss: whether strmode is declared
 Configure miss: whether strmode is declared
 Configure miss: whether strmode is declared
@@ -205,6 +256,12 @@ Configure miss: whether the compiler is clang
 Configure miss: whether the compiler produces multi-arch binaries
 Configure miss: whether the compiler produces multi-arch binaries
 Configure miss: whether the compiler produces multi-arch binaries
+Configure miss: whether the function iconv_canonicalize is available
+Configure miss: whether the function iconv_canonicalize is available
+Configure miss: whether the function iconv_canonicalize is available
+Configure miss: whether the function iconvlist is available
+Configure miss: whether the function iconvlist is available
+Configure miss: whether the function iconvlist is available
 Configure miss: whether this system supports file names of any length
 Configure miss: whether this system supports file names of any length
 Configure miss: whether this system supports file names of any length
@@ -220,39 +277,69 @@ Configure miss: x86_64-generic-linux-gnu-file
 Configure miss: x86_64-generic-linux-gnu-lrelease
 Configure miss: x86_64-generic-linux-gnu-lrelease
 Configure miss: x86_64-generic-linux-gnu-lrelease
-Configure miss: x86_64-generic-linux-gnu-lrelease-qt5
-Configure miss: x86_64-generic-linux-gnu-lrelease-qt5
-Configure miss: x86_64-generic-linux-gnu-lrelease-qt5
+Configure miss: x86_64-generic-linux-gnu-lrelease
+Configure miss: x86_64-generic-linux-gnu-lrelease
+Configure miss: x86_64-generic-linux-gnu-lrelease
+Configure miss: x86_64-generic-linux-gnu-lrelease-qt6
+Configure miss: x86_64-generic-linux-gnu-lrelease-qt6
+Configure miss: x86_64-generic-linux-gnu-lrelease-qt6
 Configure miss: x86_64-generic-linux-gnu-moc
 Configure miss: x86_64-generic-linux-gnu-moc
 Configure miss: x86_64-generic-linux-gnu-moc
-Configure miss: x86_64-generic-linux-gnu-moc-qt5
-Configure miss: x86_64-generic-linux-gnu-moc-qt5
-Configure miss: x86_64-generic-linux-gnu-moc-qt5
-Configure miss: x86_64-generic-linux-gnu-qcollectiongenerator
-Configure miss: x86_64-generic-linux-gnu-qcollectiongenerator
-Configure miss: x86_64-generic-linux-gnu-qcollectiongenerator
-Configure miss: x86_64-generic-linux-gnu-qcollectiongenerator-qt5
-Configure miss: x86_64-generic-linux-gnu-qcollectiongenerator-qt5
-Configure miss: x86_64-generic-linux-gnu-qcollectiongenerator-qt5
+Configure miss: x86_64-generic-linux-gnu-moc
+Configure miss: x86_64-generic-linux-gnu-moc
+Configure miss: x86_64-generic-linux-gnu-moc
+Configure miss: x86_64-generic-linux-gnu-moc-qt6
+Configure miss: x86_64-generic-linux-gnu-moc-qt6
+Configure miss: x86_64-generic-linux-gnu-moc-qt6
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
 Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
-Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
-Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
-Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt5
-Configure miss: x86_64-generic-linux-gnu-qtchooser
-Configure miss: x86_64-generic-linux-gnu-qtchooser
-Configure miss: x86_64-generic-linux-gnu-qtchooser
+Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
+Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
+Configure miss: x86_64-generic-linux-gnu-qhelpgenerator
+Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt6
+Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt6
+Configure miss: x86_64-generic-linux-gnu-qhelpgenerator-qt6
+Configure miss: x86_64-generic-linux-gnu-qmake-qt6
+Configure miss: x86_64-generic-linux-gnu-qmake-qt6
+Configure miss: x86_64-generic-linux-gnu-qmake-qt6
+Configure miss: x86_64-generic-linux-gnu-qmake-qt6
+Configure miss: x86_64-generic-linux-gnu-qmake-qt6
+Configure miss: x86_64-generic-linux-gnu-qmake-qt6
+Configure miss: x86_64-generic-linux-gnu-qmake6
+Configure miss: x86_64-generic-linux-gnu-qmake6
+Configure miss: x86_64-generic-linux-gnu-qmake6
+Configure miss: x86_64-generic-linux-gnu-qmake6
+Configure miss: x86_64-generic-linux-gnu-qmake6
+Configure miss: x86_64-generic-linux-gnu-qmake6
+Configure miss: x86_64-generic-linux-gnu-qtpaths-qt6
+Configure miss: x86_64-generic-linux-gnu-qtpaths-qt6
+Configure miss: x86_64-generic-linux-gnu-qtpaths-qt6
+Configure miss: x86_64-generic-linux-gnu-qtpaths-qt6
+Configure miss: x86_64-generic-linux-gnu-qtpaths-qt6
+Configure miss: x86_64-generic-linux-gnu-qtpaths-qt6
+Configure miss: x86_64-generic-linux-gnu-qtpaths6
+Configure miss: x86_64-generic-linux-gnu-qtpaths6
+Configure miss: x86_64-generic-linux-gnu-qtpaths6
+Configure miss: x86_64-generic-linux-gnu-qtpaths6
+Configure miss: x86_64-generic-linux-gnu-qtpaths6
+Configure miss: x86_64-generic-linux-gnu-qtpaths6
 Configure miss: x86_64-generic-linux-gnu-rcc
 Configure miss: x86_64-generic-linux-gnu-rcc
 Configure miss: x86_64-generic-linux-gnu-rcc
-Configure miss: x86_64-generic-linux-gnu-rcc-qt5
-Configure miss: x86_64-generic-linux-gnu-rcc-qt5
-Configure miss: x86_64-generic-linux-gnu-rcc-qt5
+Configure miss: x86_64-generic-linux-gnu-rcc
+Configure miss: x86_64-generic-linux-gnu-rcc
+Configure miss: x86_64-generic-linux-gnu-rcc
+Configure miss: x86_64-generic-linux-gnu-rcc-qt6
+Configure miss: x86_64-generic-linux-gnu-rcc-qt6
+Configure miss: x86_64-generic-linux-gnu-rcc-qt6
 Configure miss: x86_64-generic-linux-gnu-uic
 Configure miss: x86_64-generic-linux-gnu-uic
 Configure miss: x86_64-generic-linux-gnu-uic
-Configure miss: x86_64-generic-linux-gnu-uic-qt5
-Configure miss: x86_64-generic-linux-gnu-uic-qt5
-Configure miss: x86_64-generic-linux-gnu-uic-qt5
+Configure miss: x86_64-generic-linux-gnu-uic
+Configure miss: x86_64-generic-linux-gnu-uic
+Configure miss: x86_64-generic-linux-gnu-uic
+Configure miss: x86_64-generic-linux-gnu-uic-qt6
+Configure miss: x86_64-generic-linux-gnu-uic-qt6
+Configure miss: x86_64-generic-linux-gnu-uic-qt6
