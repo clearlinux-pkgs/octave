@@ -9,7 +9,7 @@
 #
 Name     : octave
 Version  : 9.2.0
-Release  : 60
+Release  : 61
 URL      : https://mirrors.kernel.org/gnu/octave/octave-9.2.0.tar.gz
 Source0  : https://mirrors.kernel.org/gnu/octave/octave-9.2.0.tar.gz
 Source1  : https://mirrors.kernel.org/gnu/octave/octave-9.2.0.tar.gz.sig
