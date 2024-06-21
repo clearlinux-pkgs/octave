@@ -30,6 +30,7 @@ libsndfile.so.1
 libspqr.so.2
 libstdc++.so.6
 libsuitesparseconfig.so.5
-libsundials_ida.so.6
+libsundials_core.so.7
+libsundials_ida.so.7
 libumfpack.so.5
 libz.so.1
