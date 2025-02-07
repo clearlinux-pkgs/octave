@@ -4,9 +4,18 @@ Configure miss: 32-bit host C ABI
 Configure miss: CFLocaleCopyPreferredLanguages
 Configure miss: CFLocaleCopyPreferredLanguages
 Configure miss: CFLocaleCopyPreferredLanguages
+Configure miss: IDADlsSetJacFn
+Configure miss: IDADlsSetJacFn
+Configure miss: IDADlsSetJacFn
+Configure miss: IDADlsSetLinearSolver
+Configure miss: IDADlsSetLinearSolver
+Configure miss: IDADlsSetLinearSolver
 Configure miss: OpenGL/glext.h
 Configure miss: OpenGL/glext.h
 Configure miss: OpenGL/glext.h
+Configure miss: SUNContext_Create
+Configure miss: SUNContext_Create
+Configure miss: SUNContext_Create
 Configure miss: SUNDenseLinearSolver
 Configure miss: SUNDenseLinearSolver
 Configure miss: SUNDenseLinearSolver
@@ -49,6 +58,9 @@ Configure miss: fake locale system (OpenBSD)
 Configure miss: fontconfig.h
 Configure miss: fontconfig.h
 Configure miss: fontconfig.h
+Configure miss: g++ option to enable C++11 features
+Configure miss: g++ option to enable C++11 features
+Configure miss: g++ option to enable C++11 features
 Configure miss: gcc option to enable large file support
 Configure miss: gcc option to enable large file support
 Configure miss: gcc option to enable large file support
@@ -73,6 +85,9 @@ Configure miss: icotool
 Configure miss: ida.h
 Configure miss: ida.h
 Configure miss: ida.h
+Configure miss: ida/ida_direct.h
+Configure miss: ida/ida_direct.h
+Configure miss: ida/ida_direct.h
 Configure miss: ida_direct.h
 Configure miss: ida_direct.h
 Configure miss: ida_direct.h
@@ -169,6 +184,9 @@ Configure miss: struct group.gr_passwd
 Configure miss: suitesparse/klu.h
 Configure miss: suitesparse/klu.h
 Configure miss: suitesparse/klu.h
+Configure miss: sundials_core.h
+Configure miss: sundials_core.h
+Configure miss: sundials_core.h
 Configure miss: sunlinsol/sunlinsol_klu.h
 Configure miss: sunlinsol/sunlinsol_klu.h
 Configure miss: sunlinsol/sunlinsol_klu.h

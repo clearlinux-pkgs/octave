@@ -1,7 +1,88 @@
-Summary of bugs fixed for version 9.2.0 (2024-06-01):
+For (bug #XXXXX) see https://savannah.gnu.org/bugs/?XXXXX
+
+Summary of bugs fixed for version 9.4.0 (2025-02-05):
 -----------------------------------------------------
 
-For (bug #XXXXX) see https://savannah.gnu.org/bugs/?XXXXX
+### Improvements and fixes
+- Fix error in calculation of file timestamp on Windows (bug #31080).
+
+### GUI
+- Update Spanish translation file (bug #66616).
+- Update Brazilian Portuguese translation file (bug #66554).
+
+### Build system / Tests
+- `cellfun`: Add test for function failing to return requested output
+  (bug #66642).
+- `arrayfun`:  Add test for function failing to return requested output
+  (bug #66642).
+
+### Documentation
+- Clarify default editor difference between CLI and GUI (bug #66703).
+
+
+Summary of bugs fixed for version 9.3.0 (2024-12-12):
+-----------------------------------------------------
+
+### Improvements and fixes
+
+- `jupyter-notebook`: Avoid error if evaluated code closes an existing figure
+  window.  Use `unwind_protect` block to ensure figure and tempfile cleanup
+  actions occur (bug #65644).
+- `uitable`: Fix updating value with combo box selection (bug #65873).
+- `movfun`:  Correct output shape of n-D arrays when operating on dimensions
+  higher than 2.  This will affect all moving window functions (`movmad`,
+  `movmax`, `movmean`, `movmedian`, `movmin`, `movprod`, `movstd`, `movsum`,
+  and `movvar`) (bug #65927).
+- `movvar` and `movstd`: Use correct default value of 0 if an empty array is
+  specified for `opt` to maintain consistent behavior with `var` and `std`.
+  Improve input validation to ensure `opt` is one of 0, 1, or []. (bug #66021).
+- `fopen`: Convert identifier for locale charset to lower-case characters
+  (bug #65963).
+- `regexp`: Avoid integer underflow with unsigned integers.
+- `interp2`: Provide a meaningful error message if the input reference array
+  is a vector (bug #66086).
+- `struct2hdl.m`: Do not delete previously added axes children (bug #66221).
+- `print`: Fix regression in pdf fonts (bug #66306).
+- `legend` icons now inherit the "facelalpha" property to match appearance of
+  patch and surface graphics objects (bug #66314).
+- `barh` properties now better match equivalent `bar` plot.  Changing
+  `horizontal` property for a bar or barh plot now consistently updates
+  properties to match redrawn plot (bug #65671).
+- Tick mark labels are now correctly updated after changing x or y data for
+  `bar` and `barh` plots (bug #65734).
+- `hdl2struct.m`: Fix missing legend markers (bug #65904).
+- Enable FLTK graphics toolkit on macOS if not multi-threaded (bug #66482).
+- Do not execute PKG_ADD script in current directory (bug #66477).
+
+### GUI
+
+- Update Brazilian Portugese translation file (bug #66337).
+- Fix some missing white spaces in documentation viewer (bug #66459).
+
+### Build system / Tests
+
+- `jupyter-notebook` test no longer fails if a figure window is open
+  (bug #65644).
+- `movmad`, `movmax`, `movmean`, `movmedian`, `movmin`, `movprod`, `movslice`,
+  `movstd`, `movsum`, `movvar`: Add BISTs for general function operation.
+- `interp2`, `interp3`, `interpn`: Add more tests for non-numeric inputs
+  (bug #66086).
+- Update formatting of movXXX functions.
+
+### Documentation
+
+- `load`: Correct documentation of `-v7.3` and `-hdf5` options (bug #42530).
+- `interp2`, `interp3`, `interpn`: Specify that inputs need to be numeric
+  (bug #66086).
+- `error`: Document the `ID` argument (bug #66015).
+- `sqp`: Clarify size requirements of input arguments `lb` and `ub`
+  (bug #66421).
+- Eliminate double period at end of "mode" graphics property documentation.
+- Fix makeinfo errors for comment block keywords (bug #66428).
+
+
+Summary of bugs fixed for version 9.2.0 (2024-06-01):
+-----------------------------------------------------
 
 ### Improvements and fixes
 

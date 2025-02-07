@@ -1,4 +1,733 @@
+2025-02-05  John W. Eaton  <jwe@octave.org>
+
+	Added tag release-9-4-0 for changeset df465cbba05a
+
+	Files: .hgtags
+
+	Version 9.4.0 released.
+
+	* configure.ac (AC_INIT): Set version to 9.4.0.
+	(OCTAVE_MINOR_VERSION): Now 4.
+	(OCTAVE_PATCH_VERSION): Now 0.
+	(OCTAVE_RELEASE_DATE): Set to "2025-02-05".
+	* org.octave.Octave.appdata.xml: Add release info for version 9.4.0.
+	* CITATION: Update for 9.4.0.
+	* NEWS.9.md: Update release date.
+
+	Files: CITATION configure.ac etc/NEWS.9.md
+	etc/icons/org.octave.Octave.metainfo.xml
+
+2025-02-03  Markus Mützel  <markus.muetzel@gmx.de>
+
+	svd: Slightly increase tolerance in BIST.
+
+	* libinterp/corefcn/svd.cc: Slightly increase tolerance in BIST for driver
+	"gejsv" to make test pass with LAPACK version 3.12.1.
+
+	Files: libinterp/corefcn/svd.cc
+
+2025-01-30  Rik  <rik@octave.org>
+
+	doc: Correct a few uses of @qcode macro.
+
+	* genpropdoc.m: Use @code rather than @qcode when property is not quoted.
+
+	* plot.txi: Add missing double-quote in @qcode invocation.
+
+	Files: doc/interpreter/genpropdoc.m doc/interpreter/plot.txi
+
+	Improve documentation for load/save (bug #46848)
+
+	* load-save.cc (Fload, Fsave): Update documentation.
+	* load-save.cc (load_save_system::load): Add FIXME note about deleting parsing
+	of ignored input options "-import", "-force".
+
+	Files: libinterp/corefcn/load-save.cc
+
+2025-01-30  Markus Mützel  <markus.muetzel@gmx.de>
+
+	NEWS.9.md: Update NEWS file with recent changes for Octave 9.4.0.
+
+	* etc/NEWS.9.md: Update NEWS file with recent changes for Octave 9.4.0.
+
+	Files: etc/NEWS.9.md
+
+2025-01-03  Swayam Shah  <swayamshah66@gmail.com>
+
+	qz: Fix errors in documentation (bug #66595).
+
+	* libinterp/corefcn/qz.cc (Fqz): Fix errors in documentation.
+
+	Files: libinterp/corefcn/qz.cc
+
+2024-12-24  Leonardo S. Borges  <lsbplsb@yahoo.com>
+
+	pt_BR.ts: Update Brazilian Portuguese translation file (bug #66554).
+
+	* libgui/languages/pt_BR.ts: Update Brazilian Portuguese translation file.
+
+	Files: libgui/languages/pt_BR.ts
+
+2025-01-29  Rik  <rik@octave.org>
+
+	Fix typo in warning message for Octave:language-extension.
+
+	* lex.ll (base_lexer::warn_language_extension): Replace "offile" with "of file"
+	in warning message.
+
+	Files: libinterp/parse-tree/lex.ll
+
+	doc: Clarify default editor difference between CLI and GUI (bug #66703).
+
+	* environment.cc (FEDITOR): Clarify that function specifies default editor only
+	for CLI.
+
+	* edit.m: Clarify which default editor will be used for files.
+
+	Files: libinterp/corefcn/environment.cc scripts/miscellaneous/edit.m
+
+2025-01-29  Markus Mützel  <markus.muetzel@gmx.de>
+
+	NEWS.9.md: Update NEWS file with changes for Octave 9.4.0.
+
+	* etc/NEWS.9.md: Update NEWS file with changes for Octave 9.4.0.
+
+	Files: etc/NEWS.9.md
+
+2024-12-29  José Luis García Pallero  <jgpallero@gmail.com>
+
+	es_ES.ts: Update Spanish translation file (bug #66616).
+
+	* libgui/languages/es_ES.ts: Fix small mistakes.
+
+	Files: libgui/languages/es_ES.ts
+
+2025-01-10  Markus Mützel  <markus.muetzel@gmx.de>
+
+	Fix error in calculation of file timestamp on Windows (bug #31080).
+
+	* liboctave/system/oct-time.h (file_time::file_time (OCTAVE_WIN_FILETIME&)),
+	liboctave/system/oct-time.cc (file_time::file_time (),
+	file_time::file_time (const std::string&)): Shift high order bits in the
+	correct direction.
+	(grafted from b11d73d38936c345fa188b0e9e863167f9c428b2)
+
+	Files: liboctave/system/oct-time.cc liboctave/system/oct-time.h
+
+2025-01-08  Nicholas R. Jankowski  <jankowski.nicholas@gmail.com>
+
+	add arrayfun BIST for function failing to return requested output (bug #66642)
+
+	* cellfun.cc (arrayfun): Add BIST testing for error message to be produced when
+	called function does not return values for requested outputs.
+
+	* cellfun.cc (cellfun): Add explanatory comment for previously added BIST.
+
+	Files: libinterp/corefcn/cellfun.cc
+
+2025-01-06  Nicholas R. Jankowski  <jankowski.nicholas@gmail.com>
+
+	Add cellfun BIST for function failing to return requested output (bug #66642).
+
+	* cellfun.cc:  Add BIST expecting an error to be produced by cellfun if the
+	supplied function fails to return values for all requested outputs.
+
+	Files: libinterp/corefcn/cellfun.cc
+
+2024-12-14  Markus Mützel  <markus.muetzel@gmx.de>
+
+	Bump stable branch version after release.
+
+	* configure.ac (AC_INIT): Set version to 9.3.1.
+	(OCTAVE_PATCH_VERSION): Now 1.
+	* NEWS.9.md: Create section for a future 9.4 release.
+
+	Files: configure.ac etc/NEWS.9.md
+
+2024-12-12  John W. Eaton  <jwe@octave.org>
+
+	Added tag release-9-3-0 for changeset 5854a65df8f5
+
+	Files: .hgtags
+
+	Version 9.3.0 released.
+
+	* configure.ac (AC_INIT): Set version to 9.3.0.
+	(OCTAVE_MINOR_VERSION): Now 3.
+	(OCTAVE_PATCH_VERSION): Now 0.
+	(OCTAVE_RELEASE_DATE): Set to "2024-12-12".
+	* org.octave.Octave.appdata.xml: Add release info for version 9.3.0.
+	* CITATION: Update for 9.3.0.
+	* NEWS.9.md: Update release date.
+
+	Files: CITATION configure.ac etc/NEWS.9.md
+	etc/icons/org.octave.Octave.metainfo.xml libgui/module.mk
+	libinterp/module.mk liboctave/module.mk
+
+2024-11-29  Markus Mützel  <markus.muetzel@gmx.de>
+
+	NEWS.9.md: Update NEWS file with recent changes for Octave 9.3.0.
+
+	* etc/NEWS.9.md: Update NEWS file with recent changes for Octave 9.3.0.
+
+	Files: etc/NEWS.9.md
+
+	Do not execute PKG_ADD script in current directory (bug #66477).
+
+	* libinterp/corefcn/load-path.cc (load_path::set, load_path::add): Do not
+	execute PKG_ADD script in the current directory.
+
+	Files: libinterp/corefcn/load-path.cc
+
+2024-11-18  Markus Mützel  <markus.muetzel@gmx.de>
+
+	Enable FLTK graphics toolkit on macOS if not multi-threaded (bug #66482).
+
+	* libinterp/octave.h (octave::application): Add new member functions
+	"multi_threaded" and "is_multi_threaded". The latter can be used to query if
+	Octave uses multiple threads (e.g., for the interpreter and various QThreads for
+	the GUI).
+	* libinterp/octave.cc (F__is_multi_threaded__): New (internal) function to query
+	whether Octave is running with multiple threads from .m-file code.
+	* libgui/src/qt-application.h (octave::qt_application::multi_threaded): Overload
+	new member function.
+	* libinterp/dldfcn/__init_fltk__.cc (PKG_ADD): Register the graphics toolkit
+	"fltk" on macOS unless Octave is running with multiple threads (QThread using
+	GUI).
+
+	Files: libgui/src/qt-application.h libinterp/dldfcn/__init_fltk__.cc
+	libinterp/octave.cc libinterp/octave.h
+
+2024-11-25  Rik  <rik@octave.org>
+
+	hdl2struct.m: Fix missing legend markers (bug #65904)
+
+	* hdl2struct.m: When processing "legend" axes objects, specifically add hidden
+	children with "markertruesize" property to list of children to save.
+
+	Files: scripts/plot/util/hdl2struct.m
+
+	Fix makeinfo errors for comment block keywords (bug #66428)
+
+	* __makeinfo__.m: Change regexp pattern to find text within @seealso macro so
+	that it ignores escaped curly brace '\}'.  Change regexprep pattern so that
+	'@' is escaped to '@@' unless '@\' escape pattern is used.
+
+	Files: scripts/help/__makeinfo__.m
+
+2024-11-23  Rik  <rik@octave.org>
+
+	doc: Eliminate double period at end of "mode" graphics property documentation.
+
+	* genpropdoc.m: Use bare "__modemsg__" rather than "__modemsg__." since
+	the expansion of the macro already includes a period.
+
+	Files: doc/interpreter/genpropdoc.m
+
+	gui: Fix presentation of @w TexInfo macro for Qt (bug #66459)
+
+	* doc/interpreter/basics.txi, doc/interpreter/expr.txi,
+	doc/interpreter/external.txi, doc/interpreter/install.txi,
+	doc/interpreter/oop.txi, doc/interpreter/package.txi, doc/interpreter/plot.txi,
+	libinterp/corefcn/bitfcns.cc, libinterp/corefcn/chol.cc,
+	libinterp/corefcn/environment.cc, libinterp/corefcn/oct-hist.cc,
+	libinterp/corefcn/qr.cc, scripts/help/__unimplemented__.m,
+	scripts/help/bessel.m, scripts/io/csvwrite.m,
+	scripts/linear-algebra/linsolve.m, scripts/plot/appearance/view.m,
+	scripts/plot/util/groot.m, scripts/signal/movfun.m, scripts/sparse/bicg.m,
+	scripts/sparse/pcg.m, scripts/statistics/corr.m, scripts/statistics/cov.m,
+	scripts/statistics/kurtosis.m, scripts/statistics/movmad.m,
+	scripts/statistics/movmax.m, scripts/statistics/movmean.m,
+	scripts/statistics/movmedian.m, scripts/statistics/movmin.m,
+	scripts/statistics/movprod.m, scripts/statistics/movstd.m,
+	scripts/statistics/movsum.m, scripts/statistics/movvar.m:
+	Use macro "@ " instead of bare space after @w macro to force a space.
+
+	Files: doc/interpreter/basics.txi doc/interpreter/expr.txi
+	doc/interpreter/external.txi doc/interpreter/install.txi
+	doc/interpreter/oop.txi doc/interpreter/package.txi
+	doc/interpreter/plot.txi libinterp/corefcn/bitfcns.cc
+	libinterp/corefcn/chol.cc libinterp/corefcn/environment.cc
+	libinterp/corefcn/oct-hist.cc libinterp/corefcn/qr.cc
+	scripts/help/__unimplemented__.m scripts/help/bessel.m
+	scripts/io/csvwrite.m scripts/linear-algebra/linsolve.m
+	scripts/plot/appearance/view.m scripts/plot/util/groot.m
+	scripts/signal/movfun.m scripts/sparse/bicg.m scripts/sparse/pcg.m
+	scripts/statistics/corr.m scripts/statistics/cov.m
+	scripts/statistics/kurtosis.m scripts/statistics/movmad.m
+	scripts/statistics/movmax.m scripts/statistics/movmean.m
+	scripts/statistics/movmedian.m scripts/statistics/movmin.m
+	scripts/statistics/movprod.m scripts/statistics/movstd.m
+	scripts/statistics/movsum.m scripts/statistics/movvar.m
+
+2024-11-20  pantxo  <pantxo.diribarne@gmail.com>
+
+	doc: Fix some missing white spaces in doc viewer (bug #66459).
+
+	* data.cc, bessel.m, __unimplemented__.m, imagesc.m, image.m, movslice.m,
+	movfun.m, hadamard.m, fplot.m, trapz.m, interp2.m, cumtrapz.m, rescale.m,
+	speye.m, pcg.m, bicg.m, ode23.m, ode45.m, ode15s.m, ode23s.m, ode15i.m:
+	If patterns such as "@w{@[qt]code{[.*]}" are followed by a white space, force
+	the white space using "@ ".
+
+	Files: libinterp/corefcn/data.cc scripts/general/cumtrapz.m
+	scripts/general/interp2.m scripts/general/rescale.m
+	scripts/general/trapz.m scripts/help/bessel.m scripts/image/image.m
+	scripts/image/imagesc.m scripts/ode/ode15i.m scripts/ode/ode15s.m
+	scripts/ode/ode23.m scripts/ode/ode23s.m scripts/ode/ode45.m
+	scripts/plot/draw/fplot.m scripts/signal/movfun.m
+	scripts/signal/movslice.m scripts/sparse/bicg.m scripts/sparse/pcg.m
+	scripts/sparse/speye.m scripts/specfun/nchoosek.m scripts/special-
+	matrix/hadamard.m
+
+2024-11-15  Hendrik Koerner  <koerhen@web.de>
+
+	doc: Clarify size requirements of "lb" and "ub" in sqp (bug #66421).
+
+	* scripts/optimization/sqp.m: Clarify size requirements of "lb" and "ub".
+
+	Files: scripts/optimization/sqp.m
+
+2024-10-28  Markus Mützel  <markus.muetzel@gmx.de>
+
+	GitHub-CI (mingw): Enable relocate-all on MinGW.
+
+	* .github/workflows/make-mingw.yaml (configure): Octave is installed with
+	non-empty DESTDIR in the "install" step. Enable relocate-all so all paths are
+	correctly relocated in subsequent steps.
+
+	Files: .github/workflows/make-mingw.yaml
+
+2024-10-25  Rik  <rik@octave.org>
+
+	maint: Update formatting of movXXX functions.
+
+	* movmad.m, movmax.m, movmean.m, movmedian.m, movmin.m, movprod.m, movstd.m,
+	movsum.m, movvar.m: Update formatting of movXXX functions.
+
+	Files: scripts/statistics/movmad.m scripts/statistics/movmax.m
+	scripts/statistics/movmean.m scripts/statistics/movmedian.m
+	scripts/statistics/movmin.m scripts/statistics/movprod.m
+	scripts/statistics/movstd.m scripts/statistics/movsum.m
+	scripts/statistics/movvar.m
+
+2024-10-21  Rik  <rik@octave.org>
+
+	doc: Tweak documentation of error IDs (bug #66015)
+
+	* error.cc (Ferror): Use @code rather than @var around function name.  User
+	"ERROR-NAME" rather than "WARNING-NAME".  Use template for error message in
+	example that starts with "fcn_name" to hint that this should be the name
+	of the function.
+
+	Files: libinterp/corefcn/error.cc
+
+2024-10-17  Markus Mützel  <markus.muetzel@gmx.de>
+
+	NEWS.9.md: Strip trailing spaces.
+
+	* etc/NEWS.9.md: Strip trailing spaces.
+
+	Files: etc/NEWS.9.md
+
+2024-10-16  Nicholas R. Jankowski  <jankowski.nicholas@gmail.com>
+
+	bar/barh - Fix tick mark labels after changing x/y data (bug #65734).
+
+	* __bar__.m (update_axes_limits):  Add isrow check to force column vector orientation
+	on xdata before procesing tick and label changes.
+
+	* bar.m, barh.m:  Add BISTs to verify correct axes limits, and tick marks, and labels.
+
+	* NEWS.9.md:  Note change under 9.3.0 Improvements and fixes.
+
+	Files: etc/NEWS.9.md scripts/plot/draw/bar.m scripts/plot/draw/barh.m
+	scripts/plot/draw/private/__bar__.m
+
+2024-10-16  Markus Mützel  <markus.muetzel@gmx.de>
+
+	NEWS.9.md: Update NEWS file with recent changes for Octave 9.3.0.
+
+	* etc/NEWS.9.md: Update NEWS file with recent changes for Octave 9.3.0.
+
+	Files: etc/NEWS.9.md
+
+	Add new translator for Brazilian Portuguese (bug #66337).
+
+	* libgui/languages/translators: Add Leonardo S. Borges as new translator for
+	Brazilian Portuguese.
+	* doc/interpreter/contributors.in: Add Leonardo S. Borges as new contributor to
+	list in manual.
+
+	Files: doc/interpreter/contributors.in libgui/languages/translators
+
+2024-10-15  Rik  <rik@octave.org>
+
+	pt_BR.ts: Update Brazilian Portugese translation file (bug #66337)
+
+	* pt_BR.ts: Update Brazilian Portugese translation file.
+
+	Files: libgui/languages/pt_BR.ts
+
+2024-10-15  Markus Mützel  <markus.muetzel@gmx.de>
+
+	GitHub-CI (macos): Work around conflict between pre-installed and Homebrew Python.
+
+	* .github/workflows/make.yaml (macos): GitHub-hosted macOS runners now come
+	with pre-installed Python 3.12 or 3.13. Force overwriting files from both
+	pre-installed versions. They conflict with the files from Homebrew's versions
+	of Python.
+
+	Files: .github/workflows/make-macos.yaml
+
+	GitHub-CI: Rename workflows.
+
+	* .github/workflows/make-alpine.yaml, .github/workflows/make-cygwin.yaml,
+	.github/workflows/make-macos.yaml, .github/workflows/make-mingw.yaml,
+	.github/workflows/make-ubuntu.yaml: Use dedicated name for each of the
+	workflows.
+
+	Files: .github/workflows/make-alpine.yaml .github/workflows/make-
+	cygwin.yaml .github/workflows/make-macos.yaml
+	.github/workflows/make-mingw.yaml .github/workflows/make-ubuntu.yaml
+
+	GitHub-CI: Split all jobs into separate workflows.
+
+	* .github/workflows/make-alpine.yaml, .github/workflows/make-cygwin.yaml,
+	.github/workflows/make-macos.yaml, .github/workflows/make-mingw.yaml,
+	.github/workflows/make-ubuntu.yaml: Split all jobs that were originally in a
+	common workflow file (make.yaml) into sepatate workflows. That makes it easier
+	to deactivate only some jobs (e.g., in a forked repository).
+
+	Files: .github/workflows/make-alpine.yaml .github/workflows/make-
+	cygwin.yaml .github/workflows/make-macos.yaml
+	.github/workflows/make-mingw.yaml .github/workflows/make-ubuntu.yaml
+	.github/workflows/make.yaml
+
+2024-10-14  Nicholas R. Jankowski  <jankowski.nicholas@gmail.com>
+
+	bar/barh: Improve fidelity of horizontal plot and properties (bug #65671).
+
+	* __bar__.m:  Move multiple use update axes limits check to update_axes_limits
+	subfunction.  Make minor adjustments to linelengths and whitespace.
+
+	* __bar__.m (bars):  Add if(vertical) check to initial baseline creation along
+	with note about undocumented b/yliminclude properties.  Remove isvector check
+	for adding xdata property since input validation already verified x is a
+	vector.  Replace horizontal specific h_baseline variable by setting baseline
+	conditionally according to is(vertical).  Replace calls to update_xlim with
+	update_baseline_lim.  Add listeners for hax/ylim,xscale, and baseline/xdata to
+	catch horizontal changes.
+
+	(update_xlim):  Rename update_xlim to update_baseline_lim.  Combine axes
+	property get into single call.  Add if(vertical) check for setting baseline
+	limits for vertical or horizontal bars.
+
+	(update_basevalue_logscale):  Add if(vertical) check to get x/yscale for
+	vertical or horizontal bars.
+
+	(update_baseline):  Change input line handle name from h to hl and update
+	variable name throughout subfunction.  Add if(vertical) check to get x/ydata
+	for vertical or horizontal bars.
+
+	(move_baseline):  Change input bargroup handle name from h to hg and update
+	variable name throughout subfunction.  Combine bargroup property get into
+	single call.  Move baseline coordinate set into if(vertical) check to update
+	correct property for vertical or horizontal bars.
+
+	(update_data):  Change input bargroup handle name from h to hg and update
+	variable name throughout subfunction.  Combine bargroup property get into
+	single call.  Add baseline properties updates with is(vertical) checks.
+
+	(show_baseline), (update_props), (update_group):  Change input bargroup handle
+	name from h to hg and update variable name throughout subfunction.
+
+	* bar.m, barh.m:  Add BISTs for to check properties for horizontal/vertical
+	changes.  Change known bug tests to resolved bug tests.  Clean up BIST style
+	and formatting.
+
+	* NEWS.9.md: Note improved bar/barh properties behavior under General
+	improvements.
+
+	Files: etc/NEWS.9.md scripts/plot/draw/bar.m scripts/plot/draw/barh.m
+	scripts/plot/draw/private/__bar__.m
+
+2024-10-13  Markus Mützel  <markus.muetzel@gmx.de>
+
+	legend.m: Overhaul test with transparency (bug #66314).
+
+	* scripts/plot/appearance/legend.m: Simplify test by using "findobj". Skip test
+	for graphics toolkit "gnuplot".
+
+	Files: scripts/plot/appearance/legend.m
+
+	NEWS.9.md: Move note from GUI section.
+
+	* etc/NEWS.9.md: Move note about difference in behavior of `legend` function
+	from "GUI" section to "Improvement and fixes" section. Remove "from" in
+	sentence. Trim trailing whitespace.
+
+	Files: etc/NEWS.9.md
+
+2024-10-10  pantxo  <pantxo.diribarne@gmail.com>
+
+	legend: icons inherit facealpha property from patch objects (bug #66314).
+
+	* legend.m (create_item): Add "facealpha" to the list of copied properties.
+
+	* NEWS.9.md: Note change in GUI section of 9.3.0 changes.
+
+	Files: etc/NEWS.9.md scripts/plot/appearance/legend.m
+
+2024-10-09  pantxo  <pantxo.diribarne@gmail.com>
+
+	print: Fix regression in pdf fonts (bug #66306).
+
+	* octave-svgconvert.cc (draw): Use QFont constructor to set font-family.
+
+	Files: src/octave-svgconvert.cc
+
+2024-10-07  Markus Mützel  <markus.muetzel@gmx.de>
+
+	Fix typo in Brasilian Portuguese translation (bug #66279).
+
+	* libgui/languages/pt_BR.ts: Fix typo.
+
+	Files: libgui/languages/pt_BR.ts
+
+2024-09-26  Sébastien Villemot  <sebastien@debian.org>
+
+	Fix error message when creating a sparse matrix with out-of-bound column index (bug #66259).
+
+	* liboctave/array/Sparse.cc (Sparse<T, Alloc>::Sparse): Get index for error
+	message about oout-of-bound column index from column vector (instead of from
+	row vector).
+
+	Files: liboctave/array/Sparse.cc
+
+2024-09-24  Markus Mützel  <markus.muetzel@gmx.de>
+
+	struct2hdl.m: Do not delete previously added axes children (bug #66221).
+
+	* struct2hdl.m (createaxes): Temporarily set "nextplot" axes property to "add"
+	until after all axes children have been added.
+	(createscatter): Set parent property on scatter object creation.
+	Add built-in self-test.
+
+	Files: scripts/plot/util/struct2hdl.m
+
+2024-08-29  Pantxo Diribarne  <pantxo.diribarne@gmail.com>
+
+	error: Document the ID argument (bug #66015).
+
+	* error.cc (Ferror): Document the ID argument.
+
+	Files: libinterp/corefcn/error.cc
+
+2024-09-02  Markus Mützel  <markus.muetzel@gmx.de>
+
+	Avoid integer underflow with unsigned integers.
+
+	* liboctave/util/lo-regexp.cc (regexp::compile_internal): Avoid comparing
+	difference of unsigned integers with 0.
+	Fixes: https://github.com/gnu-octave/octave/security/code-scanning/42
+
+	Files: liboctave/util/lo-regexp.cc
+
+2024-08-23  Markus Mützel  <markus.muetzel@gmx.de>
+
+	etc/NEWS.9.md: Fix typo and slightly rephrase one item.
+
+	Files: etc/NEWS.9.md
+
+2024-08-14  Nicholas R. Jankowski  <jankowski.nicholas@gmail.com>
+
+	interp functions: improve error messaging and input handling (bug #66086).
+
+	* interp2.m: Edit docstring to note numeric input requirement and prevent
+	whitespace linebreaks in code segments.  Change input check from isscalar(Z)
+	to isvector(Z) to catch row/column vectors.  Add numeric requirement to error
+	message.  Update input validation BISTs with new error message.  Add additional
+	error BISTs for logical and vector inputs.
+
+	* interp3.m:  Edit docstring to note numeric input requirement.  Change
+	isnumeric check error message from print_usage to a specific error message
+	specifying numeric input requirement.  Update input validation BIST with new
+	error message and add additional non-numeric test cases.
+
+	* interpn.m:  Edit docstring to note numeric input requirement.  Separate out
+	isnumeric input check and provide specific numeric requirement error message.
+	Update input validation BIST with new error message and add additional
+	non-numeric test cases.
+
+	* NEWS.9.md: Note changes to interp functions under general improvements, test,
+	and documentation sections.
+
+	Files: etc/NEWS.9.md scripts/general/interp2.m scripts/general/interp3.m
+	scripts/general/interpn.m
+
+2024-08-04  Markus Mützel  <markus.muetzel@gmx.de>
+
+	CI (alpine): Don't build with ARPACK.
+
+	* .github/workflows/make.yaml (alpine): Running the test suite crashes with a
+	segfault when using the ARPACK as distributed by Alpine Linux latest-stable.
+	Remove it to keep the remainder of the test suite running.
+	This change can be reverted when the ARPACK package that is distributed by
+	Alpine Linux is fixed.
+
+	Files: .github/workflows/make.yaml
+
+2024-07-24  Nicholas R. Jankowski  <jankowski.nicholas@gmail.com>
+
+	movvar & movstd: Fix opt default handling, add validation & BISTs. (bug #66021)
+
+	* movvar.m, movstd.m:  Adjust opt parsing block to ensure value is 0, 1, or []
+	or issue an error.  Add docstring note about using [] as passthough for opt.
+	Add general function behavior BISTs. Add input validation BISTs for opt.
+
+	* movmad, movmax, movmean, movmedian, movmin, movprod, movsum:  Add BISTs for
+	general function operation.
+
+	* NEWS.9.md: Note correction of OPT default value handling under 9.3.0
+	Improvements and Fixes.  Note added BISTs for other mov* functions under
+	Build system /Tests.
+
+	Files: etc/NEWS.9.md scripts/statistics/movmad.m
+	scripts/statistics/movmax.m scripts/statistics/movmean.m
+	scripts/statistics/movmedian.m scripts/statistics/movmin.m
+	scripts/statistics/movprod.m scripts/statistics/movstd.m
+	scripts/statistics/movsum.m scripts/statistics/movvar.m
+
+2024-06-22  Pantxo Diribarne  <pantxo.diribarne@gmail.com>
+
+	legend.m: fix inconsistent linewidth for markers (bug #65906)
+
+	* legend.m (create_item): add linewidth to the list of copied properties for
+	  markers
+
+	Files: scripts/plot/appearance/legend.m
+
+2024-07-08  Markus Mützel  <markus.muetzel@gmx.de>
+
+	Convert identifier for locale charset to lower-case characters (bug #65963).
+
+	* file-io.cc (do_stream_open): Convert identifier for locale charset to
+	lower-case characters. Emit more verbose warning when encoding_facets can't be
+	used for "on-the-fly" encoding conversions.
+
+	Files: libinterp/corefcn/file-io.cc
+
+2024-07-05  Nicholas R. Jankowski  <jankowski.nicholas@gmail.com>
+
+	movslice: Add BISTs for base functionality.
+
+	movslice.m: Add tests for all outputs for basic movslice function. Verify
+	output class for slice index and center outputs. remove FIXME note requesting
+	tests for functionality.
+
+	Files: scripts/signal/movslice.m
+
+2024-06-28  Nicholas R. Jankowski  <jankowski.nicholas@gmail.com>
+
+	movfun:  Correct output shape for dim > 2 (bug #65927).
+
+	* movfun.m: Change permute to ipermute in code block to restore output to
+	  intended shape. Add BIST verifying correct output for n-D array and dim > 2.
+
+	* NEWS.9.md: Note output shape correction under general improvements.
+
+	Files: etc/NEWS.9.md scripts/signal/movfun.m
+
+2024-06-18  Helmut Podhaisky  <helmut.podhaisky@mathematik.uni-halle.de>
+
+	condeig.m: Fix typo in comment.
+
+	* scripts/linear-algebra/condeig.m: The condition numbers are the inverse of the
+	absolute valus of the cosines.
+
+	See: https://github.com/gnu-octave/octave/pull/24
+
+	Files: scripts/linear-algebra/condeig.m
+
+2024-06-11  Markus Mützel  <markus.muetzel@gmx.de>
+
+	uitable: Fix updating value with combo box selection (bug #65873).
+
+	* libgui/graphics/Table.cc (Table::updateData): Connect from
+	QComboBox::currentTextChanged instead of currentIndexChanged. Use new
+	signal-slot syntax for better compiler diagnostics.
+
+	Files: libgui/graphics/Table.cc
+
+2024-06-05  Markus Mützel  <markus.muetzel@gmx.de>
+
+	NEWS.9.md: Fix typo and minor formatting changes.
+
+	* etc/NEWS.9.md: Fix typo. Adjust whitespace. Use markdown syntax for code
+	snippets.
+
+	Files: etc/NEWS.9.md
+
+2024-06-04  Nicholas R. Jankowski  <jankowski.nicholas@gmail.com>
+
+	NEWS.9.md - move jupyter-notebook change notice from 9.2.0 to 9.3.0 list.
+
+	* NEWS.9.md: move jupyter-notebook bug #65644 change from summary of
+	Improvements/fixes and Build system/Tests sections for Octave 9.2.0 to summary
+	for Octave 9.3.0.
+
+	Files: etc/NEWS.9.md
+
+	jupyter_notebook: Avoid error if code closes existing figure (bug #65644).
+
+	* jupyter-notebook.m (run): Add ishandle check before attempting to get
+	properties from temporary figure to avoid error in case evaluated code closes
+	the figure.  Enclose figure creation, code execution, and cleanup actions in
+	unwind_protect block.  Remove FIXME comment regarding unwind protect block.
+
+	* test/jupyter-notebook/octave_kernel.ipynb: Remove unnecessary test code line
+	closing all hidden figures before calling image functions.
+
+	* NEWS.9.md: Note error avoidance under Improvements and Fixes, and
+	Build system / Tests.
+
+	Files: etc/NEWS.9.md scripts/miscellaneous/jupyter_notebook.m test/jupyter-
+	notebook/octave_kernel.ipynb
+
+2024-06-04  John W. Eaton  <jwe@octave.org>
+
+	maint: merge away extra head on stable
+
+	Files: etc/NEWS.9.md
+
+2024-06-04  Nicholas R. Jankowski  <jankowski.nicholas@gmail.com>
+
+	correct bug report number in NEWS.9.md
+
+	* NEWS.9.md:  correct bug report number in Documentation section from 43530
+	to 42530.
+
+	Files: etc/NEWS.9.md
+
+	load - Correct description of ability to load v7.3 files (bug #43530).
+
+	* load-save.cc (load):  Edit docstring for -hdf5 and -v7.3 options to indicate
+	that the -v7.3 option is not implemented, and that the -hdf5 option has a
+	limited ability to load v7.3 files depending on data types.
+	* NEWS.9.md: Note change in Documentaion section.
+
+	Files: etc/NEWS.9.md libinterp/corefcn/load-save.cc
+
 2024-06-01  John W. Eaton  <jwe@octave.org>
+
+	bump stable branch version after release
+
+	* configure.ac (AC_INIT): Set version to 9.2.1.
+	(OCTAVE_PATCH_VERSION): Now 1.
+	* NEWS.9.md: Create section for a future 9.3 release.
+
+	Files: configure.ac etc/NEWS.9.md
 
 	Added tag release-9-2-0 for changeset f7f956555e4a
 
@@ -1600,6 +2329,32 @@
 
 	Files: 
 
+	bump stable branch version after release candidate
+
+	* configure.ac (AC_INIT): Set version to 9.0.91.
+	(OCTAVE_PATCH_VERSION): Set to 91.
+
+	Files: configure.ac
+
+	Added tag rc-9-0-90 for changeset 99d90c3bd485
+
+	Files: .hgtags
+
+	bump version for first 9.1 release candidate
+
+	* configure.ac (AC_INIT): Set version to 9.0.90.
+	(OCTAVE_PATCH_VERSION): Set to 90.
+	(OCTAVE_RELEASE_DATE): Set to 2024-02-07.
+
+	* etc/NEWS.9.md: Update.
+
+	* libgui/module.mk (%canon_reldir%_liboctgui_current): Set to 10.
+	* libinterp/module.mk (%canon_reldir%_liboctinterp_current): Set to 12.
+	* liboctave/module.mk (%canon_reldir%_%canon_reldir%_current): Set to 11.
+
+	Files: configure.ac etc/NEWS.9.md libgui/module.mk libinterp/module.mk
+	liboctave/module.mk
+
 2024-02-07  Nicholas R. Jankowski  <jankowski.nicholas@gmail.com>
 
 	Correct whitespace for end docstring, remove doc location comment (bug #59737)
@@ -1627,34 +2382,6 @@
 	See: https://github.blog/changelog/2023-09-22-github-actions-transitioning-from-node-16-to-node-20/
 
 	Files: .github/workflows/codeql-analysis.yaml .github/workflows/make.yaml
-
-2024-02-07  John W. Eaton  <jwe@octave.org>
-
-	bump stable branch version after release candidate
-
-	* configure.ac (AC_INIT): Set version to 9.0.91.
-	(OCTAVE_PATCH_VERSION): Set to 91.
-
-	Files: configure.ac
-
-	Added tag rc-9-0-90 for changeset 99d90c3bd485
-
-	Files: .hgtags
-
-	bump version for first 9.1 release candidate
-
-	* configure.ac (AC_INIT): Set version to 9.0.90.
-	(OCTAVE_PATCH_VERSION): Set to 90.
-	(OCTAVE_RELEASE_DATE): Set to 2024-02-07.
-
-	* etc/NEWS.9.md: Update.
-
-	* libgui/module.mk (%canon_reldir%_liboctgui_current): Set to 10.
-	* libinterp/module.mk (%canon_reldir%_liboctinterp_current): Set to 12.
-	* liboctave/module.mk (%canon_reldir%_%canon_reldir%_current): Set to 11.
-
-	Files: configure.ac etc/NEWS.9.md libgui/module.mk libinterp/module.mk
-	liboctave/module.mk
 
 2024-02-06  Rik  <rik@octave.org>
 
@@ -6439,29 +7166,6 @@
 
 	Files: 
 
-2023-03-06  Arun Giridhar  <arungiridhar@gmail.com>
-
-	maint: Update comment to fix broken citation for inpolygon
-
-	inpolygon.m: A comment cited the source of the original algorithm
-	but the URL was defunct. I contacted the author through a web search
-	and I've updated the citation with the data they provided.
-
-	Files: scripts/geometry/inpolygon.m
-
-2023-03-03  Arun Giridhar  <arungiridhar@gmail.com>
-
-	inpolygon.m: Fix demo code (bug #63865)
-
-	Demo code for inpolygon.m was using "@" as a plot marker which is
-	no longer recognized.  This edit fixes that, and also uses different
-	markers for inside / on / outside the polygon, which helps with CVD
-	accessibility.
-
-	Files: scripts/geometry/inpolygon.m
-
-2023-03-07  John W. Eaton  <jwe@octave.org>
-
 	bump stable branch version after release
 
 	* configure.ac (AC_INIT): Set version to 8.1.1.
@@ -6487,6 +7191,27 @@
 	* etc/NEWS.7.md: Update release date.
 
 	Files: configure.ac etc/NEWS.8.md etc/icons/org.octave.Octave.appdata.xml
+
+2023-03-06  Arun Giridhar  <arungiridhar@gmail.com>
+
+	maint: Update comment to fix broken citation for inpolygon
+
+	inpolygon.m: A comment cited the source of the original algorithm
+	but the URL was defunct. I contacted the author through a web search
+	and I've updated the citation with the data they provided.
+
+	Files: scripts/geometry/inpolygon.m
+
+2023-03-03  Arun Giridhar  <arungiridhar@gmail.com>
+
+	inpolygon.m: Fix demo code (bug #63865)
+
+	Demo code for inpolygon.m was using "@" as a plot marker which is
+	no longer recognized.  This edit fixes that, and also uses different
+	markers for inside / on / outside the polygon, which helps with CVD
+	accessibility.
+
+	Files: scripts/geometry/inpolygon.m
 
 2023-03-02  Markus Mützel  <markus.muetzel@gmx.de>
 
